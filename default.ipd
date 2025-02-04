@@ -1544,6 +1544,33 @@
 //                                                                                 //
 /////////////////////////////////////////////////////////////////////////////////////
 
+// perfected
+
+[Rarity] == "Unique" # [UniqueName] == "Andvarius" && [base_item_found_rarity_+%] >= "85" && [StashItem] == "true"
+[Rarity] == "Unique" # [UniqueName] == "Meginord's Girdle" && [flask_life_recovery_rate_+%] >= "30" && [additional_strength] >= "50" && [base_cold_damage_resistance_%] >= "15" && [StashItem] == "true"
+[Rarity] == "Unique" # [UniqueName] == "Snakepit" && [base_cast_speed_+%] >= "25" && [spell_damage_+%] >= "30" && [StashItem] == "true"
+[Rarity] == "Unique" # [UniqueName] == "Seed Of Cataclysm" && [base_maximum_mana] >= "30" && [spell_critical_strike_chance_+%] >= "50" && [base_spell_critical_strike_multiplier_+] >= "50" && [base_chaos_damage_resistance_%] >= "17" && [StashItem] == "true"
+[Rarity] == "Unique" # [UniqueName] == "Serpent's Egg" && [base_item_found_rarity_+%] >= "20" && [TotalAttributes] >= "20" && [base_chaos_damage_resistance_%] >= "23" && [mana_regeneration_rate_+%] >= "30" && [StashItem] == "true"
+[Rarity] == "Unique" # [UniqueName] == "Surefooted Sigil" && [Additional_dexterity] >= "30" && [base_maximum_life] >= "60" && [StashItem] == "true"
+[Rarity] == "Unique" # [UniqueName] == "Levinstone" && [base_lightning_damage_resistance_%] >= "30" && [base_maximum_mana] >= "60" && [base_chance_to_shock_%] >= "20" && [StashItem] == "true"
+[Rarity] == "Unique" # [UniqueName] == "Birthright Buckle" && [flask_charges_gained_%] >= "30" && [physical_damage_reduction_rating_+%] >= "150" && [flask_charges_used_%] <= "-15" && [StashItem] == "true"
+[Rarity] == "Unique" # [UniqueName] == "Blackflame" && [base_chaos_damage_resistance_%] >= "13" && [mana_regeneration_rate_+%] >= "30" && [StashItem] == "true"
+[Rarity] == "Unique" # [UniqueName] == "Blistering Bond" && [base_fire_damage_resistance_%] >= "60" && [base_maximum_life] >= "60" && [base_cold_damage_resistance_%] <= "-10" && [StashItem] == "true"
+[Rarity] == "Unique" # [UniqueName] == "Brynabas" && [flask_charges_gained_%] >= "30" && [base_maximum_mana] >= "60" && [base_lightning_resistance_%] >= "40" && [life_regeneration_per_second] >= "12" && [StashItem] == "true"
+[Rarity] == "Unique" # [UniqueName] == "Call of the Brotherhood" && [base_lightning_resistance_%] >= "30" && [additional_intelligence] >= "20" && [mana_regeneration_rate_+%] >= "35" && [hit_damage_freeze_multiplier_+%] >= "30" && [StashItem] == "true"
+[Rarity] == "Unique" # [UniqueName] == "Coward's Legacy" && [flask_charges_used_%] <= "-15" && [additional_strength] <= "-10" && [additional_dexterity] >= "30" && [life_and_mana_recovery_from_flasks_+%] >= "40" && [StashItem] == "true"
+[Rarity] == "Unique" # [UniqueName] == "The Everlasting Gaze" && [mana_regeneration_rate_+%] >= "30" && [mana_%_to_gain_as_energy_shield] >= "30" && [StashItem] == "true"
+[Rarity] == "Unique" # [UniqueName] == "The Burrower" && [base_lightning_damage_resistance_%] >= "60" && [mana_regeneration_rate_+%] >= "50" && [StashItem] == "true"
+[Rarity] == "Unique" # [UniqueName] == "The Anvil" && [base_maximum_life] >= "40" && [physical_damage_reduction_rating_+%] >= "50" && [additional_maximum_block_%] >= "5" && [StashItem] == "true"
+[Rarity] == "Unique" # [UniqueName] == "Soul Tether" && [charm_duration_+%] >= "20" [maximum_energy_shield] >= "60" && [additional_intelligence] >= "30" && [StashItem] == "true"
+[Rarity] == "Unique" # [UniqueName] == "Shavronne's Satchel" && [flask_life_recovery_rate_+%] <= "-20" && [additional_intelligence] >= "30" && [flask_charges_gained_+%] >= "30" && [StashItem] == "true"
+[Rarity] == "Unique" # [UniqueName] == "Revered Resin" && [additional_strength] >= "15" && [base_maximum_life] >= "60" && [flask_life_recovery_rate_+%] >= "30" && [generate_x_charges_for_life_flasks_per_minute] >= "0.25" && [StashItem] == "true"
+[Rarity] == "Unique" # [UniqueName] == "Beacon of Azis" && [base_spirit_from_equipment] >= "45" && [base_maximum_mana] >= "100" && [StashItem] == "true"
+[Rarity] == "Unique" # [UniqueName] == "Ungil's Harmony" && [mana_regeneration_rate_+%] >= "30" && [base_maximum_life] >= "50" && [base_maximum_mana] >= "50" && [critical_strike_chance_+%] >= "100" && [stun_threshold_+] >= "100" && [StashItem] == "true"
+[Rarity] == "Unique" # [UniqueName] == "Whisper of the Brotherhood" && [base_cold_damage_resistance_%] >= "30" && [skill_speed_+%] >= "10" && [additional_dexterity] >= "20" && [mana_regeneration_rate_+%] >= "35" && [StashItem] == "true"
+[Rarity] == "Unique" # [UniqueName] == "Xoph's Blood" && [base_maximum_life_+%] >= "15" && [base_fire_damage_resistance_%] >= "30" && [StashItem] == "true"
+[Rarity] == "Unique" # [UniqueName] == "Infernoclasp" && [local_physical_damage_reduction_rating_+%] >= "140" && [additional_strength] >= "20" && [base_maximum_fire_damage_resistance_%] >= "5" && [base_fire_damage_resistance_%] >= "30" && [StashItem] == "true"
+
 // ACCESSORY
 [Rarity] == "Unique" # [UniqueName] == "Kalandra's Touch" && [StashItem] == "true"
 [Rarity] == "Unique" # [UniqueName] == "Astramentis" && [StashItem] == "true" 
