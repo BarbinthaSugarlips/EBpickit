@@ -1203,17 +1203,293 @@
 //Minions have increased Critical Damage Bonus 5% [minion_critical_strike_multiplier_+] 
 //Minion all resistances %5[minion_elemental_resistance_%]
 
+/// DEFENSIVE CASTER ///
+
+[Category] == "Jewel" && [Rarity] == "Rare" # [maximum_energy_shield_+%] >= "5" && [energy_shield_delay_-%] >= "5" && [critical_strike_chance_+%] >= "5" && [recover_%_maximum_mana_on_kill] >= "2" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [maximum_energy_shield_+%] >= "5" && [energy_shield_delay_-%] >= "5" && [critical_strike_chance_+%] >= "5" && [spell_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [maximum_energy_shield_+%] >= "5" && [energy_shield_delay_-%] >= "5" && [critical_strike_chance_+%] >= "5" && [base_critical_strike_multiplier_+] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [maximum_energy_shield_+%] >= "5" && [energy_shield_delay_-%] >= "5" && [critical_strike_chance_+%] >= "5" && [base_spell_critical_strike_multiplier_+] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [maximum_energy_shield_+%] >= "5" && [energy_shield_delay_-%] >= "5" && [recover_%_maximum_mana_on_kill] >= "2" && [spell_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [maximum_energy_shield_+%] >= "5" && [energy_shield_delay_-%] >= "5" && [recover_%_maximum_mana_on_kill] >= "2" && [base_critical_strike_multiplier_+] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [maximum_energy_shield_+%] >= "5" && [energy_shield_delay_-%] >= "5" && [recover_%_maximum_mana_on_kill] >= "2" && [base_spell_critical_strike_multiplier_+] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [maximum_energy_shield_+%] >= "5" && [energy_shield_delay_-%] >= "5" && [spell_critical_strike_chance_+%] >= "5" && [base_critical_strike_multiplier_+] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [maximum_energy_shield_+%] >= "5" && [energy_shield_delay_-%] >= "5" && [spell_critical_strike_chance_+%] >= "5" && [base_spell_critical_strike_multiplier_+] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [maximum_energy_shield_+%] >= "5" && [energy_shield_delay_-%] >= "5" && [base_critical_strike_multiplier_+] >= "5" && [base_spell_critical_strike_multiplier_+] >= "5" && [StashItem] == "true"
+
+
+/// REFERENCES ///	
+//Increased maximum Energy Shield 5 [maximum_energy_shield_+%] 
+//5% [energy_shield_delay_-%]
+
+//Increased Critical Hit Chance 5% [critical_strike_chance_+%]
+//Recover Mana on Kill 2% [recover_%maximum_mana_on_kill]
+//Increased Critical Hit Chance for Spells 5% [spell_critical_strike_chance +%]
+//Increased Critical Damage Bonus 5% [base_critical_strike_multiplier_+]
+//Increased Critical Spell Damage Bonus 5% [base_spell_critical_strike_multiplier_+]
+
+
 ////////////////////////
 //                    //
 //   RARE EMERALD     //
 //                    //
 ////////////////////////
 
+/// QUARTER STAFF ///
+
+[Category] == "Jewel" && [Rarity] == "Rare" # [attack_damage_+%] >= "5" && [quarterstaff_damage_+%] >= "5" && [base_maximum_lightning_damage_resistance_%] >= "2" && [attack_speed_+%] >= "2" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [attack_damage_+%] >= "5" && [quarterstaff_damage_+%] >= "5" && [base_maximum_lightning_damage_resistance_%] >= "2" && [quarterstaff_attack_speed_+%] >= "2" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [attack_damage_+%] >= "5" && [quarterstaff_damage_+%] >= "5" && [base_maximum_lightning_damage_resistance_%] >= "2" && [attack_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [attack_damage_+%] >= "5" && [quarterstaff_damage_+%] >= "5" && [attack_speed_+%] >= "2" && [quarterstaff_attack_speed_+%] >= "2" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [attack_damage_+%] >= "5" && [quarterstaff_damage_+%] >= "5" && [attack_speed_+%] >= "2" && [attack_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [attack_damage_+%] >= "5" && [quarterstaff_damage_+%] >= "5" && [quarterstaff_attack_speed_+%] >= "2" && [attack_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+
+[Category] == "Jewel" && [Rarity] == "Rare" # [attack_damage_+%] >= "5" && [elemental_damage_+%] >= "5" && [base_maximum_lightning_damage_resistance_%] >= "2" && [attack_speed_+%] >= "2" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [attack_damage_+%] >= "5" && [elemental_damage_+%] >= "5" && [base_maximum_lightning_damage_resistance_%] >= "2" && [quarterstaff_attack_speed_+%] >= "2" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [attack_damage_+%] >= "5" && [elemental_damage_+%] >= "5" && [base_maximum_lightning_damage_resistance_%] >= "2" && [attack_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [attack_damage_+%] >= "5" && [elemental_damage_+%] >= "5" && [attack_speed_+%] >= "2" && [quarterstaff_attack_speed_+%] >= "2" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [attack_damage_+%] >= "5" && [elemental_damage_+%] >= "5" && [attack_speed_+%] >= "2" && [attack_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [attack_damage_+%] >= "5" && [elemental_damage_+%] >= "5" && [quarterstaff_attack_speed_+%] >= "2" && [attack_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+
+[Category] == "Jewel" && [Rarity] == "Rare" # [attack_damage_+%] >= "5" && [lightning_damage_+%] >= "5" && [base_maximum_lightning_damage_resistance_%] >= "2" && [attack_speed_+%] >= "2" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [attack_damage_+%] >= "5" && [lightning_damage_+%] >= "5" && [base_maximum_lightning_damage_resistance_%] >= "2" && [quarterstaff_attack_speed_+%] >= "2" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [attack_damage_+%] >= "5" && [lightning_damage_+%] >= "5" && [base_maximum_lightning_damage_resistance_%] >= "2" && [attack_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [attack_damage_+%] >= "5" && [lightning_damage_+%] >= "5" && [attack_speed_+%] >= "2" && [quarterstaff_attack_speed_+%] >= "2" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [attack_damage_+%] >= "5" && [lightning_damage_+%] >= "5" && [attack_speed_+%] >= "2" && [attack_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [attack_damage_+%] >= "5" && [lightning_damage_+%] >= "5" && [quarterstaff_attack_speed_+%] >= "2" && [attack_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+
+[Category] == "Jewel" && [Rarity] == "Rare" # [quarterstaff_damage_+%] >= "5" && [elemental_damage_+%] >= "5" && [base_maximum_lightning_damage_resistance_%] >= "2" && [attack_speed_+%] >= "2" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [quarterstaff_damage_+%] >= "5" && [elemental_damage_+%] >= "5" && [base_maximum_lightning_damage_resistance_%] >= "2" && [quarterstaff_attack_speed_+%] >= "2" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [quarterstaff_damage_+%] >= "5" && [elemental_damage_+%] >= "5" && [base_maximum_lightning_damage_resistance_%] >= "2" && [attack_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [quarterstaff_damage_+%] >= "5" && [elemental_damage_+%] >= "5" && [attack_speed_+%] >= "2" && [quarterstaff_attack_speed_+%] >= "2" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [quarterstaff_damage_+%] >= "5" && [elemental_damage_+%] >= "5" && [attack_speed_+%] >= "2" && [attack_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [quarterstaff_damage_+%] >= "5" && [elemental_damage_+%] >= "5" && [quarterstaff_attack_speed_+%] >= "2" && [attack_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+
+[Category] == "Jewel" && [Rarity] == "Rare" # [quarterstaff_damage_+%] >= "5" && [lightning_damage_+%] >= "5" && [base_maximum_lightning_damage_resistance_%] >= "2" && [attack_speed_+%] >= "2" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [quarterstaff_damage_+%] >= "5" && [lightning_damage_+%] >= "5" && [base_maximum_lightning_damage_resistance_%] >= "2" && [quarterstaff_attack_speed_+%] >= "2" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [quarterstaff_damage_+%] >= "5" && [lightning_damage_+%] >= "5" && [base_maximum_lightning_damage_resistance_%] >= "2" && [attack_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [quarterstaff_damage_+%] >= "5" && [lightning_damage_+%] >= "5" && [attack_speed_+%] >= "2" && [quarterstaff_attack_speed_+%] >= "2" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [quarterstaff_damage_+%] >= "5" && [lightning_damage_+%] >= "5" && [attack_speed_+%] >= "2" && [attack_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [quarterstaff_damage_+%] >= "5" && [lightning_damage_+%] >= "5" && [quarterstaff_attack_speed_+%] >= "2" && [attack_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+
+[Category] == "Jewel" && [Rarity] == "Rare" # [elemental_damage_+%] >= "5" && [lightning_damage_+%] >= "5" && [base_maximum_lightning_damage_resistance_%] >= "2" && [attack_speed_+%] >= "2" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [elemental_damage_+%] >= "5" && [lightning_damage_+%] >= "5" && [base_maximum_lightning_damage_resistance_%] >= "2" && [quarterstaff_attack_speed_+%] >= "2" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [elemental_damage_+%] >= "5" && [lightning_damage_+%] >= "5" && [base_maximum_lightning_damage_resistance_%] >= "2" && [attack_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [elemental_damage_+%] >= "5" && [lightning_damage_+%] >= "5" && [attack_speed_+%] >= "2" && [quarterstaff_attack_speed_+%] >= "2" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [elemental_damage_+%] >= "5" && [lightning_damage_+%] >= "5" && [attack_speed_+%] >= "2" && [attack_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [elemental_damage_+%] >= "5" && [lightning_damage_+%] >= "5" && [quarterstaff_attack_speed_+%] >= "2" && [attack_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+
+
+/// REF 
+
+//Attack Damage 5% [attack_damage_+%]
+//Increased Damage with Quarterstaves 5% [quarterstaff_damage_+%]
+//Elemental Damage 5% [elemental_damage_+%] 
+//Lightning Damage 5% [lightning_damage_+%] 
+
+//Maximum Lightning Resistance 2% [base_maximum_lightning_damage_resistance_%] 
+//Attack Speed 2% [attack_speed_+%]
+//Increased Attack Speed with Quarterstaves 2% [quarterstaff_attack_speed_+%]
+//Increased Critical Hit Chance for Attacks 5% [attack_critical_strike_chance_+%]
+
+/// BOW ///
+
+[Category] == "Jewel" && [Rarity] == "Rare" # [bow_damage_+%] >= "5" && [attack_damage_+%] >= "5" && [base_maximum_lightning_damage_resistance_%] >= "2" && [attack_speed_+%] >= "3" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [bow_damage_+%] >= "5" && [attack_damage_+%] >= "5" && [base_maximum_lightning_damage_resistance_%] >= "2" && [bow_attack_speed_+%] >= "3" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [bow_damage_+%] >= "5" && [attack_damage_+%] >= "5" && [base_maximum_lightning_damage_resistance_%] >= "2" && [attack_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [bow_damage_+%] >= "5" && [attack_damage_+%] >= "5" && [attack_speed_+%] >= "3" && [bow_attack_speed_+%] >= "3" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [bow_damage_+%] >= "5" && [attack_damage_+%] >= "5" && [attack_speed_+%] >= "3" && [attack_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [bow_damage_+%] >= "5" && [attack_damage_+%] >= "5" && [bow_attack_speed_+%] >= "3" && [attack_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+
+[Category] == "Jewel" && [Rarity] == "Rare" # [bow_damage_+%] >= "5" && [elemental_damage_+%] >= "5" && [base_maximum_lightning_damage_resistance_%] >= "2" && [attack_speed_+%] >= "3" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [bow_damage_+%] >= "5" && [elemental_damage_+%] >= "5" && [base_maximum_lightning_damage_resistance_%] >= "2" && [bow_attack_speed_+%] >= "3" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [bow_damage_+%] >= "5" && [elemental_damage_+%] >= "5" && [base_maximum_lightning_damage_resistance_%] >= "2" && [attack_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [bow_damage_+%] >= "5" && [elemental_damage_+%] >= "5" && [attack_speed_+%] >= "3" && [bow_attack_speed_+%] >= "3" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [bow_damage_+%] >= "5" && [elemental_damage_+%] >= "5" && [attack_speed_+%] >= "3" && [attack_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [bow_damage_+%] >= "5" && [elemental_damage_+%] >= "5" && [bow_attack_speed_+%] >= "3" && [attack_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+
+[Category] == "Jewel" && [Rarity] == "Rare" # [bow_damage_+%] >= "5" && [lightning_damage_+%] >= "5" && [base_maximum_lightning_damage_resistance_%] >= "2" && [attack_speed_+%] >= "3" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [bow_damage_+%] >= "5" && [lightning_damage_+%] >= "5" && [base_maximum_lightning_damage_resistance_%] >= "2" && [bow_attack_speed_+%] >= "3" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [bow_damage_+%] >= "5" && [lightning_damage_+%] >= "5" && [base_maximum_lightning_damage_resistance_%] >= "2" && [attack_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [bow_damage_+%] >= "5" && [lightning_damage_+%] >= "5" && [attack_speed_+%] >= "3" && [bow_attack_speed_+%] >= "3" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [bow_damage_+%] >= "5" && [lightning_damage_+%] >= "5" && [attack_speed_+%] >= "3" && [attack_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [bow_damage_+%] >= "5" && [lightning_damage_+%] >= "5" && [bow_attack_speed_+%] >= "3" && [attack_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+
+[Category] == "Jewel" && [Rarity] == "Rare" # [bow_damage_+%] >= "5" && [projectile_damage_+%] >= "5" && [base_maximum_lightning_damage_resistance_%] >= "2" && [attack_speed_+%] >= "3" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [bow_damage_+%] >= "5" && [projectile_damage_+%] >= "5" && [base_maximum_lightning_damage_resistance_%] >= "2" && [bow_attack_speed_+%] >= "3" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [bow_damage_+%] >= "5" && [projectile_damage_+%] >= "5" && [base_maximum_lightning_damage_resistance_%] >= "2" && [attack_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [bow_damage_+%] >= "5" && [projectile_damage_+%] >= "5" && [attack_speed_+%] >= "3" && [bow_attack_speed_+%] >= "3" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [bow_damage_+%] >= "5" && [projectile_damage_+%] >= "5" && [attack_speed_+%] >= "3" && [attack_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [bow_damage_+%] >= "5" && [projectile_damage_+%] >= "5" && [bow_attack_speed_+%] >= "3" && [attack_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+
+[Category] == "Jewel" && [Rarity] == "Rare" # [bow_damage_+%] >= "5" && [base_projectile_speed_+%] >= "5" && [base_maximum_lightning_damage_resistance_%] >= "2" && [attack_speed_+%] >= "3" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [bow_damage_+%] >= "5" && [base_projectile_speed_+%] >= "5" && [base_maximum_lightning_damage_resistance_%] >= "2" && [bow_attack_speed_+%] >= "3" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [bow_damage_+%] >= "5" && [base_projectile_speed_+%] >= "5" && [base_maximum_lightning_damage_resistance_%] >= "2" && [attack_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [bow_damage_+%] >= "5" && [base_projectile_speed_+%] >= "5" && [attack_speed_+%] >= "3" && [bow_attack_speed_+%] >= "3" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [bow_damage_+%] >= "5" && [base_projectile_speed_+%] >= "5" && [attack_speed_+%] >= "3" && [attack_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [bow_damage_+%] >= "5" && [base_projectile_speed_+%] >= "5" && [bow_attack_speed_+%] >= "3" && [attack_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+
+[Category] == "Jewel" && [Rarity] == "Rare" # [attack_damage_+%] >= "5" && [elemental_damage_+%] >= "5" && [base_maximum_lightning_damage_resistance_%] >= "2" && [attack_speed_+%] >= "3" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [attack_damage_+%] >= "5" && [elemental_damage_+%] >= "5" && [base_maximum_lightning_damage_resistance_%] >= "2" && [bow_attack_speed_+%] >= "3" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [attack_damage_+%] >= "5" && [elemental_damage_+%] >= "5" && [base_maximum_lightning_damage_resistance_%] >= "2" && [attack_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [attack_damage_+%] >= "5" && [elemental_damage_+%] >= "5" && [attack_speed_+%] >= "3" && [bow_attack_speed_+%] >= "3" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [attack_damage_+%] >= "5" && [elemental_damage_+%] >= "5" && [attack_speed_+%] >= "3" && [attack_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [attack_damage_+%] >= "5" && [elemental_damage_+%] >= "5" && [bow_attack_speed_+%] >= "3" && [attack_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+
+[Category] == "Jewel" && [Rarity] == "Rare" # [attack_damage_+%] >= "5" && [lightning_damage_+%] >= "5" && [base_maximum_lightning_damage_resistance_%] >= "2" && [attack_speed_+%] >= "3" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [attack_damage_+%] >= "5" && [lightning_damage_+%] >= "5" && [base_maximum_lightning_damage_resistance_%] >= "2" && [bow_attack_speed_+%] >= "3" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [attack_damage_+%] >= "5" && [lightning_damage_+%] >= "5" && [base_maximum_lightning_damage_resistance_%] >= "2" && [attack_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [attack_damage_+%] >= "5" && [lightning_damage_+%] >= "5" && [attack_speed_+%] >= "3" && [bow_attack_speed_+%] >= "3" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [attack_damage_+%] >= "5" && [lightning_damage_+%] >= "5" && [attack_speed_+%] >= "3" && [attack_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [attack_damage_+%] >= "5" && [lightning_damage_+%] >= "5" && [bow_attack_speed_+%] >= "3" && [attack_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+
+[Category] == "Jewel" && [Rarity] == "Rare" # [attack_damage_+%] >= "5" && [projectile_damage_+%] >= "5" && [base_maximum_lightning_damage_resistance_%] >= "2" && [attack_speed_+%] >= "3" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [attack_damage_+%] >= "5" && [projectile_damage_+%] >= "5" && [base_maximum_lightning_damage_resistance_%] >= "2" && [bow_attack_speed_+%] >= "3" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [attack_damage_+%] >= "5" && [projectile_damage_+%] >= "5" && [base_maximum_lightning_damage_resistance_%] >= "2" && [attack_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [attack_damage_+%] >= "5" && [projectile_damage_+%] >= "5" && [attack_speed_+%] >= "3" && [bow_attack_speed_+%] >= "3" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [attack_damage_+%] >= "5" && [projectile_damage_+%] >= "5" && [attack_speed_+%] >= "3" && [attack_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [attack_damage_+%] >= "5" && [projectile_damage_+%] >= "5" && [bow_attack_speed_+%] >= "3" && [attack_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+
+[Category] == "Jewel" && [Rarity] == "Rare" # [attack_damage_+%] >= "5" && [base_projectile_speed_+%] >= "5" && [base_maximum_lightning_damage_resistance_%] >= "2" && [attack_speed_+%] >= "3" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [attack_damage_+%] >= "5" && [base_projectile_speed_+%] >= "5" && [base_maximum_lightning_damage_resistance_%] >= "2" && [bow_attack_speed_+%] >= "3" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [attack_damage_+%] >= "5" && [base_projectile_speed_+%] >= "5" && [base_maximum_lightning_damage_resistance_%] >= "2" && [attack_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [attack_damage_+%] >= "5" && [base_projectile_speed_+%] >= "5" && [attack_speed_+%] >= "3" && [bow_attack_speed_+%] >= "3" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [attack_damage_+%] >= "5" && [base_projectile_speed_+%] >= "5" && [attack_speed_+%] >= "3" && [attack_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [attack_damage_+%] >= "5" && [base_projectile_speed_+%] >= "5" && [bow_attack_speed_+%] >= "3" && [attack_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+
+[Category] == "Jewel" && [Rarity] == "Rare" # [elemental_damage_+%] >= "5" && [lightning_damage_+%] >= "5" && [base_maximum_lightning_damage_resistance_%] >= "2" && [attack_speed_+%] >= "3" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [elemental_damage_+%] >= "5" && [lightning_damage_+%] >= "5" && [base_maximum_lightning_damage_resistance_%] >= "2" && [bow_attack_speed_+%] >= "3" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [elemental_damage_+%] >= "5" && [lightning_damage_+%] >= "5" && [base_maximum_lightning_damage_resistance_%] >= "2" && [attack_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [elemental_damage_+%] >= "5" && [lightning_damage_+%] >= "5" && [attack_speed_+%] >= "3" && [bow_attack_speed_+%] >= "3" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [elemental_damage_+%] >= "5" && [lightning_damage_+%] >= "5" && [attack_speed_+%] >= "3" && [attack_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [elemental_damage_+%] >= "5" && [lightning_damage_+%] >= "5" && [bow_attack_speed_+%] >= "3" && [attack_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+
+[Category] == "Jewel" && [Rarity] == "Rare" # [elemental_damage_+%] >= "5" && [projectile_damage_+%] >= "5" && [base_maximum_lightning_damage_resistance_%] >= "2" && [attack_speed_+%] >= "3" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [elemental_damage_+%] >= "5" && [projectile_damage_+%] >= "5" && [base_maximum_lightning_damage_resistance_%] >= "2" && [bow_attack_speed_+%] >= "3" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [elemental_damage_+%] >= "5" && [projectile_damage_+%] >= "5" && [base_maximum_lightning_damage_resistance_%] >= "2" && [attack_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [elemental_damage_+%] >= "5" && [projectile_damage_+%] >= "5" && [attack_speed_+%] >= "3" && [bow_attack_speed_+%] >= "3" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [elemental_damage_+%] >= "5" && [projectile_damage_+%] >= "5" && [attack_speed_+%] >= "3" && [attack_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [elemental_damage_+%] >= "5" && [projectile_damage_+%] >= "5" && [bow_attack_speed_+%] >= "3" && [attack_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+
+[Category] == "Jewel" && [Rarity] == "Rare" # [elemental_damage_+%] >= "5" && [base_projectile_speed_+%] >= "5" && [base_maximum_lightning_damage_resistance_%] >= "2" && [attack_speed_+%] >= "3" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [elemental_damage_+%] >= "5" && [base_projectile_speed_+%] >= "5" && [base_maximum_lightning_damage_resistance_%] >= "2" && [bow_attack_speed_+%] >= "3" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [elemental_damage_+%] >= "5" && [base_projectile_speed_+%] >= "5" && [base_maximum_lightning_damage_resistance_%] >= "2" && [attack_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [elemental_damage_+%] >= "5" && [base_projectile_speed_+%] >= "5" && [attack_speed_+%] >= "3" && [bow_attack_speed_+%] >= "3" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [elemental_damage_+%] >= "5" && [base_projectile_speed_+%] >= "5" && [attack_speed_+%] >= "3" && [attack_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [elemental_damage_+%] >= "5" && [base_projectile_speed_+%] >= "5" && [bow_attack_speed_+%] >= "3" && [attack_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+
+[Category] == "Jewel" && [Rarity] == "Rare" # [lightning_damage_+%] >= "5" && [projectile_damage_+%] >= "5" && [base_maximum_lightning_damage_resistance_%] >= "2" && [attack_speed_+%] >= "3" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [lightning_damage_+%] >= "5" && [projectile_damage_+%] >= "5" && [base_maximum_lightning_damage_resistance_%] >= "2" && [bow_attack_speed_+%] >= "3" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [lightning_damage_+%] >= "5" && [projectile_damage_+%] >= "5" && [base_maximum_lightning_damage_resistance_%] >= "2" && [attack_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [lightning_damage_+%] >= "5" && [projectile_damage_+%] >= "5" && [attack_speed_+%] >= "3" && [bow_attack_speed_+%] >= "3" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [lightning_damage_+%] >= "5" && [projectile_damage_+%] >= "5" && [attack_speed_+%] >= "3" && [attack_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [lightning_damage_+%] >= "5" && [projectile_damage_+%] >= "5" && [bow_attack_speed_+%] >= "3" && [attack_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+
+[Category] == "Jewel" && [Rarity] == "Rare" # [lightning_damage_+%] >= "5" && [base_projectile_speed_+%] >= "5" && [base_maximum_lightning_damage_resistance_%] >= "2" && [attack_speed_+%] >= "3" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [lightning_damage_+%] >= "5" && [base_projectile_speed_+%] >= "5" && [base_maximum_lightning_damage_resistance_%] >= "2" && [bow_attack_speed_+%] >= "3" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [lightning_damage_+%] >= "5" && [base_projectile_speed_+%] >= "5" && [base_maximum_lightning_damage_resistance_%] >= "2" && [attack_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [lightning_damage_+%] >= "5" && [base_projectile_speed_+%] >= "5" && [attack_speed_+%] >= "3" && [bow_attack_speed_+%] >= "3" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [lightning_damage_+%] >= "5" && [base_projectile_speed_+%] >= "5" && [attack_speed_+%] >= "3" && [attack_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [lightning_damage_+%] >= "5" && [base_projectile_speed_+%] >= "5" && [bow_attack_speed_+%] >= "3" && [attack_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+
+[Category] == "Jewel" && [Rarity] == "Rare" # [projectile_damage_+%] >= "5" && [base_projectile_speed_+%] >= "5" && [base_maximum_lightning_damage_resistance_%] >= "2" && [attack_speed_+%] >= "3" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [projectile_damage_+%] >= "5" && [base_projectile_speed_+%] >= "5" && [base_maximum_lightning_damage_resistance_%] >= "2" && [bow_attack_speed_+%] >= "3" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [projectile_damage_+%] >= "5" && [base_projectile_speed_+%] >= "5" && [base_maximum_lightning_damage_resistance_%] >= "2" && [attack_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [projectile_damage_+%] >= "5" && [base_projectile_speed_+%] >= "5" && [attack_speed_+%] >= "3" && [bow_attack_speed_+%] >= "3" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [projectile_damage_+%] >= "5" && [base_projectile_speed_+%] >= "5" && [attack_speed_+%] >= "3" && [attack_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [projectile_damage_+%] >= "5" && [base_projectile_speed_+%] >= "5" && [bow_attack_speed_+%] >= "3" && [attack_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+
+// ref
+
+//Increased Damage with Bows 5% [bow_damage_+%]
+//Attack Damage 5% [attack_damage_+%]
+//Elemental Damage 5% [elemental_damage_+%] 
+//Lightning Damage 5% [lightning_damage_+%] 
+//Projectile Damage 5% [projectile_damage_+%] X
+//Projectile Speed 5% [base_projectile_speed_+%]
+
+//Maximum Lightning Resistance 2% [base_maximum_lightning_damage_resistance_%] 
+//Attack Speed 3% [attack_speed_+%]
+//Increased Attack Speed with Bows 3% [bow_attack_speed_+%]
+//Increased Critical Hit Chance for Attacks 5% [attack_critical_strike_chance_+%]
+
 ////////////////////////
 //                    //
 //   RARE RUBY        //
 //                    //
 ////////////////////////
+
+
+// MELEE //
+
+[Category] == "Jewel" && [Rarity] == "Rare" # [block_chance_+%] >= "5" && [maximum_rage] >= "1" && [gain_x_rage_on_melee_hit] >= "1" && [life_regeneration_rate_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [block_chance_+%] >= "5" && [maximum_rage] >= "1" && [gain_x_rage_on_melee_hit] >= "1" && [base_maximum_fire_damage_resistance_%] >= "2" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [block_chance_+%] >= "5" && [maximum_rage] >= "1" && [life_regeneration_rate_+%] >= "5" && [base_maximum_fire_damage_resistance_%] >= "2" && [StashItem] == "true"
+
+[Category] == "Jewel" && [Rarity] == "Rare" # [block_chance_+%] >= "5" && [melee_damage_+%] >= "5" && [gain_x_rage_on_melee_hit] >= "1" && [life_regeneration_rate_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [block_chance_+%] >= "5" && [melee_damage_+%] >= "5" && [gain_x_rage_on_melee_hit] >= "1" && [base_maximum_fire_damage_resistance_%] >= "2" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [block_chance_+%] >= "5" && [melee_damage_+%] >= "5" && [life_regeneration_rate_+%] >= "5" && [base_maximum_fire_damage_resistance_%] >= "2" && [StashItem] == "true"
+
+[Category] == "Jewel" && [Rarity] == "Rare" # [block_chance_+%] >= "5" && [physical_damage_+%] >= "5" && [gain_x_rage_on_melee_hit] >= "1" && [life_regeneration_rate_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [block_chance_+%] >= "5" && [physical_damage_+%] >= "5" && [gain_x_rage_on_melee_hit] >= "1" && [base_maximum_fire_damage_resistance_%] >= "2" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [block_chance_+%] >= "5" && [physical_damage_+%] >= "5" && [life_regeneration_rate_+%] >= "5" && [base_maximum_fire_damage_resistance_%] >= "2" && [StashItem] == "true"
+
+[Category] == "Jewel" && [Rarity] == "Rare" # [block_chance_+%] >= "5" && [attack_damage_+%] >= "5" && [gain_x_rage_on_melee_hit] >= "1" && [life_regeneration_rate_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [block_chance_+%] >= "5" && [attack_damage_+%] >= "5" && [gain_x_rage_on_melee_hit] >= "1" && [base_maximum_fire_damage_resistance_%] >= "2" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [block_chance_+%] >= "5" && [attack_damage_+%] >= "5" && [life_regeneration_rate_+%] >= "5" && [base_maximum_fire_damage_resistance_%] >= "2" && [StashItem] == "true"
+
+[Category] == "Jewel" && [Rarity] == "Rare" # [maximum_rage] >= "1" && [melee_damage_+%] >= "5" && [gain_x_rage_on_melee_hit] >= "1" && [life_regeneration_rate_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [maximum_rage] >= "1" && [melee_damage_+%] >= "5" && [gain_x_rage_on_melee_hit] >= "1" && [base_maximum_fire_damage_resistance_%] >= "2" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [maximum_rage] >= "1" && [melee_damage_+%] >= "5" && [life_regeneration_rate_+%] >= "5" && [base_maximum_fire_damage_resistance_%] >= "2" && [StashItem] == "true"
+
+[Category] == "Jewel" && [Rarity] == "Rare" # [maximum_rage] >= "1" && [physical_damage_+%] >= "5" && [gain_x_rage_on_melee_hit] >= "1" && [life_regeneration_rate_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [maximum_rage] >= "1" && [physical_damage_+%] >= "5" && [gain_x_rage_on_melee_hit] >= "1" && [base_maximum_fire_damage_resistance_%] >= "2" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [maximum_rage] >= "1" && [physical_damage_+%] >= "5" && [life_regeneration_rate_+%] >= "5" && [base_maximum_fire_damage_resistance_%] >= "2" && [StashItem] == "true"
+
+[Category] == "Jewel" && [Rarity] == "Rare" # [maximum_rage] >= "1" && [attack_damage_+%] >= "5" && [gain_x_rage_on_melee_hit] >= "1" && [life_regeneration_rate_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [maximum_rage] >= "1" && [attack_damage_+%] >= "5" && [gain_x_rage_on_melee_hit] >= "1" && [base_maximum_fire_damage_resistance_%] >= "2" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [maximum_rage] >= "1" && [attack_damage_+%] >= "5" && [life_regeneration_rate_+%] >= "5" && [base_maximum_fire_damage_resistance_%] >= "2" && [StashItem] == "true"
+
+[Category] == "Jewel" && [Rarity] == "Rare" # [melee_damage_+%] >= "5" && [physical_damage_+%] >= "5" && [gain_x_rage_on_melee_hit] >= "1" && [life_regeneration_rate_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [melee_damage_+%] >= "5" && [physical_damage_+%] >= "5" && [gain_x_rage_on_melee_hit] >= "1" && [base_maximum_fire_damage_resistance_%] >= "2" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [melee_damage_+%] >= "5" && [physical_damage_+%] >= "5" && [life_regeneration_rate_+%] >= "5" && [base_maximum_fire_damage_resistance_%] >= "2" && [StashItem] == "true"
+
+[Category] == "Jewel" && [Rarity] == "Rare" # [melee_damage_+%] >= "5" && [attack_damage_+%] >= "5" && [gain_x_rage_on_melee_hit] >= "1" && [life_regeneration_rate_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [melee_damage_+%] >= "5" && [attack_damage_+%] >= "5" && [gain_x_rage_on_melee_hit] >= "1" && [base_maximum_fire_damage_resistance_%] >= "2" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [melee_damage_+%] >= "5" && [attack_damage_+%] >= "5" && [life_regeneration_rate_+%] >= "5" && [base_maximum_fire_damage_resistance_%] >= "2" && [StashItem] == "true"
+
+[Category] == "Jewel" && [Rarity] == "Rare" # [physical_damage_+%] >= "5" && [attack_damage_+%] >= "5" && [gain_x_rage_on_melee_hit] >= "1" && [life_regeneration_rate_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [physical_damage_+%] >= "5" && [attack_damage_+%] >= "5" && [gain_x_rage_on_melee_hit] >= "1" && [base_maximum_fire_damage_resistance_%] >= "2" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [physical_damage_+%] >= "5" && [attack_damage_+%] >= "5" && [life_regeneration_rate_+%] >= "5" && [base_maximum_fire_damage_resistance_%] >= "2" && [StashItem] == "true"
+
+// REF
+
+//block chance 5 [block_chance_+%]
+//max rage 1 [maximum_rage]
+//melee dmg 5 [melee_damage_+%]
+//global physical 5 [physical_damage_+%]
+//Attack Damage 5 [attack_damage_+%]
+
+//Rage on hit 1 [gain_x_rage_on_melee_hit]
+//life regen 5 [life_regeneration_rate_+%]
+//Maximum Fire Resistance 2 [base_maximum_fire_damage_resistance_%]
+
+
+// TOTEM //
+
+[Category] == "Jewel" && [Rarity] == "Rare" # [totem_damage_+%] >= "5" && [block_chance_+%] >= "5" && [life_regeneration_rate_+%] >= "5" && [summon_totem_cast_speed_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [totem_damage_+%] >= "5" && [block_chance_+%] >= "5" && [life_regeneration_rate_+%] >= "5" && [base_maximum_fire_damage_resistance_%] >= "2" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [totem_damage_+%] >= "5" && [block_chance_+%] >= "5" && [summon_totem_cast_speed_+%] >= "5" && [base_maximum_fire_damage_resistance_%] >= "2" && [StashItem] == "true"
+
+
+// REF
+
+//totem damage 5 [totem_damage_+%]
+//block chance 5 [block_chance_+%]
+
+//life regen 5 [life_regeneration_rate_+%]
+//totem cast speed 5 [summon_totem_cast_speed_+%]
+//Maximum Fire Resistance 2% [base_maximum_fire_damage_resistance_%]
+
 
 
 
