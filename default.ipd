@@ -1262,23 +1262,23 @@
 /////////////////////////////////////////////////////////////////////////////////////
 
 // ACCESSORY
-[Rarity] == "Unique" # [UniqueName] == "Kalandra's Touch" && [StashItem] == "true" // Exalted: 32830
-[Rarity] == "Unique" # [UniqueName] == "Astramentis" && [StashItem] == "true" // Exalted: 19574
-[Rarity] == "Unique" # [UniqueName] == "Dream Fragments" && [StashItem] == "true" // Exalted: 11273
-[Rarity] == "Unique" # [UniqueName] == "Headhunter" && [StashItem] == "true" // Exalted: 867
-[Rarity] == "Unique" # [UniqueName] == "Original Sin" && [StashItem] == "true" // Exalted: 619
-[Rarity] == "Unique" # [UniqueName] == "Ingenuity" && [StashItem] == "true" // Exalted: 495
-[Rarity] == "Unique" # [UniqueName] == "Defiance of Destiny" && [StashItem] == "true" // Exalted: 123
-[Rarity] == "Unique" # [UniqueName] == "Ryslatha's Coil" && [StashItem] == "true" // Exalted: 30
-[Rarity] == "Unique" # [UniqueName] == "Fireflower" && [StashItem] == "true" // Exalted: 15
-[Rarity] == "Unique" # [UniqueName] == "Carnage Heart" && [StashItem] == "true" // Exalted: 12
-[Rarity] == "Unique" # [UniqueName] == "Eye of Chayula" && [StashItem] == "true" // Exalted: 10
-[Rarity] == "Unique" # [UniqueName] == "Serpent's Egg" && [StashItem] == "true" // Exalted: 10
-[Rarity] == "Unique" # [UniqueName] == "Levinstone" && [StashItem] == "true" // Exalted: 10
-[Rarity] == "Unique" # [UniqueName] == "Death Rush" && [StashItem] == "true" // Exalted: 9
-[Rarity] == "Unique" # [UniqueName] == "Snakepit" && [StashItem] == "true" // Exalted: 8
-[Rarity] == "Unique" # [UniqueName] == "The Everlasting Gaze" && [StashItem] == "true" // Exalted: 5
-[Rarity] == "Unique" # [UniqueName] == "Sekhema's Resolve" && [StashItem] == "true" // Exalted: 5
+[Rarity] == "Unique" # [UniqueName] == "Kalandra's Touch" && [StashItem] == "true"
+[Rarity] == "Unique" # [UniqueName] == "Astramentis" && [StashItem] == "true" 
+[Rarity] == "Unique" # [UniqueName] == "Dream Fragments" && [StashItem] == "true"
+[Rarity] == "Unique" # [UniqueName] == "Headhunter" && [StashItem] == "true"
+[Rarity] == "Unique" # [UniqueName] == "Original Sin" && [StashItem] == "true" 
+[Rarity] == "Unique" # [UniqueName] == "Ingenuity" && [StashItem] == "true"
+[Rarity] == "Unique" # [UniqueName] == "Defiance of Destiny" && [StashItem] == "true" 
+[Rarity] == "Unique" # [UniqueName] == "Ryslatha's Coil" && [StashItem] == "true" 
+[Rarity] == "Unique" # [UniqueName] == "Fireflower" && [StashItem] == "true"
+[Rarity] == "Unique" # [UniqueName] == "Carnage Heart" && [StashItem] == "true"
+[Rarity] == "Unique" # [UniqueName] == "Eye of Chayula" && [StashItem] == "true"
+[Rarity] == "Unique" # [UniqueName] == "Serpent's Egg" && [StashItem] == "true" 
+[Rarity] == "Unique" # [UniqueName] == "Levinstone" && [StashItem] == "true" 
+[Rarity] == "Unique" # [UniqueName] == "Death Rush" && [StashItem] == "true" 
+[Rarity] == "Unique" # [UniqueName] == "Snakepit" && [StashItem] == "true" 
+[Rarity] == "Unique" # [UniqueName] == "The Everlasting Gaze" && [StashItem] == "true" 
+[Rarity] == "Unique" # [UniqueName] == "Sekhema's Resolve" && [StashItem] == "true" 
 [Rarity] == "Unique" # [UniqueName] == "Ventor's Gamble" && [StashItem] == "true"
 
 // ARMOUR
