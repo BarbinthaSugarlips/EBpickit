@@ -459,9 +459,6 @@
 //                                                                                 //
 /////////////////////////////////////////////////////////////////////////////////////
 
-[Category] == "Ring" && [Rarity] == "Rare" && [additional_strength] >= "23" # [StashItem] == "true"
-
-
 [Category] == "Ring" && [Rarity] == "Rare" && [base_item_found_rarity_+%] >= "59" && [StashItem] == "true"
 
 ////// LIFE + STAT //////
