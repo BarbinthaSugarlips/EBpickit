@@ -773,6 +773,7 @@
 
 //[Category] == "Amulet" && [Rarity] == "Magic" # [base_spirit_from_equipment] >= "38" && [StashItem] == "true"
 
+[Category] == "Amulet" && [Rarity] == "Rare" # [base_spirit_from_equipment] >= "40" && [StashItem] == "true"
 [Category] == "Amulet" && [Rarity] == "Rare" # [spell_skill_gem_level_+] >= "2" && [StashItem] == "true"
 [Category] == "Amulet" && [Rarity] == "Rare" # [projectile_skill_gem_level_+] >= "2" && [StashItem] == "true"
 [Category] == "Amulet" && [Rarity] == "Rare" # [minion_skill_gem_level_+] >= "2" && [StashItem] == "true"
