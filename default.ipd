@@ -1,0 +1,1445 @@
+//
+// Exiled Bot 2 Pickit - Configuration Guide for Path of Exile 2
+//
+// This file defines which items your bot should pick up, identify, keep, or salvage.
+//
+// Important File:
+// - ModsList.html in the main bot folder contains all available mods
+//   (Use expressions from the right column, like local_minimum_added_physical_damage)
+//
+// Special Computed Values:
+// ----------------------
+// [TotalResistances] - Sums all resistance values on an item
+//   Example: [Category] == "Helmet" # [TotalResistances] > "50" && [StashItem] == "true"  // Keeps helmets with >50 total resistance
+//
+// Defensive Calculations:
+// ---------------------
+// [ComputedArmour] - Final armour value after all modifiers
+// [ComputedEvasion] - Final evasion value after all modifiers
+// [ComputedEnergyShield] - Final ES value after all modifiers
+//
+// Damage Calculations:
+// ------------------
+// [DPS] - Total weapon DPS (physical + elemental)
+// [ElementalDPS] - Only elemental portion of weapon DPS
+// [PhysicalDPS] - Only physical portion of weapon DPS
+//
+// Spell Damage Totals:
+// ------------------
+// [TotalSpellElementalDamage] - Combined spell + elemental damage (%)
+// [TotalFireSpellDamage] - Fire spell damage including general spell damage (%)
+// [TotalColdSpellDamage] - Cold spell damage including general spell damage (%)
+// [TotalLightningSpellDamage] - Lightning spell damage including general spell damage (%)
+//
+// Gems:
+// -------------
+// [GemLevel] - Current level of the gem
+//
+// Example:
+// [Type] == "Uncut Support Gem" && [GemLevel] == "3" # [StashItem] == "true"
+// This means: Pick up level 3 support gems
+// This means: Pick up spirit gem with level higher than 17
+//
+// UniqueName:
+// -----------
+// Matches specific unique items by their exact name
+// Example: [Type] == "Heavy Belt" && [Rarity] == "Unique" # [UniqueName] == "Headhunter" && [StashItem] == "true"
+// This means: Pick up and stash items named "Headhunter"
+//
+// ItemTier:
+// --------
+// Represents the tier of the item base type (higher is better)
+// Example: [Category] == "Ring" && [ItemTier] >= "2" # [StashItem] == "true"
+// This means: Pick up and stash rings of tier 2 or higher
+//
+// Quality:
+// -------
+// Shows the quality percentage of an item (0-20 for most items)
+// Example: [Quality] >= "15" # [StashItem] == "true"
+// This means: Pick up and stash items with 15% or more quality
+//
+// Basic Syntax:
+// -----------
+// Each line follows this pattern: [What to Check] Operator "Value"
+//
+// Available Operators:
+// == (equals)              Example: [Rarity] == "Unique"
+// != (not equals)          Example: [Category] != "Flask"
+// >  (greater than)        Example: [ItemLevel] > "75"
+// >= (greater or equal)    Example: [Quality] >= "20"
+// <  (less than)          Example: [Sockets] < "6"
+// <= (less or equal)       Example: [MapTier] <= "10"
+//
+// You can combine checks using:
+// && (AND)  - Both conditions must be true
+// || (OR)   - At least one condition must be true
+// ()        - Group conditions together
+//
+// Available Categories:
+// ------------------
+// Equipment: "BodyArmour", "Gloves", "Boots", "Belt", "Helmet", "Ring", "Amulet"
+// Weapons: "Weapon", "1Handed", "2Handed", "OffHand"
+// Others: "Flask", "Map", "Gem"
+//
+// Weapon Categories:
+// ---------------
+// One-handed: "Claw", "Dagger", "Wand", "OneHandSword", "OneHandAxe", "OneHandMace", 
+//            "Sceptre", "Spear", "Flail"
+// Two-handed: "Bow", "Staff", "TwoHandSword", "TwoHandAxe", "TwoHandMace", 
+//            "Quarterstaff", "Crossbow", "Trap", "FishingRod"
+// Off-hand:   "Quiver", "Shield", "Focus"
+//
+// Example:
+// [WeaponCategory] == "OneHandSword" # [PhysicalDPS] > "300" && [StashItem] == "true"
+// This means: Pick up one-handed swords, but only keep ones with >300 physical DPS
+//
+// Rarity Values:
+// ------------
+// [Rarity] can only use == or != with these values:
+// "Normal", "Magic", "Rare", "Unique"
+//
+// Special Flags:
+// ------------
+// [StashItem] == "true"   - Put item in stash
+// [StashUnid] == "true"   - Stash without identifying
+// [Salvage] == "true"     - Mark for salvaging
+//
+// Using # to Split Checks:
+// ----------------------
+// Rules can have two parts, split by #
+// Before #: Checked BEFORE identifying the item
+// After #: Checked AFTER identifying the item
+//
+// Example:
+// [Rarity] == "Rare" # [TotalResistances] > "50" && [StashItem] == "true"
+// This means: Pick up rare items, but only keep ones with >50% total resistance
+//
+// IMPORTANT - Understanding Local vs Global Modifiers:
+// -----------------------------------------------
+// local_* mods (like local_attack_speed_+%) ONLY affect the item itself
+// regular mods (like attack_speed_+%) affect your entire character
+//
+// Example:
+// local_attack_speed_+% on a weapon: Only speeds up that weapon
+// attack_speed_+% on a ring: Speeds up ALL your attacks
+
+
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////
+//                                     Boots                                       //
+/////////////////////////////////////////////////////////////////////////////////////
+
+[Category] == "Boots" && [Rarity] == "Rare" # [base_movement_velocity_+%] >= "35" && [StashItem] == "true"
+//[Category] == "Boots" && [Rarity] == "Rare" # [base_movement_velocity_+%] >= "25" && [base_chaos_damage_resistance_%] >= "20" && [StashItem] == "true"
+//[Category] == "Boots" && [Rarity] == "Rare" # [base_movement_velocity_+%] >= "25" && [base_chaos_damage_resistance_%] >= "20" && [base_maximum_life] >= "100" && [StashItem] == "true"
+[Category] == "Boots" && [Rarity] == "Rare" # [TotalResistances] >= "120" && [StashItem] == "true"
+
+/////////////////////////////////////////////////////////////////////////////////////
+//                                     Armour                                      //
+/////////////////////////////////////////////////////////////////////////////////////
+
+// only pure eva and es armours ! 
+//[Category] == "BodyArmour" && [Rarity] == "Rare" # [TotalResistances] >= "50" && [base_maximum_life] >= "100" && [StashItem] == "true"
+//[Category] == "BodyArmour" && [Rarity] == "Rare" # [TotalResistances] >= "80" && [StashItem] == "true"
+//[Category] == "BodyArmour" && [Rarity] == "Rare" # [TotalResistances] >= "50" && [base_maximum_mana] >= "100" && [StashItem] == "true"
+//[Category] == "BodyArmour" && [Rarity] == "Rare" # [TotalResistances] >= "30" && [base_spirit_from_equipment] >= "30" && [StashItem] == "true"
+//[Category] == "BodyArmour" && [Rarity] == "Rare" # [ComputedEvasion] >= "2000" && [StashItem] == "true"
+//[Category] == "BodyArmour" && [Rarity] == "Rare" # [ComputedEnergyShield] >= "700" && [StashItem] == "true"
+
+
+/////////////////////////////////////////////////////////////////////////////////////
+//                                     Helmet                                      //
+/////////////////////////////////////////////////////////////////////////////////////
+
+[Category] == "Helmet" && [Rarity] == "Rare" # [TotalResistances] >= "90" && [base_maximum_life] >= "100" && [StashItem] == "true"
+[Category] == "Helmet" && [Rarity] == "Rare" # [TotalResistances] >= "120" && [StashItem] == "true"
+[Category] == "Helmet" && [Rarity] == "Rare" # [TotalResistances] >= "90" && [base_maximum_mana] >= "100" && [StashItem] == "true"
+[Category] == "Helmet" && [Rarity] == "Rare" # [ComputedEvasion] >= "1000" && [StashItem] == "true"
+[Category] == "Helmet" && [Rarity] == "Rare" # [ComputedEnergyShield] >= "350" && [StashItem] == "true"
+
+
+// - add minions
+
+/////////////////////////////////////////////////////////////////////////////////////
+//                                     Gloves                                      //
+/////////////////////////////////////////////////////////////////////////////////////
+
+[Category] == "Gloves" && [Rarity] == "Rare" # [TotalResistances] >= "90" && [base_maximum_life] >= "100" && [StashItem] == "true"
+[Category] == "Gloves" && [Rarity] == "Rare" # [TotalResistances] >= "80" && [base_chaos_damage_resistance_%] >= "30" && [StashItem] == "true"
+//[Category] == "Gloves" && [Rarity] == "Rare" # [base_chaos_damage_resistance_%] >= "20" && [melee_skill_gem_level_+] = "2" && [StashItem] == "true"
+//[Category] == "Gloves" && [Rarity] == "Rare" # [base_item_found_rarity_+%] >= "26" && [melee_skill_gem_level_+] = "2" && [StashItem] == "true"
+[Category] == "Gloves" && [Rarity] == "Rare" # [ComputedEnergyShield] >= "210" && [StashItem] == "true"
+
+/////////////////////////////////////////////////////////////////////////////////////
+//                                     Belt                                        //
+/////////////////////////////////////////////////////////////////////////////////////
+[Category] == "Belt" && [Rarity] == "Rare" # [TotalResistances] >= "100" && [base_maximum_life] >= "100" && [StashItem] == "true"
+[Category] == "Belt" && [Rarity] == "Rare" # [TotalResistances] >= "120" && [StashItem] == "true"
+[Category] == "Belt" && [Rarity] == "Rare" # [TotalResistances] >= "80" && [base_maximum_mana] >= "100" && [StashItem] == "true"
+//[Category] == "Gloves" && [Rarity] == "Rare" # [TotalResistances] >= "60" && [base_chaos_damage_resistance_%] >= "20" && [StashItem] == "true"
+
+/////////////////////////////////////////////////////////////////////////////////////
+//                                     Bows                                        //
+/////////////////////////////////////////////////////////////////////////////////////
+
+[WeaponCategory] == "Bow" && [Rarity] == "Rare" # [DPS] >= "320" && [projectile_skill_gem_level_+] >= "3" && [StashItem] == "true"
+//[WeaponCategory] == "Bow" && [Rarity] == "Rare" # [DPS] >= "400" && [projectile_skill_gem_level_+] >= "2" && [StashItem] == "true"
+[WeaponCategory] == "Bow" && [Rarity] == "Rare" # [DPS] >= "400" && [StashItem] == "true"
+
+/////////////////////////////////////////////////////////////////////////////////////
+//                                     2H melee weapon                             //
+/////////////////////////////////////////////////////////////////////////////////////
+
+//[WeaponCategory] == "Staff" && [Rarity] == "Rare" # [DPS] >= "300" && [melee_skill_gem_level_+] >= "4" && [StashItem] == "true"
+//[WeaponCategory] == "Staff" && [Rarity] == "Rare" # [DPS] >= "400" && [StashItem] == "true"
+//[WeaponCategory] == "TwoHandSword" && [Rarity] == "Rare" # [DPS] >= "300" && [melee_skill_gem_level_+] >= "4" && [StashItem] == "true"
+//[WeaponCategory] == "TwoHandSword" && [Rarity] == "Rare" # [DPS] >= "400" && [StashItem] == "true"
+//[WeaponCategory] == "TwoHandAxe" && [Rarity] == "Rare" # [DPS] >= "300" && [melee_skill_gem_level_+] >= "4" && [StashItem] == "true"
+//[WeaponCategory] == "TwoHandAxe" && [Rarity] == "Rare" # [DPS] >= "400" && [StashItem] == "true"
+//[WeaponCategory] == "TwoHandMace" && [Rarity] == "Rare" # [DPS] >= "300" && [melee_skill_gem_level_+] >= "4" && [StashItem] == "true"
+//[WeaponCategory] == "TwoHandMace" && [Rarity] == "Rare" # [DPS] >= "400" && [StashItem] == "true"
+
+/////////////////////////////////////////////////////////////////////////////////////
+//                                     Wands                                       //
+/////////////////////////////////////////////////////////////////////////////////////
+
+[WeaponCategory] == "Wand" && [Rarity] == "Rare" # [lightning_spell_skill_gem_level_+] >= "4" && [TotalLightningSpellDamage] >= "100" && [base_cast_speed_+%] >= "10" && [StashItem] == "true"
+
+[WeaponCategory] == "Wand" && [Rarity] == "Rare" # [lightning_spell_skill_gem_level_+] >= "4" && [TotalLightningSpellDamage] >= "140" && [StashItem] == "true"
+
+[WeaponCategory] == "Wand" && [Rarity] == "Rare" # [lightning_spell_skill_gem_level_+] >= "3" && [TotalLightningSpellDamage] >= "150" && [base_cast_speed_+%] >= "10" && [StashItem] == "true"
+
+[WeaponCategory] == "Wand" && [Rarity] == "Rare" # [lightning_spell_skill_gem_level_+] >= "5" && [StashItem] == "true"
+
+
+//[WeaponCategory] == "Wand" && [Rarity] == "Rare" #[fire_spell_skill_gem_level_+] >= "3" && [StashItem] == "true"
+//[WeaponCategory] == "Wand" && [Rarity] == "Rare" #[cold_spell_skill_gem_level_+] >= "3" && [StashItem] == "true"
+//[WeaponCategory] == "Wand" && [Rarity] == "Rare" #[chaos_spell_skill_gem_level_+] >= "3" && [StashItem] == "true"
+
+/////////////////////////////////////////////////////////////////////////////////////
+//                                     Quaterstaffs                                //
+/////////////////////////////////////////////////////////////////////////////////////
+
+//[WeaponCategory] == "Quarterstaff" && [Rarity] == "Rare" # [DPS] >= "150" && [projectile_skill_gem_level_+] >= "3" && [StashItem] == "true"
+//[WeaponCategory] == "Quarterstaff" && [Rarity] == "Rare" # [DPS] >= "300" && [projectile_skill_gem_level_+] >= "2" && [StashItem] == "true"
+//[WeaponCategory] == "Quarterstaff" && [Rarity] == "Rare" # [DPS] >= "400" && [StashItem] == "true"
+
+/////////////////////////////////////////////////////////////////////////////////////
+//                                     Quivers                                     //
+/////////////////////////////////////////////////////////////////////////////////////
+
+//[Category] == "Quiver" && [Rarity] == "Rare" # [attack_speed_+%] >= "8" && [projectile_skill_gem_level_+] >= "2" && [StashItem] == "true"
+//[Category] == "Quiver" && [Rarity] == "Rare" # [attack_speed_+%] >= "8" && [damage_+%_with_bow_skills] >= "35" && [StashItem] == "true"
+//[Category] == "Quiver" && [Rarity] == "Rare" # [projectile_skill_gem_level_+] >= "2" && [damage_+%_with_bow_skills] >= "35" && [StashItem] == "true"
+//[Category] == "Quiver" && [Rarity] == "Rare" # [damage_+%_with_bow_skills] >= "40" && [base_projectile_speed_+%] >= "30" && [StashItem] == "true"
+
+/////////////////////////////////////////////////////////////////////////////////////
+//                                     Focuses                                     //
+/////////////////////////////////////////////////////////////////////////////////////
+
+[WeaponCategory] == "Focus" && [Rarity] == "Rare" # [ComputedEnergyShield] >= "400" && [StashItem] == "true"
+[WeaponCategory] == "Focus" && [Rarity] == "Rare" # [ComputedEnergyShield] >= "270" && [spell_skill_gem_level_+] >= "2" && [StashItem] == "true"
+
+/////////////////////////////////////////////////////////////////////////////////////
+//                                                                                 //
+//                                  SALVAGE                                        //
+//                                                                                 //
+/////////////////////////////////////////////////////////////////////////////////////
+
+//[Rarity] == "Normal" && [Sockets] > "0" # [Salvage] == "true"
+//[Rarity] == "Magic" && [Sockets] > "0" # [Salvage] == "true"
+
+//[Rarity] == "Normal" && [Quality] > "0" # [Salvage] == "true"
+//[Rarity] == "Magic" && [Quality] > "0" # [Salvage] == "true"
+
+/////////////////////////////////////////////////////////////////////////////////////
+//                                                                                 //
+//                                  CURRENCY                                       //
+//                                                                                 //
+/////////////////////////////////////////////////////////////////////////////////////
+
+// [Type] == "Gold" # [StashItem] == "true"
+// [Type] == "Scroll of Wisdom" # [StashItem] == "true"
+[Type] == "Arcanist's Etcher" # [StashItem] == "true"
+[Type] == "Armourer's Scrap" # [StashItem] == "true"
+[Type] == "Artificer's Orb" # [StashItem] == "true"
+//[Type] == "Blacksmith's Whetstone" # [StashItem] == "true"
+[Type] == "Chaos Orb" # [StashItem] == "true"
+[Type] == "Divine Orb" # [StashItem] == "true"
+[Type] == "Exalted Orb" # [StashItem] == "true"
+[Type] == "Gemcutter's Prism" # [StashItem] == "true"
+[Type] == "Glassblower's Bauble" # [StashItem] == "true"
+[Type] == "Greater Jeweller's Orb" # [StashItem] == "true"
+//[Type] == "Lesser Jeweller's Orb" # [StashItem] == "true"
+[Type] == "Mirror of Kalandra" # [StashItem] == "true"
+[Type] == "Orb of Alchemy" # [StashItem] == "true"
+[Type] == "Orb of Annulment" # [StashItem] == "true"
+//[Type] == "Orb of Augmentation" # [StashItem] == "true"
+[Type] == "Orb of Chance" # [StashItem] == "true"
+//[Type] == "Orb of Transmutation" # [StashItem] == "true"
+[Type] == "Perfect Jeweller's Orb" # [StashItem] == "true"
+//[Type] == "Regal Orb" # [StashItem] == "true"
+[Type] == "Vaal Orb" # [StashItem] == "true"
+//[Type] == "Artificer's Shard" # [StashItem] == "true"
+[Type] == "Chance Shard" # [StashItem] == "true"
+//[Type] == "Regal Shard" # [StashItem] == "true"
+//[Type] == "Transmutation Shard" # [StashItem] == "true"
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////
+//                                                                                 //
+//                                     Runes  			                           //
+//                                                                                 //
+/////////////////////////////////////////////////////////////////////////////////////
+
+//[Type] == "Body Rune" # [StashItem] == "true"
+//[Type] == "Desert Rune" # [StashItem] == "true"
+//[Type] == "Glacial Rune" # [StashItem] == "true"
+//[Type] == "Inspiration Rune" # [StashItem] == "true"
+//[Type] == "Iron Rune" # [StashItem] == "true"
+//[Type] == "Mind Rune" # [StashItem] == "true"
+//[Type] == "Rebirth Rune" # [StashItem] == "true"
+//[Type] == "Stone Rune" # [StashItem] == "true"
+//[Type] == "Storm Rune" # [StashItem] == "true"
+//[Type] == "Vision Rune" # [StashItem] == "true"
+
+/////////////////////////////////////////////////////////////////////////////////////
+//                                                                                 //
+//                                    Distilled emotions		                   //
+//                                                                                 //
+/////////////////////////////////////////////////////////////////////////////////////
+
+[Type] == "Distilled Despair" # [StashItem] == "true"
+[Type] == "Distilled Disgust" # [StashItem] == "true"
+[Type] == "Distilled Envy" # [StashItem] == "true"
+[Type] == "Distilled Fear" # [StashItem] == "true"
+[Type] == "Distilled Greed" # [StashItem] == "true"
+[Type] == "Distilled Guilt" # [StashItem] == "true"
+[Type] == "Distilled Ire" # [StashItem] == "true"
+[Type] == "Distilled Isolation" # [StashItem] == "true"
+[Type] == "Distilled Paranoia" # [StashItem] == "true"
+[Type] == "Distilled Suffering" # [StashItem] == "true"
+
+
+/////////////////////////////////////////////////////////////////////////////////////
+//                                                                                 //
+//                                    Soul Cores 				                   //
+//                                                                                 //
+/////////////////////////////////////////////////////////////////////////////////////
+
+[Type] == "Soul Core of Atmohua" # [StashItem] == "true"
+[Type] == "Soul Core of Azcapa" # [StashItem] == "true"
+[Type] == "Soul Core of Cholotl" # [StashItem] == "true"
+[Type] == "Soul Core of Citaqualotl" # [StashItem] == "true"
+[Type] == "Soul Core of Jiquani" # [StashItem] == "true"
+[Type] == "Soul Core of Opiloti" # [StashItem] == "true"
+[Type] == "Soul Core of Puhuarte" # [StashItem] == "true"
+[Type] == "Soul Core of Quipolatl" # [StashItem] == "true"
+[Type] == "Soul Core of Tacati" # [StashItem] == "true"
+[Type] == "Soul Core of Ticaba" # [StashItem] == "true"
+[Type] == "Soul Core of Topotante" # [StashItem] == "true"
+[Type] == "Soul Core of Tzamoto" # [StashItem] == "true"
+[Type] == "Soul Core of Xopec" # [StashItem] == "true"
+[Type] == "Soul Core of Zalatl" # [StashItem] == "true"
+[Type] == "Soul Core of Zantipi" # [StashItem] == "true"
+
+
+/////////////////////////////////////////////////////////////////////////////////////
+//                                                                                 //
+//                                     Omens                                       //
+//                                                                                 //
+/////////////////////////////////////////////////////////////////////////////////////
+
+[Type] == "Omen of Amelioration" # [StashItem] == "true"
+[Type] == "Omen of Corruption" # [StashItem] == "true"
+[Type] == "Omen of Dextral Alchemy" # [StashItem] == "true"
+[Type] == "Omen of Dextral Annulment" # [StashItem] == "true"
+[Type] == "Omen of Dextral Coronation" # [StashItem] == "true"
+[Type] == "Omen of Dextral Erasure" # [StashItem] == "true"
+[Type] == "Omen of Dextral Exaltation" # [StashItem] == "true"
+[Type] == "Omen of Greater Annulment" # [StashItem] == "true"
+[Type] == "Omen of Greater Exaltation" # [StashItem] == "true"
+[Type] == "Omen of Refreshment" # [StashItem] == "true"
+[Type] == "Omen of Resurgence" # [StashItem] == "true"
+[Type] == "Omen of Sinistral Alchemy" # [StashItem] == "true"
+[Type] == "Omen of Sinistral Annulment" # [StashItem] == "true"
+[Type] == "Omen of Sinistral Coronation" # [StashItem] == "true"
+[Type] == "Omen of Sinistral Erasure" # [StashItem] == "true"
+[Type] == "Omen of Sinistral Exaltation" # [StashItem] == "true"
+[Type] == "Omen of Whittling" # [StashItem] == "true"
+
+
+/////////////////////////////////////////////////////////////////////////////////////
+//                                                                                 //
+//                                    Essences                                     //
+//                                                                                 //
+/////////////////////////////////////////////////////////////////////////////////////
+
+[Type] == "Essence of Battle" # [StashItem] == "true"
+[Type] == "Essence of Electricity" # [StashItem] == "true"
+[Type] == "Essence of Enhancement" # [StashItem] == "true"
+[Type] == "Essence of Flames" # [StashItem] == "true"
+[Type] == "Essence of Haste" # [StashItem] == "true"
+[Type] == "Essence of Ice" # [StashItem] == "true"
+[Type] == "Essence of Ruin" # [StashItem] == "true"
+[Type] == "Essence of Sorcery" # [StashItem] == "true"
+[Type] == "Essence of the Body" # [StashItem] == "true"
+[Type] == "Essence of the Infinite" # [StashItem] == "true"
+[Type] == "Essence of the Mind" # [StashItem] == "true"
+[Type] == "Essence of Torment" # [StashItem] == "true"
+[Type] == "Greater Essence of Battle" # [StashItem] == "true"
+[Type] == "Greater Essence of Electricity" # [StashItem] == "true"
+[Type] == "Greater Essence of Enhancement" # [StashItem] == "true"
+[Type] == "Greater Essence of Flames" # [StashItem] == "true"
+[Type] == "Greater Essence of Haste" # [StashItem] == "true"
+[Type] == "Greater Essence of Ice" # [StashItem] == "true"
+[Type] == "Greater Essence of Ruin" # [StashItem] == "true"
+[Type] == "Greater Essence of Sorcery" # [StashItem] == "true"
+[Type] == "Greater Essence of the Body" # [StashItem] == "true"
+[Type] == "Greater Essence of the Infinite" # [StashItem] == "true"
+[Type] == "Greater Essence of the Mind" # [StashItem] == "true"
+[Type] == "Greater Essence of Torment" # [StashItem] == "true"
+
+/////////////////////////////////////////////////////////////////////////////////////
+//                                                                                 //
+//                                     Catalysts                                   //
+//                                                                                 //
+/////////////////////////////////////////////////////////////////////////////////////
+
+[Type] == "Doryani's Catalyst" # [StashItem] == "true"
+[Type] == "Flesh Catalyst" # [StashItem] == "true"
+[Type] == "Neural Catalyst" # [StashItem] == "true"
+[Type] == "Carapace Catalyst" # [StashItem] == "true"
+[Type] == "Uul-Netol's Catalyst" # [StashItem] == "true"
+[Type] == "Xoph's Catalyst" # [StashItem] == "true"
+[Type] == "Tul's Catalyst" # [StashItem] == "true"
+[Type] == "Esh's Catalyst" # [StashItem] == "true"
+[Type] == "Chayula's Catalyst" # [StashItem] == "true"
+[Type] == "Reaver Catalyst" # [StashItem] == "true"
+[Type] == "Sibilant Catalyst" # [StashItem] == "true"
+[Type] == "Volatile Catalyst" # [StashItem] == "true"
+
+/////////////////////////////////////////////////////////////////////////////////////
+//                                                                                 //
+//                                     Splinters                                   //
+//                                                                                 //
+/////////////////////////////////////////////////////////////////////////////////////
+
+[Type] == "Breach Splinter" # [StashItem] == "true"
+[Type] == "Simulacrum Splinter" # [StashItem] == "true"
+
+/////////////////////////////////////////////////////////////////////////////////////
+//                                                                                 //
+//                                     Artifacts                                   //
+//                                                                                 //
+/////////////////////////////////////////////////////////////////////////////////////
+
+//[Type] == "Broken Circle Artifact" # [StashItem] == "true"
+//[Type] == "Black Scythe Artifact" # [StashItem] == "true"
+//[Type] == "Order Artifact" # [StashItem] == "true"
+//[Type] == "Sun Artifact" # [StashItem] == "true"
+
+/////////////////////////////////////////////////////////////////////////////////////
+//                                                                                 //
+//                                     Trial Keys                                  //
+//                                                                                 //
+/////////////////////////////////////////////////////////////////////////////////////
+
+//[Type] == "Bronze Key" # [StashItem] == "true"
+//[Type] == "Silver Key" # [StashItem] == "true"
+//[Type] == "Gold Key" # [StashItem] == "true"
+
+
+/////////////////////////////////////////////////////////////////////////////////////
+//                                                                                 //
+//                                    Rings                                        //
+//                                                                                 //
+/////////////////////////////////////////////////////////////////////////////////////
+
+[Category] == "Ring" && [Rarity] == "Rare" && [additional_strength] >= "23" # [StashItem] == "true"
+
+
+[Category] == "Ring" && [Rarity] == "Rare" && [base_item_found_rarity_+%] >= "59" && [StashItem] == "true"
+
+////// LIFE + STAT //////
+
+[Category] == "Ring" && [Rarity] == "Rare" && [base_maximum_life] >= "60" && [TotalAttributes] >= "90" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [base_maximum_life] >= "70" && [TotalAttributes] >= "85" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [base_maximum_life] >= "85" && [TotalAttributes] >= "80" && [StashItem] == "true"
+
+////// LIFE + RES //////
+
+[Category] == "Ring" && [Rarity] == "Rare" && [base_maximum_life] >= "1" && [TotalResistances] >= "115" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [base_maximum_life] >= "70" && [TotalResistances] >= "110" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [base_maximum_life] >= "100" && [TotalResistances] >= "100" && [StashItem] == "true"
+
+////// LIFE + RARITY //////
+
+[Category] == "Ring" && [Rarity] == "Rare" && [base_maximum_life] >= "1" && [base_item_found_rarity_+%] >= "54" && [StashItem] == "true"
+
+////// STAT + RES //////
+
+[Category] == "Ring" && [Rarity] == "Rare" && [additional_all_attributes] >= "11" && [TotalResistances] >= "80" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [base_resist_all_elements_%] >= "12" && [TotalAttributes] >= "60" && [StashItem] == "true"
+
+////// STAT + RARITY //////
+
+[Category] == "Ring" && [Rarity] == "Rare" && [TotalAttributes] >= "80" && [base_item_found_rarity_+%] >= "18" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [TotalAttributes] >= "75" && [base_item_found_rarity_+%] >= "25" && [StashItem] == "true"
+
+////// STAT + PHYS //////
+
+[Category] == "Ring" && [Rarity] == "Rare" && [TotalAttributes] >= "80" && [attack_maximum_added_physical_damage] >= "22" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [TotalAttributes] >= "90" && [attack_maximum_added_physical_damage] >= "12" && [StashItem] == "true"
+
+////// STAT + MANA //////
+
+[Category] == "Ring" && [Rarity] == "Rare" && [TotalAttributes] >= "80" && [base_maximum_mana] >= "165" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [TotalAttributes] >= "85" && [base_maximum_mana] >= "150" && [StashItem] == "true"
+
+////// STAT + CAST SPEED //////
+
+[Category] == "Ring" && [Rarity] == "Rare" && [TotalAttributes] >= "70" && [base_cast_speed_+%] >= "17" && [StashItem] == "true"
+
+////// RES + RARITY //////
+
+[Category] == "Ring" && [Rarity] == "Rare" && [TotalResistances] >= "105" && [base_item_found_rarity_+%] >= "20" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [TotalResistances] >= "85" && [base_item_found_rarity_+%] >= "30" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [TotalResistances] >= "60" && [base_item_found_rarity_+%] >= "45" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [TotalResistances] >= "45" && [base_item_found_rarity_+%] >= "50" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [TotalResistances] >= "35" && [base_item_found_rarity_+%] >= "55" && [StashItem] == "true"
+
+////// RES + PHYS //////
+
+[Category] == "Ring" && [Rarity] == "Rare" && [TotalResistances] >= "100" && [attack_maximum_added_physical_damage] >= "22" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [TotalResistances] >= "110" && [attack_maximum_added_physical_damage] >= "14" && [StashItem] == "true"
+
+////// RES + MANA //////
+
+[Category] == "Ring" && [Rarity] == "Rare" && [TotalResistances] >= "115" && [base_maximum_mana] >= "100" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [TotalResistances] >= "110" && [base_maximum_mana] >= "150" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [TotalResistances] >= "100" && [base_maximum_mana] >= "165" && [StashItem] == "true"
+
+////// RES + CAST SPEED //////
+
+[Category] == "Ring" && [Rarity] == "Rare" && [TotalResistances] >= "85" && [base_cast_speed_+%] >= "21" && [StashItem] == "true"
+
+////// RARITY + PHYS //////
+
+[Category] == "Ring" && [Rarity] == "Rare" && [base_item_found_rarity_+%] >= "52" && [attack_maximum_added_physical_damage] >= "22" && [StashItem] == "true"
+
+////// RARITY + MANA //////
+
+[Category] == "Ring" && [Rarity] == "Rare" && [base_item_found_rarity_+%] >= "55" && [base_maximum_mana] >= "150" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [base_item_found_rarity_+%] >= "45" && [base_maximum_mana] >= "180" && [StashItem] == "true"
+
+////// RARITY + CAST SPEED //////
+
+[Category] == "Ring" && [Rarity] == "Rare" && [base_item_found_rarity_+%] >= "50" && [base_cast_speed_+%] >= "21" && [StashItem] == "true"
+
+////// MANA + CAST SPEED //////
+
+[Category] == "Ring" && [Rarity] == "Rare" && [base_maximum_mana] >= "180" && [base_cast_speed_+%] >= "21" && [StashItem] == "true"
+
+////// LIFE + STAT + RES //////
+
+[Category] == "Ring" && [Rarity] == "Rare" && [base_maximum_life] >= "100" && [TotalAttributes] >= "20" && [TotalResistances] >= "85" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [base_maximum_life] >= "100" && [TotalAttributes] >= "50" && [TotalResistances] >= "45" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [base_maximum_life] >= "100" && [TotalAttributes] >= "60" && [TotalResistances] >= "35" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [base_maximum_life] >= "100" && [TotalAttributes] >= "70" && [TotalResistances] >= "10" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [base_maximum_life] >= "50" && [TotalAttributes] >= "70" && [TotalResistances] >= "30" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [base_maximum_life] >= "50" && [TotalAttributes] >= "30" && [TotalResistances] >= "85" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [base_maximum_life] >= "50" && [TotalAttributes] >= "20" && [TotalResistances] >= "90" && [StashItem] == "true"
+
+
+////// LIFE + STAT + RARITY //////
+
+[Category] == "Ring" && [Rarity] == "Rare" && [base_maximum_life] >= "100" && [TotalAttributes] >= "65" && [base_item_found_rarity_+%] >= "15" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [base_maximum_life] >= "100" && [TotalAttributes] >= "60" && [base_item_found_rarity_+%] >= "23" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [base_maximum_life] >= "100" && [TotalAttributes] >= "35" && [base_item_found_rarity_+%] >= "40" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [base_maximum_life] >= "100" && [TotalAttributes] >= "25" && [base_item_found_rarity_+%] >= "50" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [base_maximum_life] >= "50" && [TotalAttributes] >= "70" && [base_item_found_rarity_+%] >= "15" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [base_maximum_life] >= "50" && [TotalAttributes] >= "65" && [base_item_found_rarity_+%] >= "30" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [base_maximum_life] >= "50" && [TotalAttributes] >= "55" && [base_item_found_rarity_+%] >= "40" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [base_maximum_life] >= "50" && [TotalAttributes] >= "30" && [base_item_found_rarity_+%] >= "50" && [StashItem] == "true"
+
+////// LIFE + STAT + PHYS //////
+
+[Category] == "Ring" && [Rarity] == "Rare" && [base_maximum_life] >= "100" && [TotalAttributes] >= "65" && [attack_maximum_added_physical_damage] >= "22" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [base_maximum_life] >= "50" && [TotalAttributes] >= "70" && [attack_maximum_added_physical_damage] >= "22" && [StashItem] == "true"
+
+////// LIFE + STAT + MANA //////
+
+[Category] == "Ring" && [Rarity] == "Rare" && [base_maximum_life] >= "100" && [TotalAttributes] >= "65" && [base_maximum_mana] >= "165" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [base_maximum_life] >= "50" && [TotalAttributes] >= "65" && [base_maximum_mana] >= "180" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [base_maximum_life] >= "50" && [TotalAttributes] >= "75" && [base_maximum_mana] >= "150" && [StashItem] == "true"
+
+////// LIFE + STAT + CAST SPEED //////
+
+[Category] == "Ring" && [Rarity] == "Rare" && [base_maximum_life] >= "100" && [TotalAttributes] >= "55" && [base_cast_speed_+%] >= "21" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [base_maximum_life] >= "100" && [TotalAttributes] >= "70" && [base_cast_speed_+%] >= "10" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [base_maximum_life] >= "50" && [TotalAttributes] >= "65" && [base_cast_speed_+%] >= "23" && [StashItem] == "true"
+
+////// LIFE + RES + RARITY //////
+
+[Category] == "Ring" && [Rarity] == "Rare" && [base_maximum_life] >= "100" && [TotalResistances] >= "75" && [base_item_found_rarity_+%] >= "25" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [base_maximum_life] >= "100" && [TotalResistances] >= "85" && [base_item_found_rarity_+%] >= "10" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [base_maximum_life] >= "100" && [TotalResistances] >= "35" && [base_item_found_rarity_+%] >= "40" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [base_maximum_life] >= "100" && [TotalResistances] >= "25" && [base_item_found_rarity_+%] >= "45" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [base_maximum_life] >= "50" && [TotalResistances] >= "40" && [base_item_found_rarity_+%] >= "45" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [base_maximum_life] >= "50" && [TotalResistances] >= "80" && [base_item_found_rarity_+%] >= "25" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [base_maximum_life] >= "50" && [TotalResistances] >= "35" && [base_item_found_rarity_+%] >= "50" && [StashItem] == "true"
+
+
+////// LIFE + RES + PHYS //////
+
+[Category] == "Ring" && [Rarity] == "Rare" && [base_maximum_life] >= "100" && [TotalResistances] >= "45" && [attack_maximum_added_physical_damage] >= "22" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [base_maximum_life] >= "50" && [TotalResistances] >= "80" && [attack_maximum_added_physical_damage] >= "22" && [StashItem] == "true"
+
+////// LIFE + RES + MANA //////
+
+[Category] == "Ring" && [Rarity] == "Rare" && [base_maximum_life] >= "100" && [TotalResistances] >= "55" && [base_maximum_mana] >= "180" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [base_maximum_life] >= "100" && [TotalResistances] >= "70" && [base_maximum_mana] >= "165" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [base_maximum_life] >= "50" && [TotalResistances] >= "85" && [base_maximum_mana] >= "165" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [base_maximum_life] >= "50" && [TotalResistances] >= "100" && [base_maximum_mana] >= "100" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [base_maximum_life] >= "50" && [TotalResistances] >= "70" && [base_maximum_mana] >= "180" && [StashItem] == "true"
+
+////// LIFE + RES + CAST SPEED //////
+
+[Category] == "Ring" && [Rarity] == "Rare" && [base_maximum_life] >= "100" && [TotalResistances] >= "70" && [base_cast_speed_+%] >= "20" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [base_maximum_life] >= "50" && [TotalResistances] >= "75" && [base_cast_speed_+%] >= "23" && [StashItem] == "true"
+
+
+////// LIFE + RARITY + PHYS //////
+
+[Category] == "Ring" && [Rarity] == "Rare" && [base_maximum_life] >= "100" && [base_item_found_rarity_+%] >= "35" && [attack_maximum_added_physical_damage] >= "22" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [base_maximum_life] >= "50" && [base_item_found_rarity_+%] >= "40" && [attack_maximum_added_physical_damage] >= "22" && [StashItem] == "true"
+
+
+////// LIFE + RARITY + MANA //////
+
+[Category] == "Ring" && [Rarity] == "Rare" && [base_maximum_life] >= "100" && [base_item_found_rarity_+%] >= "35" && [base_maximum_mana] >= "165" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [base_maximum_life] >= "50" && [base_item_found_rarity_+%] >= "30" && [base_maximum_mana] >= "180" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [base_maximum_life] >= "100" && [base_item_found_rarity_+%] >= "45" && [base_maximum_mana] >= "100" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [base_maximum_life] >= "50" && [base_item_found_rarity_+%] >= "50" && [base_maximum_mana] >= "100" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [base_maximum_life] >= "100" && [base_item_found_rarity_+%] >= "25" && [base_maximum_mana] >= "180" && [StashItem] == "true"
+
+
+////// LIFE + RARITY + CAST SPEED //////
+
+[Category] == "Ring" && [Rarity] == "Rare" && [base_maximum_life] >= "100" && [base_item_found_rarity_+%] >= "35" && [base_cast_speed_+%] >= "20" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [base_maximum_life] >= "50" && [base_item_found_rarity_+%] >= "40" && [base_cast_speed_+%] >= "20" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [base_maximum_life] >= "100" && [base_item_found_rarity_+%] >= "50" && [base_cast_speed_+%] >= "10" && [StashItem] == "true"
+
+////// LIFE + MANA + CAST SPEED //////
+
+[Category] == "Ring" && [Rarity] == "Rare" && [base_maximum_life] >= "100" && [base_maximum_mana] >= "165" && [base_cast_speed_+%] >= "20" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [base_maximum_life] >= "100" && [base_maximum_mana] >= "180" && [base_cast_speed_+%] >= "15" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [base_maximum_life] >= "50" && [base_maximum_mana] >= "180" && [base_cast_speed_+%] >= "20" && [StashItem] == "true"
+
+////// STAT + RES + RARITY //////
+
+[Category] == "Ring" && [Rarity] == "Rare" && [TotalAttributes] >= "35" && [TotalResistances] >= "65" && [base_item_found_rarity_+%] >= "20" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [TotalAttributes] >= "65" && [TotalResistances] >= "35" && [base_item_found_rarity_+%] >= "20" && [StashItem] == "true"
+
+////// STAT + RES + PHYS //////
+
+[Category] == "Ring" && [Rarity] == "Rare" && [TotalAttributes] >= "65" && [TotalResistances] >= "15" && [attack_maximum_added_physical_damage] >= "22" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [TotalAttributes] >= "20" && [TotalResistances] >= "85" && [attack_maximum_added_physical_damage] >= "22" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [TotalAttributes] >= "30" && [TotalResistances] >= "80" && [attack_maximum_added_physical_damage] >= "22" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [TotalAttributes] >= "45" && [TotalResistances] >= "45" && [attack_maximum_added_physical_damage] >= "22" && [StashItem] == "true"
+
+////// STAT + RES + MANA //////
+
+[Category] == "Ring" && [Rarity] == "Rare" && [TotalAttributes] >= "55" && [TotalResistances] >= "45" && [base_maximum_mana] >= "100" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [TotalAttributes] >= "20" && [TotalResistances] >= "80" && [base_maximum_mana] >= "100" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [TotalAttributes] >= "80" && [TotalResistances] >= "80" && [base_maximum_mana] >= "100" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [TotalAttributes] >= "65" && [TotalResistances] >= "20" && [base_maximum_mana] >= "100" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [TotalAttributes] >= "60" && [TotalResistances] >= "40" && [base_maximum_mana] >= "100" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [TotalAttributes] >= "35" && [TotalResistances] >= "70" && [base_maximum_mana] >= "100" && [StashItem] == "true"
+
+
+////// STAT + RES + CAST SPEED //////
+
+[Category] == "Ring" && [Rarity] == "Rare" && [TotalAttributes] >= "35" && [TotalResistances] >= "40" && [base_cast_speed_+%] >= "15" && [StashItem] == "true"
+
+////// STAT + RARITY + PHYS //////
+
+[Category] == "Ring" && [Rarity] == "Rare" && [TotalAttributes] >= "65" && [base_item_found_rarity_+%] >= "15" && [attack_maximum_added_physical_damage] >= "22" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [TotalAttributes] >= "45" && [base_item_found_rarity_+%] >= "25" && [attack_maximum_added_physical_damage] >= "22" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [TotalAttributes] >= "25" && [base_item_found_rarity_+%] >= "40" && [attack_maximum_added_physical_damage] >= "22" && [StashItem] == "true"
+
+////// STAT + RARITY + MANA //////
+
+[Category] == "Ring" && [Rarity] == "Rare" && [TotalAttributes] >= "65" && [base_item_found_rarity_+%] >= "20" && [base_maximum_mana] >= "150" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [TotalAttributes] >= "70" && [base_item_found_rarity_+%] >= "15" && [base_maximum_mana] >= "150" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [TotalAttributes] >= "55" && [base_item_found_rarity_+%] >= "35" && [base_maximum_mana] >= "150" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [TotalAttributes] >= "40" && [base_item_found_rarity_+%] >= "40" && [base_maximum_mana] >= "150" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [TotalAttributes] >= "45" && [base_item_found_rarity_+%] >= "45" && [base_maximum_mana] >= "100" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [TotalAttributes] >= "35" && [base_item_found_rarity_+%] >= "50" && [base_maximum_mana] >= "100" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [TotalAttributes] >= "70" && [base_item_found_rarity_+%] >= "20" && [base_maximum_mana] >= "100" && [StashItem] == "true"
+
+////// STAT + RARITY + CAST SPEED //////
+
+[Category] == "Ring" && [Rarity] == "Rare" && [TotalAttributes] >= "70" && [base_item_found_rarity_+%] >= "15" && [base_cast_speed_+%] >= "15" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [TotalAttributes] >= "30" && [base_item_found_rarity_+%] >= "45" && [base_cast_speed_+%] >= "15" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [TotalAttributes] >= "35" && [base_item_found_rarity_+%] >= "35" && [base_cast_speed_+%] >= "15" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [TotalAttributes] >= "30" && [base_item_found_rarity_+%] >= "45" && [base_cast_speed_+%] >= "23" && [StashItem] == "true"
+
+////// STAT + MANA + CAST SPEED //////  
+
+[Category] == "Ring" && [Rarity] == "Rare" && [TotalAttributes] >= "65" && [base_maximum_mana] >= "100" && [base_cast_speed_+%] >= "10" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [TotalAttributes] >= "55" && [base_maximum_mana] >= "150" && [base_cast_speed_+%] >= "23" && [StashItem] == "true"
+
+////// RES + RARITY + PHYS //////  
+
+[Category] == "Ring" && [Rarity] == "Rare" && [TotalResistances] >= "80" && [base_item_found_rarity_+%] >= "10" && [attack_maximum_added_physical_damage] >= "22" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [TotalResistances] >= "55" && [base_item_found_rarity_+%] >= "25" && [attack_maximum_added_physical_damage] >= "22" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [TotalResistances] >= "25" && [base_item_found_rarity_+%] >= "45" && [attack_maximum_added_physical_damage] >= "22" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [TotalResistances] >= "35" && [base_item_found_rarity_+%] >= "40" && [attack_maximum_added_physical_damage] >= "22" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [TotalResistances] >= "15" && [base_item_found_rarity_+%] >= "50" && [attack_maximum_added_physical_damage] >= "22" && [StashItem] == "true"
+
+////// RES + RARITY + MANA //////  
+
+[Category] == "Ring" && [Rarity] == "Rare" && [TotalResistances] >= "85" && [base_item_found_rarity_+%] >= "15" && [base_maximum_mana] >= "150" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [TotalResistances] >= "65" && [base_item_found_rarity_+%] >= "35" && [base_maximum_mana] >= "150" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [TotalResistances] >= "35" && [base_item_found_rarity_+%] >= "50" && [base_maximum_mana] >= "150" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [TotalResistances] >= "45" && [base_item_found_rarity_+%] >= "45" && [base_maximum_mana] >= "100" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [TotalResistances] >= "90" && [base_item_found_rarity_+%] >= "15" && [base_maximum_mana] >= "100" && [StashItem] == "true"
+
+
+////// RES + RARITY + CAST SPEED //////  
+
+[Category] == "Ring" && [Rarity] == "Rare" && [TotalResistances] >= "35" && [base_item_found_rarity_+%] >= "40" && [base_cast_speed_+%] >= "10" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [TotalResistances] >= "55" && [base_item_found_rarity_+%] >= "30" && [base_cast_speed_+%] >= "10" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [TotalResistances] >= "85" && [base_item_found_rarity_+%] >= "15" && [base_cast_speed_+%] >= "10" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [TotalResistances] >= "25" && [base_item_found_rarity_+%] >= "45" && [base_cast_speed_+%] >= "10" && [StashItem] == "true"
+
+
+////// RES + MANA + CAST SPEED //////  
+
+[Category] == "Ring" && [Rarity] == "Rare" && [TotalResistances] >= "70" && [base_maximum_mana] >= "100" && [base_cast_speed_+%] >= "10" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [TotalResistances] >= "60" && [base_maximum_mana] >= "150" && [base_cast_speed_+%] >= "10" && [StashItem] == "true"
+
+
+////// RARITY + MANA + CAST SPEED //////  
+
+[Category] == "Ring" && [Rarity] == "Rare" && [base_item_found_rarity_+%] >= "45" && [base_maximum_mana] >= "100" && [base_cast_speed_+%] >= "10" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [base_item_found_rarity_+%] >= "25" && [base_maximum_mana] >= "140" && [base_cast_speed_+%] >= "20" && [StashItem] == "true"
+
+////// REGEN + MANA + CAST SPEED //////  
+
+[Category] == "Ring" && [Rarity] == "Rare" && [mana_regeneration_rate_+%] >= "50" && [base_maximum_mana] >= "150" && [base_cast_speed_+%] >= "10" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [mana_regeneration_rate_+%] >= "20" && [base_maximum_mana] >= "150" && [base_cast_speed_+%] >= "20" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [mana_regeneration_rate_+%] >= "20" && [base_maximum_mana] >= "165" && [base_cast_speed_+%] >= "15" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [mana_regeneration_rate_+%] >= "60" && [base_maximum_mana] >= "140" && [base_cast_speed_+%] >= "20" && [StashItem] == "true"
+
+////// REGEN + MANA + RES //////  
+
+[Category] == "Ring" && [Rarity] == "Rare" && [mana_regeneration_rate_+%] >= "50" && [base_maximum_mana] >= "100" && [TotalResistances] >= "70" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [mana_regeneration_rate_+%] >= "20" && [base_maximum_mana] >= "100" && [TotalResistances] >= "85" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [mana_regeneration_rate_+%] >= "60" && [base_maximum_mana] >= "150" && [TotalResistances] >= "55" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [mana_regeneration_rate_+%] >= "60" && [base_maximum_mana] >= "180" && [TotalResistances] >= "35" && [StashItem] == "true"
+
+////// REGEN + MANA + RARITY //////  
+
+[Category] == "Ring" && [Rarity] == "Rare" && [mana_regeneration_rate_+%] >= "20" && [base_maximum_mana] >= "100" && [base_item_found_rarity_+%] >= "50" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [mana_regeneration_rate_+%] >= "60" && [base_maximum_mana] >= "100" && [base_item_found_rarity_+%] >= "40" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [mana_regeneration_rate_+%] >= "60" && [base_maximum_mana] >= "165" && [base_item_found_rarity_+%] >= "30" && [StashItem] == "true"
+[Category] == "Ring" && [Rarity] == "Rare" && [mana_regeneration_rate_+%] >= "20" && [base_maximum_mana] >= "180" && [base_item_found_rarity_+%] >= "30" && [StashItem] == "true"
+
+
+[Type] == "Sapphire Ring" && [Rarity] == "Normal" && [StashItem] == "true"
+
+//[Category] == "Ring" && [Rarity] == "Rare" # [additional_strength] >= "25" && [StashItem] == "true"
+
+//[Category] == "Ring" && [Rarity] == "Rare" # [StashItem] == "true"
+
+//[Category] == "Ring" && [Rarity] == "Rare" # [base_item_found_rarity_+%] >= "25" && [StashItem] == "true"
+
+[Category] == "Ring" && [Rarity] == "Unique" # [StashItem] == "true"
+
+//[Category] == "Ring" && [ItemTier] >= "5" # [StashItemUid] == "true"
+
+/////////////////////////////////////////////////////////////////////////////////////
+//                                                                                 //
+//                                     Amulets                                     //
+//                                                                                 //
+/////////////////////////////////////////////////////////////////////////////////////
+
+[Type] == "Stellar Amulet" && [Rarity] == "Normal" && [StashItem] == "true"
+
+//[Category] == "Amulet" && [Rarity] == "Rare" # [SellItem] == "true"
+
+//[Category] == "Amulet" && [Rarity] == "Magic" # [base_spirit_from_equipment] >= "38" && [StashItem] == "true"
+
+[Category] == "Amulet" && [Rarity] == "Rare" # [spell_skill_gem_level_+] >= "2" && [StashItem] == "true"
+[Category] == "Amulet" && [Rarity] == "Rare" # [projectile_skill_gem_level_+] >= "2" && [StashItem] == "true"
+[Category] == "Amulet" && [Rarity] == "Rare" # [minion_skill_gem_level_+] >= "2" && [StashItem] == "true"
+
+[Category] == "Amulet" && [Rarity] == "Rare" # [base_maximum_life] >= "100" && [TotalResistances] >= "100" && [StashItem] == "true"
+[Category] == "Amulet" && [Rarity] == "Rare" # [base_maximum_life] >= "140" && [TotalResistances] >= "90" && [StashItem] == "true"
+
+
+//[Category] == "Amulet" && [Rarity] == "Unique" # [StashItem] == "true"
+
+//[Category] == "Amulet" && [ItemTier] >= "5" # [StashItemUid] == "true"
+
+/////////////////////////////////////////////////////////////////////////////////////
+//                                                                                 //
+//                                     Jewels                                      //
+//                                                                                 //
+/////////////////////////////////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////////////////////////////////
+//                                                                                 //
+//                                 MAGIC JEWELS                                    //
+//                                                                                 //
+/////////////////////////////////////////////////////////////////////////////////////
+
+/// COLD DMG ///
+
+[Category] == "Jewel" && [Rarity] == "Magic" # [cold_damage_+%] >= "13" && [spell_critical_strike_chance_+%] >= "13" [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [cold_damage_+%] >= "13" && [base_maximum_cold_damage_resistance_%] >= "2" [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [cold_damage_+%] >= "13" && [base_cast_speed_+%] >= "3" [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [cold_damage_+%] >= "13" && [critical_strike_chance_+%] >= "13" [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [cold_damage_+%] >= "13" && [base_critical_strike_multiplier_+] >= "14" [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [cold_damage_+%] >= "13" && [base_spell_critical_strike_multiplier_+] >= "14" [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [cold_damage_+%] >= "13" && [energy_generated_+%] >= "13" [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [cold_damage_+%] >= "13" && [skill_effect_duration_+%] >= "13" [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [cold_damage_+%] >= "13" && [recover_%_maximum_mana_on_kill] >= "2" [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [cold_damage_+%] >= "13" && [recover_%_maximum_life_on_kill] >= "2" [StashItem] == "true"
+
+/// SPELL DMG ///
+
+[Category] == "Jewel" && [Rarity] == "Magic" # [spell_damage_+%] >= "13" && [spell_critical_strike_chance_+%] >= "13" [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [spell_damage_+%] >= "13" && [base_maximum_cold_damage_resistance_%] >= "2" [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [spell_damage_+%] >= "13" && [base_cast_speed_+%] >= "3" [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [spell_damage_+%] >= "13" && [critical_strike_chance_+%] >= "13" [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [spell_damage_+%] >= "13" && [base_critical_strike_multiplier_+] >= "14" [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [spell_damage_+%] >= "13" && [base_spell_critical_strike_multiplier_+] >= "14" [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [spell_damage_+%] >= "13" && [energy_generated_+%] >= "13" [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [spell_damage_+%] >= "13" && [skill_effect_duration_+%] >= "13" [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [spell_damage_+%] >= "13" && [recover_%_maximum_mana_on_kill] >= "2" [StashItem] == "true"
+
+/// CRIT HIT AILMENT ///
+
+[Category] == "Jewel" && [Rarity] == "Magic" # [critical_hit_damaging_ailment_effect_+%] >= "18" && [attack_critical_strike_chance_+%] >= "14" [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [critical_hit_damaging_ailment_effect_+%] >= "18" && [attack_critical_strike_multiplier_+] >= "18" [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [critical_hit_damaging_ailment_effect_+%] >= "18" && [base_maximum_lightning_damage_resistance_%] >= "2" [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [critical_hit_damaging_ailment_effect_+%] >= "18" && [spell_critical_strike_chance_+%] >= "13" [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [critical_hit_damaging_ailment_effect_+%] >= "18" && [base_maximum_cold_damage_resistance_%] >= "2" [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [critical_hit_damaging_ailment_effect_+%] >= "18" && [base_cast_speed_+%] >= "3" [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [critical_hit_damaging_ailment_effect_+%] >= "18" && [critical_strike_chance_+%] >= "13" [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [critical_hit_damaging_ailment_effect_+%] >= "18" && [base_critical_strike_multiplier_+] >= "14" [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [critical_hit_damaging_ailment_effect_+%] >= "18" && [base_spell_critical_strike_multiplier_+] >= "14" [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [critical_hit_damaging_ailment_effect_+%] >= "18" && [energy_generated_+%] >= "13" [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [critical_hit_damaging_ailment_effect_+%] >= "18" && [skill_effect_duration_+%] >= "13" [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [critical_hit_damaging_ailment_effect_+%] >= "18" && [recover_%_maximum_mana_on_kill] >= "2" [StashItem] == "true"
+
+
+//// HERALD DMG ////
+
+[Category] == "Jewel" && [Rarity] == "Magic" # [damage_+%_with_herald_skills] >= "23" && [attack_critical_strike_chance_+%] >= "14" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [damage_+%_with_herald_skills] >= "23" && [attack_critical_strike_multiplier_+] >= "18" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [damage_+%_with_herald_skills] >= "23" && [attack_speed_+%] >= "3" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [damage_+%_with_herald_skills] >= "23" && [quarterstaff_attack_speed_+%] >= "4" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [damage_+%_with_herald_skills] >= "23" && [bow_attack_speed_+%] >= "3" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [damage_+%_with_herald_skills] >= "23" && [base_maximum_lightning_damage_resistance_%] >= "2" && [StashItem] == "true"
+
+
+//// TRIGGER SPELL DMG ////
+
+[Category] == "Jewel" && [Rarity] == "Magic" # [triggered_spell_spell_damage_+%] >= "16" && [spell_critical_strike_chance_+%] >= "13" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [triggered_spell_spell_damage_+%] >= "16" && [base_maximum_cold_damage_resistance_%] >= "2" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [triggered_spell_spell_damage_+%] >= "16" && [base_cast_speed_+%] >= "3" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [triggered_spell_spell_damage_+%] >= "16" && [critical_strike_chance_+%] >= "13" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [triggered_spell_spell_damage_+%] >= "16" && [base_critical_strike_multiplier_+] >= "18" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [triggered_spell_spell_damage_+%] >= "16" && [base_spell_critical_strike_multiplier_+] >= "18" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [triggered_spell_spell_damage_+%] >= "16" && [energy_generated_+%] >= "13" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [triggered_spell_spell_damage_+%] >= "16" && [skill_effect_duration_+%] >= "13" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [triggered_spell_spell_damage_+%] >= "16" && [recover_%_maximum_mana_on_kill] >= "2" && [StashItem] == "true"
+
+//// MINION DMG ////
+
+[Category] == "Jewel" && [Rarity] == "Magic" # [minion_damage_+%] >= "13" && [spell_critical_strike_chance_+%] >= "13" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [minion_damage_+%] >= "13" && [base_maximum_cold_damage_resistance_%] >= "2" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [minion_damage_+%] >= "13" && [base_cast_speed_+%] >= "3" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [minion_damage_+%] >= "13" && [critical_strike_chance_+%] >= "13" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [minion_damage_+%] >= "13" && [base_critical_strike_multiplier_+] >= "18" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [minion_damage_+%] >= "13" && [base_spell_critical_strike_multiplier_+] >= "18" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [minion_damage_+%] >= "13" && [energy_generated_+%] >= "13" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [minion_damage_+%] >= "13" && [recover_%_maximum_mana_on_kill] >= "2" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [minion_damage_+%] >= "13" && [recover_%_maximum_life_on_kill] >= "2" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [minion_damage_+%] >= "13" && [minion_attack_and_cast_speed_+%] >= "4" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [minion_damage_+%] >= "13" && [minion_critical_strike_chance_+%] >= "18" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [minion_damage_+%] >= "13" && [minion_critical_strike_multiplier_+] >= "18" && [StashItem] == "true"
+
+/// FOCUS ES ///
+
+[Category] == "Jewel" && [Rarity] == "Magic" # [energy_shield_from_focus_+%] >= "48" && [spell_critical_strike_chance_+%] >= "13" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [energy_shield_from_focus_+%] >= "48" && [base_maximum_cold_damage_resistance_%] >= "2" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [energy_shield_from_focus_+%] >= "48" && [base_cast_speed_+%] >= "3" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [energy_shield_from_focus_+%] >= "48" && [critical_strike_chance_+%] >= "13" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [energy_shield_from_focus_+%] >= "48" && [base_critical_strike_multiplier_+] >= "18" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [energy_shield_from_focus_+%] >= "48" && [base_spell_critical_strike_multiplier_+] >= "18" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [energy_shield_from_focus_+%] >= "48" && [energy_generated_+%] >= "13" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [energy_shield_from_focus_+%] >= "48" && [skill_effect_duration_+%] >= "13" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [energy_shield_from_focus_+%] >= "48" && [recover_%_maximum_mana_on_kill] >= "2" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [energy_shield_from_focus_+%] >= "48" && [recover_%_maximum_life_on_kill] >= "2" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [energy_shield_from_focus_+%] >= "48" && [minion_attack_and_cast_speed_+%] >= "3" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [energy_shield_from_focus_+%] >= "48" && [minion_critical_strike_chance_+%] >= "18" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [energy_shield_from_focus_+%] >= "48" && [minion_critical_strike_multiplier_+] >= "18" && [StashItem] == "true"
+
+//// MAXIMUM %ES ///
+
+[Category] == "Jewel" && [Rarity] == "Magic" # [maximum_energy_shield_+%] >= "18" && [spell_critical_strike_chance_+%] >= "13" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [maximum_energy_shield_+%] >= "18" && [base_maximum_cold_damage_resistance_%] >= "2" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [maximum_energy_shield_+%] >= "18" && [base_cast_speed_+%] >= "3" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [maximum_energy_shield_+%] >= "18" && [critical_strike_chance_+%] >= "13" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [maximum_energy_shield_+%] >= "18" && [base_critical_strike_multiplier_+] >= "18" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [maximum_energy_shield_+%] >= "18" && [base_spell_critical_strike_multiplier_+] >= "18" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [maximum_energy_shield_+%] >= "18" && [energy_generated_+%] >= "13" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [maximum_energy_shield_+%] >= "18" && [skill_effect_duration_+%] >= "13" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [maximum_energy_shield_+%] >= "18" && [recover_%_maximum_mana_on_kill] >= "2" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [maximum_energy_shield_+%] >= "18" && [recover_%_maximum_life_on_kill] >= "2" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [maximum_energy_shield_+%] >= "18" && [minion_attack_and_cast_speed_+%] >= "3" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [maximum_energy_shield_+%] >= "18" && [minion_critical_strike_chance_+%] >= "18" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [maximum_energy_shield_+%] >= "18" && [minion_critical_strike_multiplier_+] >= "18" && [StashItem] == "true"
+
+/// SHOCK EFFECT ///
+
+[Category] == "Jewel" && [Rarity] == "Magic" # [shock_effect_+%] >= "18" && [attack_critical_strike_chance_+%] >= "13" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [shock_effect_+%] >= "18" && [attack_critical_strike_multiplier_+] >= "18" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [shock_effect_+%] >= "18" && [base_maximum_lightning_damage_resistance_%] >= "2" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [shock_effect_+%] >= "18" && [spell_critical_strike_chance_+%] >= "13" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [shock_effect_+%] >= "18" && [base_maximum_cold_damage_resistance_%] >= "2" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [shock_effect_+%] >= "18" && [base_cast_speed_+%] >= "3" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [shock_effect_+%] >= "18" && [critical_strike_chance_+%] >= "13" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [shock_effect_+%] >= "18" && [base_critical_strike_multiplier_+] >= "18" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [shock_effect_+%] >= "18" && [base_spell_critical_strike_multiplier_+] >= "18" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [shock_effect_+%] >= "18" && [energy_generated_+%] >= "13" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [shock_effect_+%] >= "18" && [skill_effect_duration_+%] >= "13" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [shock_effect_+%] >= "18" && [recover_%_maximum_mana_on_kill] >= "2" && [StashItem] == "true"
+
+/// QOTF EVASION ///
+
+[Category] == "Jewel" && [Rarity] == "Magic" # [evasion_rating_+%] >= "18" && [attack_critical_strike_chance_+%] >= "13" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [evasion_rating_+%] >= "18" && [attack_critical_strike_multiplier_+] >= "18" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [evasion_rating_+%] >= "18" && [attack_speed_+%] >= "3" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [evasion_rating_+%] >= "18" && [quarterstaff_attack_speed_+%] >= "3" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [evasion_rating_+%] >= "18" && [bow_attack_speed_+%] >= "3" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [evasion_rating_+%] >= "18" && [base_maximum_lightning_damage_resistance_%] >= "2" && [StashItem] == "true"
+
+/// LIGHTNING DMG ///
+
+[Category] == "Jewel" && [Rarity] == "Magic" # [lightning_damage_+%] >= "13" && [attack_critical_strike_chance_+%] >= "13" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [lightning_damage_+%] >= "13" && [attack_critical_strike_multiplier_+] >= "18" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [lightning_damage_+%] >= "13" && [attack_speed_+%] >= "3" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [lightning_damage_+%] >= "13" && [quarterstaff_attack_speed_+%] >= "3" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [lightning_damage_+%] >= "13" && [bow_attack_speed_+%] >= "3" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [lightning_damage_+%] >= "13" && [base_maximum_lightning_damage_resistance_%] >= "2" && [StashItem] == "true"
+
+/// ELE DMG ///
+
+[Category] == "Jewel" && [Rarity] == "Magic" # [elemental_damage_+%] >= "13" && [attack_critical_strike_chance_+%] >= "11" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [elemental_damage_+%] >= "13" && [attack_critical_strike_multiplier_+] >= "16" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [elemental_damage_+%] >= "13" && [attack_speed_+%] >= "3" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [elemental_damage_+%] >= "13" && [quarterstaff_attack_speed_+%] >= "3" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [elemental_damage_+%] >= "13" && [bow_attack_speed_+%] >= "3" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [elemental_damage_+%] >= "13" && [base_maximum_lightning_damage_resistance_%] >= "2" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [elemental_damage_+%] >= "13" && [base_maximum_fire_damage_resistance_%] >= "2" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [elemental_damage_+%] >= "13" && [base_maximum_cold_damage_resistance_%] >= "2" && [StashItem] == "true"
+
+/// ATTACK DMG ///
+
+[Category] == "Jewel" && [Rarity] == "Magic" # [attack_damage_+%] >= "13" && [attack_critical_strike_chance_+%] >= "13" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [attack_damage_+%] >= "13" && [attack_critical_strike_multiplier_+] >= "18" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [attack_damage_+%] >= "13" && [attack_speed_+%] >= "3" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [attack_damage_+%] >= "13" && [quarterstaff_attack_speed_+%] >= "3" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [attack_damage_+%] >= "13" && [bow_attack_speed_+%] >= "3" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [attack_damage_+%] >= "13" && [base_maximum_lightning_damage_resistance_%] >= "2" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [attack_damage_+%] >= "13" && [base_maximum_fire_damage_resistance_%] >= "2" && [StashItem] == "true"
+
+/// ATTACK CRIT CHANCE ///
+
+[Category] == "Jewel" && [Rarity] == "Magic" # [attack_critical_strike_chance_+%] >= "14" && [damage_+%_to_rare_and_unique_enemies] >= "18" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [attack_critical_strike_chance_+%] >= "14" && [quarterstaff_damage_+%] >= "14" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [attack_critical_strike_chance_+%] >= "14" && [bow_damage_+%] >= "14" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [attack_critical_strike_chance_+%] >= "14" && [projectile_damage_+%] >= "13" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [attack_critical_strike_chance_+%] >= "14" && [evasion_rating_+%] >= "18" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [attack_critical_strike_chance_+%] >= "14" && [lightning_damage_+%] >= "13" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [attack_critical_strike_chance_+%] >= "14" && [projectile_speed_+%] >= "8" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [attack_critical_strike_chance_+%] >= "14" && [quiver_mod_effect_+%] >= "13" && [StashItem] == "true"
+
+/// DAMAGE TO RARE + UNIQUES ///
+
+[Category] == "Jewel" && [Rarity] == "Magic" # [damage_+%_to_rare_and_unique_enemies] >= "18" && [attack_critical_strike_multiplier_+] >= "23" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [damage_+%_to_rare_and_unique_enemies] >= "18" && [attack_speed_+%] >= "2" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [damage_+%_to_rare_and_unique_enemies] >= "18" && [quarterstaff_attack_speed_+%] >= "2" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [damage_+%_to_rare_and_unique_enemies] >= "18" && [bow_attack_speed_+%] >= "2" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [damage_+%_to_rare_and_unique_enemies] >= "18" && [base_maximum_lightning_damage_resistance_%] >= "0" && [StashItem] == "true"
+
+/// ATTACK CRIT MULTI ///
+
+[Category] == "Jewel" && [Rarity] == "Magic" # [attack_critical_strike_multiplier_+] >= "18" && [quarterstaff_damage_+%] >= "14" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [attack_critical_strike_multiplier_+] >= "18" && [bow_damage_+%] >= "14" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [attack_critical_strike_multiplier_+] >= "18" && [projectile_damage_+%] >= "13" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [attack_critical_strike_multiplier_+] >= "18" && [projectile_speed_+%] >= "8" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [attack_critical_strike_multiplier_+] >= "18" && [shock_effect_+%] >= "18" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [attack_critical_strike_multiplier_+] >= "18" && [base_maximum_lightning_damage_resistance_%] >= "0" && [StashItem] == "true"
+
+/// QUARTER STAFF DMG ///
+
+[Category] == "Jewel" && [Rarity] == "Magic" # [quarterstaff_damage_+%] >= "14" && [attack_critical_strike_chance_+%] >= "14" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [quarterstaff_damage_+%] >= "14" && [attack_critical_strike_multiplier_+] >= "18" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [quarterstaff_damage_+%] >= "14" && [attack_speed_+%] >= "3" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [quarterstaff_damage_+%] >= "14" && [quarterstaff_attack_speed_+%] >= "3" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [quarterstaff_damage_+%] >= "14" && [base_maximum_lightning_damage_resistance_%] >= "2" && [StashItem] == "true"
+
+/// BOW DMG ///
+
+[Category] == "Jewel" && [Rarity] == "Magic" # [bow_damage_+%] >= "14" && [attack_speed_+%] >= "3" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [bow_damage_+%] >= "14" && [lightning_damage_+%] >= "13" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [bow_damage_+%] >= "14" && [bow_attack_speed_+%] >= "3" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [bow_damage_+%] >= "14" && [base_maximum_lightning_damage_resistance_%] >= "2" && [StashItem] == "true"
+
+/// PROJECTILE DMG ///
+
+[Category] == "Jewel" && [Rarity] == "Magic" # [projectile_damage_+%] >= "14" && [attack_speed_+%] >= "3" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [projectile_damage_+%] >= "14" && [lightning_damage_+%] >= "13" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [projectile_damage_+%] >= "14" && [bow_attack_speed_+%] >= "3" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [projectile_damage_+%] >= "14" && [base_maximum_lightning_damage_resistance_%] >= "2" && [StashItem] == "true"
+
+/// PROJECTILE SPEED ///
+
+[Category] == "Jewel" && [Rarity] == "Magic" # [base_projectile_speed_+%] >= "8" && [attack_speed_+%] >= "3" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [base_projectile_speed_+%] >= "8" && [lightning_damage_+%] >= "13" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [base_projectile_speed_+%] >= "8" && [bow_attack_speed_+%] >= "3" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [base_projectile_speed_+%] >= "8" && [base_maximum_lightning_damage_resistance_%] >= "2" && [StashItem] == "true"
+
+/// LIGHTNING DMG ///
+
+[Category] == "Jewel" && [Rarity] == "Magic" # [lightning_damage_+%] >= "13" && [bow_attack_speed_+%] >= "3" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [lightning_damage_+%] >= "13" && [base_maximum_lightning_damage_resistance_%] >= "2" && [StashItem] == "true"
+
+/// OTHER ///
+
+[Category] == "Jewel" && [Rarity] == "Magic" # [base_movement_velocity_+%] >= "1" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" # [quiver_mod_effect_+%] >= "1" && [StashItem] == "true"
+
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////
+//                                                                                 //
+//                                 RARE JEWELS                                     //
+//                                                                                 //
+/////////////////////////////////////////////////////////////////////////////////////
+
+////////////////////////
+//                    //
+//   RARE SAPPHIRE    //
+//                    //
+////////////////////////
+
+/// LIGHTNING ///
+
+[Category] == "Jewel" && [Rarity] == "Rare" # [spell_damage_+%] >= "5" && [elemental_damage_+%] >= "5" && [base_cast_speed_+%] >= "1" && [critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [spell_damage_+%] >= "5" && [elemental_damage_+%] >= "5" && [base_cast_speed_+%] >= "1" && [base_critical_strike_multiplier_+] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [spell_damage_+%] >= "5" && [elemental_damage_+%] >= "5" && [base_cast_speed_+%] >= "1" && [base_spell_critical_strike_multiplier_+] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [spell_damage_+%] >= "5" && [elemental_damage_+%] >= "5" && [base_cast_speed_+%] >= "1" && [skill_effect_duration_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [spell_damage_+%] >= "5" && [elemental_damage_+%] >= "5" && [base_cast_speed_+%] >= "1" && [recover_%_maximum_mana_on_kill] >= "1" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [spell_damage_+%] >= "5" && [elemental_damage_+%] >= "5" && [base_cast_speed_+%] >= "1" && [spell_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [spell_damage_+%] >= "5" && [elemental_damage_+%] >= "5" && [critical_strike_chance_+%] >= "5" && [base_critical_strike_multiplier_+] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [spell_damage_+%] >= "5" && [elemental_damage_+%] >= "5" && [critical_strike_chance_+%] >= "5" && [base_spell_critical_strike_multiplier_+] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [spell_damage_+%] >= "5" && [elemental_damage_+%] >= "5" && [critical_strike_chance_+%] >= "5" && [skill_effect_duration_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [spell_damage_+%] >= "5" && [elemental_damage_+%] >= "5" && [critical_strike_chance_+%] >= "5" && [recover_%_maximum_mana_on_kill] >= "1" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [spell_damage_+%] >= "5" && [elemental_damage_+%] >= "5" && [critical_strike_chance_+%] >= "5" && [spell_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [spell_damage_+%] >= "5" && [elemental_damage_+%] >= "5" && [base_critical_strike_multiplier_+] >= "5" && [base_spell_critical_strike_multiplier_+] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [spell_damage_+%] >= "5" && [elemental_damage_+%] >= "5" && [base_critical_strike_multiplier_+] >= "5" && [skill_effect_duration_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [spell_damage_+%] >= "5" && [elemental_damage_+%] >= "5" && [base_critical_strike_multiplier_+] >= "5" && [recover_%_maximum_mana_on_kill] >= "1" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [spell_damage_+%] >= "5" && [elemental_damage_+%] >= "5" && [base_critical_strike_multiplier_+] >= "5" && [spell_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [spell_damage_+%] >= "5" && [elemental_damage_+%] >= "5" && [base_spell_critical_strike_multiplier_+] >= "5" && [skill_effect_duration_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [spell_damage_+%] >= "5" && [elemental_damage_+%] >= "5" && [base_spell_critical_strike_multiplier_+] >= "5" && [recover_%_maximum_mana_on_kill] >= "1" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [spell_damage_+%] >= "5" && [elemental_damage_+%] >= "5" && [base_spell_critical_strike_multiplier_+] >= "5" && [spell_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [spell_damage_+%] >= "5" && [elemental_damage_+%] >= "5" && [skill_effect_duration_+%] >= "5" && [recover_%_maximum_mana_on_kill] >= "1" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [spell_damage_+%] >= "5" && [elemental_damage_+%] >= "5" && [skill_effect_duration_+%] >= "5" && [spell_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [spell_damage_+%] >= "5" && [elemental_damage_+%] >= "5" && [recover_%_maximum_mana_on_kill] >= "1" && [spell_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+
+[Category] == "Jewel" && [Rarity] == "Rare" # [spell_damage_+%] >= "5" && [shock_effect_+%] >= "5" && [base_cast_speed_+%] >= "1" && [critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [spell_damage_+%] >= "5" && [shock_effect_+%] >= "5" && [base_cast_speed_+%] >= "1" && [base_critical_strike_multiplier_+] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [spell_damage_+%] >= "5" && [shock_effect_+%] >= "5" && [base_cast_speed_+%] >= "1" && [base_spell_critical_strike_multiplier_+] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [spell_damage_+%] >= "5" && [shock_effect_+%] >= "5" && [base_cast_speed_+%] >= "1" && [skill_effect_duration_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [spell_damage_+%] >= "5" && [shock_effect_+%] >= "5" && [base_cast_speed_+%] >= "1" && [recover_%_maximum_mana_on_kill] >= "1" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [spell_damage_+%] >= "5" && [shock_effect_+%] >= "5" && [base_cast_speed_+%] >= "1" && [spell_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [spell_damage_+%] >= "5" && [shock_effect_+%] >= "5" && [critical_strike_chance_+%] >= "5" && [base_critical_strike_multiplier_+] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [spell_damage_+%] >= "5" && [shock_effect_+%] >= "5" && [critical_strike_chance_+%] >= "5" && [base_spell_critical_strike_multiplier_+] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [spell_damage_+%] >= "5" && [shock_effect_+%] >= "5" && [critical_strike_chance_+%] >= "5" && [skill_effect_duration_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [spell_damage_+%] >= "5" && [shock_effect_+%] >= "5" && [critical_strike_chance_+%] >= "5" && [recover_%_maximum_mana_on_kill] >= "1" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [spell_damage_+%] >= "5" && [shock_effect_+%] >= "5" && [critical_strike_chance_+%] >= "5" && [spell_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [spell_damage_+%] >= "5" && [shock_effect_+%] >= "5" && [base_critical_strike_multiplier_+] >= "5" && [base_spell_critical_strike_multiplier_+] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [spell_damage_+%] >= "5" && [shock_effect_+%] >= "5" && [base_critical_strike_multiplier_+] >= "5" && [skill_effect_duration_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [spell_damage_+%] >= "5" && [shock_effect_+%] >= "5" && [base_critical_strike_multiplier_+] >= "5" && [recover_%_maximum_mana_on_kill] >= "1" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [spell_damage_+%] >= "5" && [shock_effect_+%] >= "5" && [base_critical_strike_multiplier_+] >= "5" && [spell_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [spell_damage_+%] >= "5" && [shock_effect_+%] >= "5" && [base_spell_critical_strike_multiplier_+] >= "5" && [skill_effect_duration_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [spell_damage_+%] >= "5" && [shock_effect_+%] >= "5" && [base_spell_critical_strike_multiplier_+] >= "5" && [recover_%_maximum_mana_on_kill] >= "1" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [spell_damage_+%] >= "5" && [shock_effect_+%] >= "5" && [base_spell_critical_strike_multiplier_+] >= "5" && [spell_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [spell_damage_+%] >= "5" && [shock_effect_+%] >= "5" && [skill_effect_duration_+%] >= "5" && [recover_%_maximum_mana_on_kill] >= "1" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [spell_damage_+%] >= "5" && [shock_effect_+%] >= "5" && [skill_effect_duration_+%] >= "5" && [spell_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [spell_damage_+%] >= "5" && [shock_effect_+%] >= "5" && [recover_%_maximum_mana_on_kill] >= "1" && [spell_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+
+[Category] == "Jewel" && [Rarity] == "Rare" # [elemental_damage_+%] >= "5" && [shock_effect_+%] >= "5" && [base_cast_speed_+%] >= "1" && [critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [elemental_damage_+%] >= "5" && [shock_effect_+%] >= "5" && [base_cast_speed_+%] >= "1" && [base_critical_strike_multiplier_+] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [elemental_damage_+%] >= "5" && [shock_effect_+%] >= "5" && [base_cast_speed_+%] >= "1" && [base_spell_critical_strike_multiplier_+] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [elemental_damage_+%] >= "5" && [shock_effect_+%] >= "5" && [base_cast_speed_+%] >= "1" && [skill_effect_duration_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [elemental_damage_+%] >= "5" && [shock_effect_+%] >= "5" && [base_cast_speed_+%] >= "1" && [recover_%_maximum_mana_on_kill] >= "1" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [elemental_damage_+%] >= "5" && [shock_effect_+%] >= "5" && [base_cast_speed_+%] >= "1" && [spell_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [elemental_damage_+%] >= "5" && [shock_effect_+%] >= "5" && [critical_strike_chance_+%] >= "5" && [base_critical_strike_multiplier_+] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [elemental_damage_+%] >= "5" && [shock_effect_+%] >= "5" && [critical_strike_chance_+%] >= "5" && [base_spell_critical_strike_multiplier_+] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [elemental_damage_+%] >= "5" && [shock_effect_+%] >= "5" && [critical_strike_chance_+%] >= "5" && [skill_effect_duration_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [elemental_damage_+%] >= "5" && [shock_effect_+%] >= "5" && [critical_strike_chance_+%] >= "5" && [recover_%_maximum_mana_on_kill] >= "1" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [elemental_damage_+%] >= "5" && [shock_effect_+%] >= "5" && [critical_strike_chance_+%] >= "5" && [spell_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [elemental_damage_+%] >= "5" && [shock_effect_+%] >= "5" && [base_critical_strike_multiplier_+] >= "5" && [base_spell_critical_strike_multiplier_+] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [elemental_damage_+%] >= "5" && [shock_effect_+%] >= "5" && [base_critical_strike_multiplier_+] >= "5" && [skill_effect_duration_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [elemental_damage_+%] >= "5" && [shock_effect_+%] >= "5" && [base_critical_strike_multiplier_+] >= "5" && [recover_%_maximum_mana_on_kill] >= "1" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [elemental_damage_+%] >= "5" && [shock_effect_+%] >= "5" && [base_critical_strike_multiplier_+] >= "5" && [spell_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [elemental_damage_+%] >= "5" && [shock_effect_+%] >= "5" && [base_spell_critical_strike_multiplier_+] >= "5" && [skill_effect_duration_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [elemental_damage_+%] >= "5" && [shock_effect_+%] >= "5" && [base_spell_critical_strike_multiplier_+] >= "5" && [recover_%_maximum_mana_on_kill] >= "1" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [elemental_damage_+%] >= "5" && [shock_effect_+%] >= "5" && [base_spell_critical_strike_multiplier_+] >= "5" && [spell_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [elemental_damage_+%] >= "5" && [shock_effect_+%] >= "5" && [skill_effect_duration_+%] >= "5" && [recover_%_maximum_mana_on_kill] >= "1" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [elemental_damage_+%] >= "5" && [shock_effect_+%] >= "5" && [skill_effect_duration_+%] >= "5" && [spell_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [elemental_damage_+%] >= "5" && [shock_effect_+%] >= "5" && [recover_%_maximum_mana_on_kill] >= "1" && [spell_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+
+
+/// COLD ///
+
+[Category] == "Jewel" && [Rarity] == "Rare" # [spell_damage_+%] >= "5" && [elemental_damage_+%] >= "5" && [recover_%_maximum_mana_on_kill] >= "1" && [spell_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [spell_damage_+%] >= "5" && [elemental_damage_+%] >= "5" && [recover_%_maximum_mana_on_kill] >= "1" && [base_critical_strike_multiplier_+] >= "10" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [spell_damage_+%] >= "5" && [elemental_damage_+%] >= "5" && [recover_%_maximum_mana_on_kill] >= "1" && [base_spell_critical_strike_multiplier_+] >= "10" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [spell_damage_+%] >= "5" && [elemental_damage_+%] >= "5" && [spell_critical_strike_chance_+%] >= "5" && [base_critical_strike_multiplier_+] >= "10" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [spell_damage_+%] >= "5" && [elemental_damage_+%] >= "5" && [spell_critical_strike_chance_+%] >= "5" && [base_spell_critical_strike_multiplier_+] >= "10" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [spell_damage_+%] >= "5" && [elemental_damage_+%] >= "5" && [base_critical_strike_multiplier_+] >= "10" && [base_spell_critical_strike_multiplier_+] >= "10" && [StashItem] == "true"
+
+[Category] == "Jewel" && [Rarity] == "Rare" # [spell_damage_+%] >= "5" && [cold_damage_+%] >= "5" && [recover_%_maximum_mana_on_kill] >= "1" && [spell_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [spell_damage_+%] >= "5" && [cold_damage_+%] >= "5" && [recover_%_maximum_mana_on_kill] >= "1" && [base_critical_strike_multiplier_+] >= "10" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [spell_damage_+%] >= "5" && [cold_damage_+%] >= "5" && [recover_%_maximum_mana_on_kill] >= "1" && [base_spell_critical_strike_multiplier_+] >= "10" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [spell_damage_+%] >= "5" && [cold_damage_+%] >= "5" && [spell_critical_strike_chance_+%] >= "5" && [base_critical_strike_multiplier_+] >= "10" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [spell_damage_+%] >= "5" && [cold_damage_+%] >= "5" && [spell_critical_strike_chance_+%] >= "5" && [base_spell_critical_strike_multiplier_+] >= "10" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [spell_damage_+%] >= "5" && [cold_damage_+%] >= "5" && [base_critical_strike_multiplier_+] >= "10" && [base_spell_critical_strike_multiplier_+] >= "10" && [StashItem] == "true"
+
+[Category] == "Jewel" && [Rarity] == "Rare" # [cold_damage_+%] >= "5" && [elemental_damage_+%] >= "5" && [recover_%_maximum_mana_on_kill] >= "1" && [spell_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [cold_damage_+%] >= "5" && [elemental_damage_+%] >= "5" && [recover_%_maximum_mana_on_kill] >= "1" && [base_critical_strike_multiplier_+] >= "10" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [cold_damage_+%] >= "5" && [elemental_damage_+%] >= "5" && [recover_%_maximum_mana_on_kill] >= "1" && [base_spell_critical_strike_multiplier_+] >= "10" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [cold_damage_+%] >= "5" && [elemental_damage_+%] >= "5" && [spell_critical_strike_chance_+%] >= "5" && [base_critical_strike_multiplier_+] >= "10" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [cold_damage_+%] >= "5" && [elemental_damage_+%] >= "5" && [spell_critical_strike_chance_+%] >= "5" && [base_spell_critical_strike_multiplier_+] >= "10" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [cold_damage_+%] >= "5" && [elemental_damage_+%] >= "5" && [base_critical_strike_multiplier_+] >= "10" && [base_spell_critical_strike_multiplier_+] >= "10" && [StashItem] == "true"
+
+/// REFERENCES ///
+//Spell damage 15% [spell_damage_+%] 
+//Cold damage 15% [cold_damage_+%]  
+//Elemental Damage 15% [elemental_damage_+%]
+
+//Recover Mana on Kill 2% [recover_%_maximum_mana_on_kill] 
+//Increased Critical Hit Chance for Spells 15% [spell_critical_strike_chance_+%]
+//Increased Critical Damage Bonus 20% [base_critical_strike_multiplier_+] 
+//Increased Critical Spell Damage Bonus 20% [base_spell_critical_strike_multiplier_+]
+
+
+
+/// MINION ///
+
+[Category] == "Jewel" && [Rarity] == "Rare" # [maximum_energy_shield_+%] >= "5" && [energy_shield_delay_-%] >= "5" && [minion_attack_and_cast_speed_+%] >= "1" && [minion_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [maximum_energy_shield_+%] >= "5" && [energy_shield_delay_-%] >= "5" && [minion_attack_and_cast_speed_+%] >= "1" && [minion_critical_strike_multiplier_+] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [maximum_energy_shield_+%] >= "5" && [energy_shield_delay_-%] >= "5" && [minion_attack_and_cast_speed_+%] >= "1" && [minion_elemental_resistance_%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [maximum_energy_shield_+%] >= "5" && [energy_shield_delay_-%] >= "5" && [minion_critical_strike_chance_+%] >= "5" && [minion_critical_strike_multiplier_+] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [maximum_energy_shield_+%] >= "5" && [energy_shield_delay_-%] >= "5" && [minion_critical_strike_chance_+%] >= "5" && [minion_elemental_resistance_%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [maximum_energy_shield_+%] >= "5" && [energy_shield_delay_-%] >= "5" && [minion_critical_strike_multiplier_+] >= "5" && [minion_elemental_resistance_%] >= "5" && [StashItem] == "true"
+
+[Category] == "Jewel" && [Rarity] == "Rare" # [maximum_energy_shield_+%] >= "5" && [minion_damage_+%] >= "5" && [minion_attack_and_cast_speed_+%] >= "1" && [minion_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [maximum_energy_shield_+%] >= "5" && [minion_damage_+%] >= "5" && [minion_attack_and_cast_speed_+%] >= "1" && [minion_critical_strike_multiplier_+] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [maximum_energy_shield_+%] >= "5" && [minion_damage_+%] >= "5" && [minion_attack_and_cast_speed_+%] >= "1" && [minion_elemental_resistance_%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [maximum_energy_shield_+%] >= "5" && [minion_damage_+%] >= "5" && [minion_critical_strike_chance_+%] >= "5" && [minion_critical_strike_multiplier_+] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [maximum_energy_shield_+%] >= "5" && [minion_damage_+%] >= "5" && [minion_critical_strike_chance_+%] >= "5" && [minion_elemental_resistance_%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [maximum_energy_shield_+%] >= "5" && [minion_damage_+%] >= "5" && [minion_critical_strike_multiplier_+] >= "5" && [minion_elemental_resistance_%] >= "5" && [StashItem] == "true"
+
+[Category] == "Jewel" && [Rarity] == "Rare" # [maximum_energy_shield_+%] >= "5" && [minion_accuracy_rating_+%] >= "5" && [minion_attack_and_cast_speed_+%] >= "1" && [minion_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [maximum_energy_shield_+%] >= "5" && [minion_accuracy_rating_+%] >= "5" && [minion_attack_and_cast_speed_+%] >= "1" && [minion_critical_strike_multiplier_+] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [maximum_energy_shield_+%] >= "5" && [minion_accuracy_rating_+%] >= "5" && [minion_attack_and_cast_speed_+%] >= "1" && [minion_elemental_resistance_%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [maximum_energy_shield_+%] >= "5" && [minion_accuracy_rating_+%] >= "5" && [minion_critical_strike_chance_+%] >= "5" && [minion_critical_strike_multiplier_+] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [maximum_energy_shield_+%] >= "5" && [minion_accuracy_rating_+%] >= "5" && [minion_critical_strike_chance_+%] >= "5" && [minion_elemental_resistance_%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [maximum_energy_shield_+%] >= "5" && [minion_accuracy_rating_+%] >= "5" && [minion_critical_strike_multiplier_+] >= "5" && [minion_elemental_resistance_%] >= "5" && [StashItem] == "true"
+
+[Category] == "Jewel" && [Rarity] == "Rare" # [energy_shield_delay_-%] >= "5" && [minion_damage_+%] >= "5" && [minion_attack_and_cast_speed_+%] >= "1" && [minion_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [energy_shield_delay_-%] >= "5" && [minion_damage_+%] >= "5" && [minion_attack_and_cast_speed_+%] >= "1" && [minion_critical_strike_multiplier_+] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [energy_shield_delay_-%] >= "5" && [minion_damage_+%] >= "5" && [minion_attack_and_cast_speed_+%] >= "1" && [minion_elemental_resistance_%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [energy_shield_delay_-%] >= "5" && [minion_damage_+%] >= "5" && [minion_critical_strike_chance_+%] >= "5" && [minion_critical_strike_multiplier_+] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [energy_shield_delay_-%] >= "5" && [minion_damage_+%] >= "5" && [minion_critical_strike_chance_+%] >= "5" && [minion_elemental_resistance_%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [energy_shield_delay_-%] >= "5" && [minion_damage_+%] >= "5" && [minion_critical_strike_multiplier_+] >= "5" && [minion_elemental_resistance_%] >= "5" && [StashItem] == "true"
+
+[Category] == "Jewel" && [Rarity] == "Rare" # [energy_shield_delay_-%] >= "5" && [minion_accuracy_rating_+%] >= "5" && [minion_attack_and_cast_speed_+%] >= "1" && [minion_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [energy_shield_delay_-%] >= "5" && [minion_accuracy_rating_+%] >= "5" && [minion_attack_and_cast_speed_+%] >= "1" && [minion_critical_strike_multiplier_+] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [energy_shield_delay_-%] >= "5" && [minion_accuracy_rating_+%] >= "5" && [minion_attack_and_cast_speed_+%] >= "1" && [minion_elemental_resistance_%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [energy_shield_delay_-%] >= "5" && [minion_accuracy_rating_+%] >= "5" && [minion_critical_strike_chance_+%] >= "5" && [minion_critical_strike_multiplier_+] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [energy_shield_delay_-%] >= "5" && [minion_accuracy_rating_+%] >= "5" && [minion_critical_strike_chance_+%] >= "5" && [minion_elemental_resistance_%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [energy_shield_delay_-%] >= "5" && [minion_accuracy_rating_+%] >= "5" && [minion_critical_strike_multiplier_+] >= "5" && [minion_elemental_resistance_%] >= "5" && [StashItem] == "true"
+
+[Category] == "Jewel" && [Rarity] == "Rare" # [minion_damage_+%] >= "5" && [minion_accuracy_rating_+%] >= "5" && [minion_attack_and_cast_speed_+%] >= "1" && [minion_critical_strike_chance_+%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [minion_damage_+%] >= "5" && [minion_accuracy_rating_+%] >= "5" && [minion_attack_and_cast_speed_+%] >= "1" && [minion_critical_strike_multiplier_+] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [minion_damage_+%] >= "5" && [minion_accuracy_rating_+%] >= "5" && [minion_attack_and_cast_speed_+%] >= "1" && [minion_elemental_resistance_%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [minion_damage_+%] >= "5" && [minion_accuracy_rating_+%] >= "5" && [minion_critical_strike_chance_+%] >= "5" && [minion_critical_strike_multiplier_+] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [minion_damage_+%] >= "5" && [minion_accuracy_rating_+%] >= "5" && [minion_critical_strike_chance_+%] >= "5" && [minion_elemental_resistance_%] >= "5" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Rare" # [minion_damage_+%] >= "5" && [minion_accuracy_rating_+%] >= "5" && [minion_critical_strike_multiplier_+] >= "5" && [minion_elemental_resistance_%] >= "5" && [StashItem] == "true"
+
+/// REFERENCES ///	
+//Increased maximum Energy Shield 5 [maximum_energy_shield_+%] 
+//5% [energy_shield_delay_-%]
+//Minions deal increased Damage 15% [minion_damage_+%]
+//minion accuracy 5% [minion_accuracy_rating_+%]
+
+//Minions have increased Attack and Cast Speed 1% [minion_attack_and_cast_speed_+%]  
+//Minions have increased Critical Hit Chance 5% [minion_critical_strike_chance_+%] 
+//Minions have increased Critical Damage Bonus 5% [minion_critical_strike_multiplier_+] 
+//Minion all resistances %5[minion_elemental_resistance_%]
+
+////////////////////////
+//                    //
+//   RARE EMERALD     //
+//                    //
+////////////////////////
+
+////////////////////////
+//                    //
+//   RARE RUBY        //
+//                    //
+////////////////////////
+
+
+
+
+// [Category] == "Jewel" && [Rarity] == "Magic" # [StashItem] == "true"
+// [Category] == "Jewel" && [Rarity] == "Rare" # [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Unique" # [StashItem] == "true"
+
+//[Category] == "Jewel" && [ItemTier] >= "5" # [StashItemUid] == "true"
+
+
+/////////////////////////////////////////////////////////////////////////////////////
+//                                                                                 //
+//                                    Waystone                                      //
+//                                                                                 //
+/////////////////////////////////////////////////////////////////////////////////////
+
+//[Type] == "Waystone (Tier 12)" && [Rarity] == "Normal" # [StashItem] == "true"
+//[Type] == "Waystone (Tier 12)" && [Rarity] == "Magic" # [StashItem] == "true"
+[Type] == "Waystone (Tier 12)" && [Rarity] == "Rare" # [StashItem] == "true"
+//[Type] == "Waystone (Tier 12)" && [Rarity] == "Unique" # [StashItem] == "true"
+
+//[Type] == "Waystone (Tier 13)" && [Rarity] == "Normal" # [StashItem] == "true"
+//[Type] == "Waystone (Tier 13)" && [Rarity] == "Magic" # [StashItem] == "true"
+[Type] == "Waystone (Tier 13)" && [Rarity] == "Rare" # [StashItem] == "true"
+//[Type] == "Waystone (Tier 13)" && [Rarity] == "Unique" # [StashItem] == "true"
+
+//[Type] == "Waystone (Tier 14)" && [Rarity] == "Normal" # [StashItem] == "true"
+//[Type] == "Waystone (Tier 14)" && [Rarity] == "Magic" # [StashItem] == "true"
+[Type] == "Waystone (Tier 14)" && [Rarity] == "Rare" # [StashItem] == "true"
+[Type] == "Waystone (Tier 14)" && [Rarity] == "Unique" # [StashItem] == "true"
+
+//[Type] == "Waystone (Tier 15)" && [Rarity] == "Normal" # [StashItem] == "true"
+//[Type] == "Waystone (Tier 15)" && [Rarity] == "Magic" # [StashItem] == "true"
+[Type] == "Waystone (Tier 15)" && [Rarity] == "Rare" # [StashItem] == "true"
+[Type] == "Waystone (Tier 15)" && [Rarity] == "Unique" # [StashItem] == "true"
+
+[Type] == "Delirium Precursor Tablet" # [StashItem] == "true"
+[Type] == "Breach Precursor Tablet" # [StashItem] == "true"
+[Type] == "Overseer Precursor Tablet" # [StashItem] == "true"
+[Type] == "Ritual Precursor Tablet" # [StashItem] == "true"
+
+/////////////////////////////////////////////////////////////////////////////////////
+//                                                                                 //
+//                                     Uniques                                     //
+//                                                                                 //
+/////////////////////////////////////////////////////////////////////////////////////
+
+// ACCESSORY
+[Rarity] == "Unique" # [UniqueName] == "Kalandra's Touch" && [StashItem] == "true" // Exalted: 32830
+[Rarity] == "Unique" # [UniqueName] == "Astramentis" && [StashItem] == "true" // Exalted: 19574
+[Rarity] == "Unique" # [UniqueName] == "Dream Fragments" && [StashItem] == "true" // Exalted: 11273
+[Rarity] == "Unique" # [UniqueName] == "Headhunter" && [StashItem] == "true" // Exalted: 867
+[Rarity] == "Unique" # [UniqueName] == "Original Sin" && [StashItem] == "true" // Exalted: 619
+[Rarity] == "Unique" # [UniqueName] == "Ingenuity" && [StashItem] == "true" // Exalted: 495
+[Rarity] == "Unique" # [UniqueName] == "Defiance of Destiny" && [StashItem] == "true" // Exalted: 123
+[Rarity] == "Unique" # [UniqueName] == "Ryslatha's Coil" && [StashItem] == "true" // Exalted: 30
+[Rarity] == "Unique" # [UniqueName] == "Fireflower" && [StashItem] == "true" // Exalted: 15
+[Rarity] == "Unique" # [UniqueName] == "Carnage Heart" && [StashItem] == "true" // Exalted: 12
+[Rarity] == "Unique" # [UniqueName] == "Eye of Chayula" && [StashItem] == "true" // Exalted: 10
+[Rarity] == "Unique" # [UniqueName] == "Serpent's Egg" && [StashItem] == "true" // Exalted: 10
+[Rarity] == "Unique" # [UniqueName] == "Levinstone" && [StashItem] == "true" // Exalted: 10
+[Rarity] == "Unique" # [UniqueName] == "Death Rush" && [StashItem] == "true" // Exalted: 9
+[Rarity] == "Unique" # [UniqueName] == "Snakepit" && [StashItem] == "true" // Exalted: 8
+[Rarity] == "Unique" # [UniqueName] == "The Everlasting Gaze" && [StashItem] == "true" // Exalted: 5
+[Rarity] == "Unique" # [UniqueName] == "Sekhema's Resolve" && [StashItem] == "true" // Exalted: 5
+[Rarity] == "Unique" # [UniqueName] == "Ventor's Gamble" && [StashItem] == "true"
+
+// ARMOUR
+[Rarity] == "Unique" # [UniqueName] == "Temporalis" && [StashItem] == "true"
+[Rarity] == "Unique" # [UniqueName] == "Maligaro's Virtuosity" && [StashItem] == "true"
+[Rarity] == "Unique" # [UniqueName] == "Queen of the Forest" && [StashItem] == "true"
+[Rarity] == "Unique" # [UniqueName] == "Hand of Wisdom and Action" && [StashItem] == "true" 
+[Rarity] == "Unique" # [UniqueName] == "Atziri's Acuity" && [StashItem] == "true" 
+[Rarity] == "Unique" # [UniqueName] == "Alpha's Howl" && [StashItem] == "true" 
+[Rarity] == "Unique" # [UniqueName] == "The Vertex" && [StashItem] == "true" 
+[Rarity] == "Unique" # [UniqueName] == "Morior Invictus" && [StashItem] == "true"
+[Rarity] == "Unique" # [UniqueName] == "Svalinn" && [StashItem] == "true" 
+[Rarity] == "Unique" # [UniqueName] == "The Surrender" && [StashItem] == "true" 
+[Rarity] == "Unique" # [UniqueName] == "Thrillsteel" && [StashItem] == "true" 
+[Rarity] == "Unique" # [UniqueName] == "Mahuxotl's Machination" && [StashItem] == "true" 
+[Rarity] == "Unique" # [UniqueName] == "Sandstorm Visage" && [StashItem] == "true"
+[Rarity] == "Unique" # [UniqueName] == "Trampletoe" && [StashItem] == "true"
+[Rarity] == "Unique" # [UniqueName] == "Black Sun Crest" && [StashItem] == "true"
+[Rarity] == "Unique" # [UniqueName] == "Wanderlust" && [StashItem] == "true"
+
+// FLASK
+[Rarity] == "Unique" # [UniqueName] == "Olroth's Resolve" && [StashItem] == "true" 
+[Rarity] == "Unique" # [UniqueName] == "Melting Maelstrom" && [StashItem] == "true" 
+// JEWEL
+[Rarity] == "Unique" # [UniqueName] == "Against the Darkness" && [StashItem] == "true"
+[Rarity] == "Unique" # [UniqueName] == "From Nothing" && [StashItem] == "true" 
+[Rarity] == "Unique" # [UniqueName] == "Grand Spectrum" && [StashItem] == "true"
+[Rarity] == "Unique" # [UniqueName] == "The Adorned" && [StashItem] == "true" 
+[Rarity] == "Unique" # [UniqueName] == "Controlled Metamorphosis" && [StashItem] == "true" 
+
+// SANCTUM
+[Rarity] == "Unique" # [UniqueName] == "The Last Flame" && [StashItem] == "true" 
+[Rarity] == "Unique" # [UniqueName] == "The Desperate Alliance" && [StashItem] == "true"
+
+// WEAPON
+[Rarity] == "Unique" # [UniqueName] == "Winter's Bite" && [StashItem] == "true" 
+//[Rarity] == "Unique" # [UniqueName] == "INCOMPLETE" && [StashItem] == "true" 
+[Rarity] == "Unique" # [UniqueName] == "Sacred Flame" && [StashItem] == "true" 
+[Rarity] == "Unique" # [UniqueName] == "Widowhail" && [StashItem] == "true" 
+[Rarity] == "Unique" # [UniqueName] == "Pillar of the Caged God" && [StashItem] == "true"
+
+/////////////////////////////////////////////////////////////////////////////////////
+//                                                                                 //
+//                                     Gems     	                           //
+//                                                                                 //
+/////////////////////////////////////////////////////////////////////////////////////
+
+
+[Type] == "Uncut Support Gem" && [GemLevel] > "19" # [StashItem] == "true"
+
+
+/////////////////////////////////////////////////////////////////////////////////////
+//                                                                                 //
+//                                    Charms 	                                   //
+//                                                                                 //
+/////////////////////////////////////////////////////////////////////////////////////
+
+//[Type] == "Golden Charm" && [Rarity] == "Magic" # [StashItem] == "true"
+//[Type] == "Golden Charm" && [Rarity] == "Rare" # [StashItem] == "true"
+
+
+/////////////////////////////////////////////////////////////////////////////////////
+//                                                                                 //
+//                                     Misc 	                                   //
+//                                                                                //
+/////////////////////////////////////////////////////////////////////////////////////
+
+//[Type] == "Djinn Barya" # [StashItem] == "true"
+//[Type] == "Inscribed Ultimatum" # [StashItem] == "true"
+//[Type] == "Maven's Invitation: The Formed" # [StashItem] == "true"
+//[Type] == "Maven's Invitation: The Twisted" # [StashItem] == "true"
+//[Type] == "Maven's Invitation: The Forgotten" # [StashItem] == "true"
+//[Type] == "Maven's Invitation: The Hidden" # [StashItem] == "true"
+//[Type] == "Maven's Invitation: The Feared" # [StashItem] == "true"
+//[Type] == "Maven's Invitation: The Elderslayers" # [StashItem] == "true"
+//[Type] == "Maven's Invitation: The Atlas" # [StashItem] == "true"
+//[Type] == "Maven's Invitation: Haewark Hamlet" # [StashItem] == "true"
+//[Type] == "Maven's Invitation: Tirn's End" # [StashItem] == "true"
+//[Type] == "Maven's Invitation: Lex Proxima" # [StashItem] == "true"
+//[Type] == "Maven's Invitation: Lex Ejoris" # [StashItem] == "true"
+//[Type] == "Maven's Invitation: New Vastir" # [StashItem] == "true"
+//[Type] == "Maven's Invitation: Glennach Cairns" # [StashItem] == "true"
+//[Type] == "Maven's Invitation: Valdo's Rest" # [StashItem] == "true"
+//[Type] == "Chronicle of Atzoatl" # [StashItem] == "true"
+//[Type] == "Writhing Invitation" # [StashItem] == "true"
+//[Type] == "Screaming Invitation" # [StashItem] == "true"
+//[Type] == "Polaric Invitation" # [StashItem] == "true"
+//[Type] == "Incandescent Invitation" # [StashItem] == "true"
+
+/////////////////////////////////////////////////////////////////////////////////////
+//                                                                                 //
+//                                     Map Fragments                               //
+//                                                                                 //
+/////////////////////////////////////////////////////////////////////////////////////
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////
+//                                                                                 //
+//                                     MISC Other                                  //
+//                                                                                 //
+/////////////////////////////////////////////////////////////////////////////////////
+
+//[Type] == "Attuned Wand" && [Rarity] == "Normal" # [ItemLevel] > "80" && [StashItem] == "true"
+//[Type] == "Siphoning Wand" && [Rarity] == "Normal" # [ItemLevel] > "80" && [StashItem] == "true"
+
+[Type] == "Breach Ring" && [Rarity] == "Normal" # [StashItem] == "true"
+[Type] == "Breach Ring" && [Rarity] == "Magic" # [StashItem] == "true"
+[Type] == "Breach Ring" && [Rarity] == "Rare" # [StashItem] == "true"
+//END///////////////////////////////////////////////////////
+
+
+
+//END///////////////////////////////////////////////////////
+
+
+
+
+
+
+
+//END                                                             //
+//                                     MISC Other                                  //
+//                                                               //
+//                                                               //
+
+//                                                                //
+
+//                                                                //
+
+
+
+//                                                           ] == "Rare" # [StashItem] == "true"
+//END///////////////////////////////////////////////////////
+
+
+
+//END///////////////////////////////////////////////////////
+
+
+
+
+
+
+
+//END                                                             //
+//                                     MISC Other                                  //
+//                                                               //
+//                                                               //
+
+//                                                                //
+
+
+
+//                                                                //
+
+
+
+
+
+//                                                           
