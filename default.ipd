@@ -1546,6 +1546,11 @@
 
 // perfected
 
+
+
+
+//perfected
+
 [Rarity] == "Unique" # [UniqueName] == "Andvarius" && [base_item_found_rarity_+%] >= "85" && [StashItem] == "true"
 [Rarity] == "Unique" # [UniqueName] == "Meginord's Girdle" && [flask_life_recovery_rate_+%] >= "30" && [additional_strength] >= "50" && [base_cold_damage_resistance_%] >= "15" && [StashItem] == "true"
 [Rarity] == "Unique" # [UniqueName] == "Snakepit" && [base_cast_speed_+%] >= "25" && [spell_damage_+%] >= "30" && [StashItem] == "true"
@@ -1570,6 +1575,16 @@
 [Rarity] == "Unique" # [UniqueName] == "Whisper of the Brotherhood" && [base_cold_damage_resistance_%] >= "30" && [skill_speed_+%] >= "10" && [additional_dexterity] >= "20" && [mana_regeneration_rate_+%] >= "35" && [StashItem] == "true"
 [Rarity] == "Unique" # [UniqueName] == "Xoph's Blood" && [base_maximum_life_+%] >= "15" && [base_fire_damage_resistance_%] >= "30" && [StashItem] == "true"
 [Rarity] == "Unique" # [UniqueName] == "Infernoclasp" && [local_physical_damage_reduction_rating_+%] >= "140" && [additional_strength] >= "20" && [base_maximum_fire_damage_resistance_%] >= "5" && [base_fire_damage_resistance_%] >= "30" && [StashItem] == "true"
+[Rarity] == "Unique" # [UniqueName] == "Death Rush" && [accuracy_rating] >= "285" && [base_evasion_rating] >= "125" && [StashItem] == "true"
+[Rarity] == "Unique" # [UniqueName] == "Polcirkeln" && [base_cold_damage_resistance_%] >= "30" && [cold_damage_+%] >= "30" && [base_maximum_mana] >= "60" && [additional_strength] >= "15" && [StashItem] == "true"
+[Rarity] == "Unique" # [UniqueName] == "Fixation of Yix" && [TotalAttributes] >= "7" && [base_maximum_life] >= "100" && [allies_in_presence_critical_strike_chance_+%] >= "50" && [allies_in_presence_critical_strike_multiplier_+] >= "50" && [allies_in_presence_attack_speed_+%] >= "20" && [allies_in_presence_cast_speed_+%] >= "20" && [StashItem] == "true"
+[Rarity] == "Unique" # [UniqueName] == "Glowswarm" && [base_maximum_mana] >= "60" && [flask_mana_recovery_rate_+%] >= "30" && [generate_x_charges_for_mana_flasks_per_minute] >= "0.25" && [StashItem] == "true"
+[Rarity] == "Unique" # [UniqueName] == "Heartbound Loop" && [base_cast_speed_+%] >= "10" && [minion_maximum_life_+%] >= "15" && [life_regeneration_per_second] >= "15" && [mana_regeneration_rate_+%] >= "40" && [StashItem] == "true"
+[Rarity] == "Unique" # [UniqueName] == "Igniferis" && [life_regeneration_per_second] >= "4" && [base_fire_damage_resistance_%] >= "20" && [mana_regeneration_rate_+%] >= "30" && [StashItem] == "true"
+[Rarity] == "Unique" # [UniqueName] == "Ligurium Talisman" && [additional_intelligence] >= "45" && [base_maximum_energy_shield] >= "40" && [base_spirit_from_equipment] >= "35" && [StashItem] == "true"
+[Rarity] == "Unique" # [UniqueName] == "Midnight Braid" && [life_recovery_from_flasks_+%] >= "30" && [base_maximum_mana] >= "50" && [TotalResistances] >= "30" && [StashItem] == "true"
+[Rarity] == "Unique" # [UniqueName] == "Perandus Seal" && [base_item_found_rarity_+%] >= "15" && [base_maximum_mana] >= "50" && [TotalAttributes] >= "10" && [gold_+%_from_enemies] >= "15" && [StashItem] == "true"
+[Rarity] == "Unique" # [UniqueName] == "Ming's Heart" && [base_chaos_damage_resistance_%] >= "13" && [maximum_life_+%] <= "-20" && [non_skill_base_all_damage_%_to_gain_as_chaos] >= "40" && [StashItem] == "true"
 
 // ACCESSORY
 [Rarity] == "Unique" # [UniqueName] == "Kalandra's Touch" && [StashItem] == "true"
