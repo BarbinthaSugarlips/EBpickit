@@ -804,45 +804,47 @@
 //                                                                                 //
 /////////////////////////////////////////////////////////////////////////////////////
 
+
 /// COLD DMG ///
 
-[Category] == "Jewel" && [Rarity] == "Magic" # [cold_damage_+%] >= "13" && [spell_critical_strike_chance_+%] >= "13" [StashItem] == "true"
-[Category] == "Jewel" && [Rarity] == "Magic" # [cold_damage_+%] >= "13" && [base_maximum_cold_damage_resistance_%] >= "2" [StashItem] == "true"
-[Category] == "Jewel" && [Rarity] == "Magic" # [cold_damage_+%] >= "13" && [base_cast_speed_+%] >= "3" [StashItem] == "true"
-[Category] == "Jewel" && [Rarity] == "Magic" # [cold_damage_+%] >= "13" && [critical_strike_chance_+%] >= "13" [StashItem] == "true"
-[Category] == "Jewel" && [Rarity] == "Magic" # [cold_damage_+%] >= "13" && [base_critical_strike_multiplier_+] >= "14" [StashItem] == "true"
-[Category] == "Jewel" && [Rarity] == "Magic" # [cold_damage_+%] >= "13" && [base_spell_critical_strike_multiplier_+] >= "14" [StashItem] == "true"
-[Category] == "Jewel" && [Rarity] == "Magic" # [cold_damage_+%] >= "13" && [energy_generated_+%] >= "13" [StashItem] == "true"
-[Category] == "Jewel" && [Rarity] == "Magic" # [cold_damage_+%] >= "13" && [skill_effect_duration_+%] >= "13" [StashItem] == "true"
-[Category] == "Jewel" && [Rarity] == "Magic" # [cold_damage_+%] >= "13" && [recover_%_maximum_mana_on_kill] >= "2" [StashItem] == "true"
-[Category] == "Jewel" && [Rarity] == "Magic" # [cold_damage_+%] >= "13" && [recover_%_maximum_life_on_kill] >= "2" [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" && [cold_damage_+%] >= "13" && [spell_critical_strike_chance_+%] >= "13" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" && [cold_damage_+%] >= "13" && [base_maximum_cold_damage_resistance_%] >= "2" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" && [cold_damage_+%] >= "13" && [base_cast_speed_+%] >= "3" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" && [cold_damage_+%] >= "13" && [critical_strike_chance_+%] >= "13" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" && [cold_damage_+%] >= "13" && [base_critical_strike_multiplier_+] >= "14" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" && [cold_damage_+%] >= "13" && [base_spell_critical_strike_multiplier_+] >= "14" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" && [cold_damage_+%] >= "13" && [energy_generated_+%] >= "13" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" && [cold_damage_+%] >= "13" && [skill_effect_duration_+%] >= "13" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" && [cold_damage_+%] >= "13" && [recover_%_maximum_mana_on_kill] >= "2" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" && [cold_damage_+%] >= "13" && [recover_%_maximum_life_on_kill] >= "2" && [StashItem] == "true"
 
 /// SPELL DMG ///
 
-[Category] == "Jewel" && [Rarity] == "Magic" # [spell_damage_+%] >= "13" && [spell_critical_strike_chance_+%] >= "13" [StashItem] == "true"
-[Category] == "Jewel" && [Rarity] == "Magic" # [spell_damage_+%] >= "13" && [base_maximum_cold_damage_resistance_%] >= "2" [StashItem] == "true"
-[Category] == "Jewel" && [Rarity] == "Magic" # [spell_damage_+%] >= "13" && [base_cast_speed_+%] >= "3" [StashItem] == "true"
-[Category] == "Jewel" && [Rarity] == "Magic" # [spell_damage_+%] >= "13" && [critical_strike_chance_+%] >= "13" [StashItem] == "true"
-[Category] == "Jewel" && [Rarity] == "Magic" # [spell_damage_+%] >= "13" && [base_critical_strike_multiplier_+] >= "14" [StashItem] == "true"
-[Category] == "Jewel" && [Rarity] == "Magic" # [spell_damage_+%] >= "13" && [base_spell_critical_strike_multiplier_+] >= "14" [StashItem] == "true"
-[Category] == "Jewel" && [Rarity] == "Magic" # [spell_damage_+%] >= "13" && [energy_generated_+%] >= "13" [StashItem] == "true"
-[Category] == "Jewel" && [Rarity] == "Magic" # [spell_damage_+%] >= "13" && [skill_effect_duration_+%] >= "13" [StashItem] == "true"
-[Category] == "Jewel" && [Rarity] == "Magic" # [spell_damage_+%] >= "13" && [recover_%_maximum_mana_on_kill] >= "2" [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" && [spell_damage_+%] >= "13" && [spell_critical_strike_chance_+%] >= "13" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" && [spell_damage_+%] >= "13" && [base_maximum_cold_damage_resistance_%] >= "2" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" && [spell_damage_+%] >= "13" && [base_cast_speed_+%] >= "3" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" && [spell_damage_+%] >= "13" && [critical_strike_chance_+%] >= "13" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" && [spell_damage_+%] >= "13" && [base_critical_strike_multiplier_+] >= "14" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" && [spell_damage_+%] >= "13" && [base_spell_critical_strike_multiplier_+] >= "14" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" && [spell_damage_+%] >= "13" && [energy_generated_+%] >= "13" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" && [spell_damage_+%] >= "13" && [skill_effect_duration_+%] >= "13" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" && [spell_damage_+%] >= "13" && [recover_%_maximum_mana_on_kill] >= "2" && [StashItem] == "true"
 
 /// CRIT HIT AILMENT ///
 
-[Category] == "Jewel" && [Rarity] == "Magic" # [critical_hit_damaging_ailment_effect_+%] >= "18" && [attack_critical_strike_chance_+%] >= "14" [StashItem] == "true"
-[Category] == "Jewel" && [Rarity] == "Magic" # [critical_hit_damaging_ailment_effect_+%] >= "18" && [attack_critical_strike_multiplier_+] >= "18" [StashItem] == "true"
-[Category] == "Jewel" && [Rarity] == "Magic" # [critical_hit_damaging_ailment_effect_+%] >= "18" && [base_maximum_lightning_damage_resistance_%] >= "2" [StashItem] == "true"
-[Category] == "Jewel" && [Rarity] == "Magic" # [critical_hit_damaging_ailment_effect_+%] >= "18" && [spell_critical_strike_chance_+%] >= "13" [StashItem] == "true"
-[Category] == "Jewel" && [Rarity] == "Magic" # [critical_hit_damaging_ailment_effect_+%] >= "18" && [base_maximum_cold_damage_resistance_%] >= "2" [StashItem] == "true"
-[Category] == "Jewel" && [Rarity] == "Magic" # [critical_hit_damaging_ailment_effect_+%] >= "18" && [base_cast_speed_+%] >= "3" [StashItem] == "true"
-[Category] == "Jewel" && [Rarity] == "Magic" # [critical_hit_damaging_ailment_effect_+%] >= "18" && [critical_strike_chance_+%] >= "13" [StashItem] == "true"
-[Category] == "Jewel" && [Rarity] == "Magic" # [critical_hit_damaging_ailment_effect_+%] >= "18" && [base_critical_strike_multiplier_+] >= "14" [StashItem] == "true"
-[Category] == "Jewel" && [Rarity] == "Magic" # [critical_hit_damaging_ailment_effect_+%] >= "18" && [base_spell_critical_strike_multiplier_+] >= "14" [StashItem] == "true"
-[Category] == "Jewel" && [Rarity] == "Magic" # [critical_hit_damaging_ailment_effect_+%] >= "18" && [energy_generated_+%] >= "13" [StashItem] == "true"
-[Category] == "Jewel" && [Rarity] == "Magic" # [critical_hit_damaging_ailment_effect_+%] >= "18" && [skill_effect_duration_+%] >= "13" [StashItem] == "true"
-[Category] == "Jewel" && [Rarity] == "Magic" # [critical_hit_damaging_ailment_effect_+%] >= "18" && [recover_%_maximum_mana_on_kill] >= "2" [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" && [critical_hit_damaging_ailment_effect_+%] >= "18" && [attack_critical_strike_chance_+%] >= "14" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" && [critical_hit_damaging_ailment_effect_+%] >= "18" && [attack_critical_strike_multiplier_+] >= "18" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" && [critical_hit_damaging_ailment_effect_+%] >= "18" && [base_maximum_lightning_damage_resistance_%] >= "2" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" && [critical_hit_damaging_ailment_effect_+%] >= "18" && [spell_critical_strike_chance_+%] >= "13" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" && [critical_hit_damaging_ailment_effect_+%] >= "18" && [base_maximum_cold_damage_resistance_%] >= "2" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" && [critical_hit_damaging_ailment_effect_+%] >= "18" && [base_cast_speed_+%] >= "3" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" && [critical_hit_damaging_ailment_effect_+%] >= "18" && [critical_strike_chance_+%] >= "13" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" && [critical_hit_damaging_ailment_effect_+%] >= "18" && [base_critical_strike_multiplier_+] >= "14" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" && [critical_hit_damaging_ailment_effect_+%] >= "18" && [base_spell_critical_strike_multiplier_+] >= "14" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" && [critical_hit_damaging_ailment_effect_+%] >= "18" && [energy_generated_+%] >= "13" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" && [critical_hit_damaging_ailment_effect_+%] >= "18" && [skill_effect_duration_+%] >= "13" && [StashItem] == "true"
+[Category] == "Jewel" && [Rarity] == "Magic" && [critical_hit_damaging_ailment_effect_+%] >= "18" && [recover_%_maximum_mana_on_kill] >= "2" && [StashItem] == "true"
+"
 
 
 //// HERALD DMG ////
