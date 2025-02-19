@@ -1569,7 +1569,7 @@
 [Rarity] == "Unique" # [UniqueName] == "The Everlasting Gaze" && [mana_regeneration_rate_+%] >= "30" && [mana_%_to_gain_as_energy_shield] >= "30" && [StashItem] == "true"
 [Rarity] == "Unique" # [UniqueName] == "The Burrower" && [base_lightning_damage_resistance_%] >= "60" && [mana_regeneration_rate_+%] >= "50" && [StashItem] == "true"
 [Rarity] == "Unique" # [UniqueName] == "The Anvil" && [base_maximum_life] >= "40" && [physical_damage_reduction_rating_+%] >= "50" && [additional_maximum_block_%] >= "5" && [StashItem] == "true"
-[Rarity] == "Unique" # [UniqueName] == "Soul Tether" && [charm_duration_+%] >= "20" [maximum_energy_shield] >= "60" && [additional_intelligence] >= "30" && [StashItem] == "true"
+[Rarity] == "Unique" # [UniqueName] == "Soul Tether" && [charm_duration_+%] >= "20" && [maximum_energy_shield] >= "60" && [additional_intelligence] >= "30" && [StashItem] == "true"
 [Rarity] == "Unique" # [UniqueName] == "Shavronne's Satchel" && [flask_life_recovery_rate_+%] <= "-20" && [additional_intelligence] >= "30" && [flask_charges_gained_+%] >= "30" && [StashItem] == "true"
 [Rarity] == "Unique" # [UniqueName] == "Revered Resin" && [additional_strength] >= "15" && [base_maximum_life] >= "60" && [flask_life_recovery_rate_+%] >= "30" && [generate_x_charges_for_life_flasks_per_minute] >= "0.25" && [StashItem] == "true"
 [Rarity] == "Unique" # [UniqueName] == "Beacon of Azis" && [base_spirit_from_equipment] >= "45" && [base_maximum_mana] >= "100" && [StashItem] == "true"
