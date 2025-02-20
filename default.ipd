@@ -211,13 +211,71 @@
 //                                     Wands                                       //
 /////////////////////////////////////////////////////////////////////////////////////
 
-[WeaponCategory] == "Wand" && [Rarity] == "Rare" # [lightning_spell_skill_gem_level_+] >= "4" && [TotalLightningSpellDamage] >= "100" && [base_cast_speed_+%] >= "10" && [StashItem] == "true"
-
-[WeaponCategory] == "Wand" && [Rarity] == "Rare" # [lightning_spell_skill_gem_level_+] >= "4" && [TotalLightningSpellDamage] >= "140" && [StashItem] == "true"
-
-[WeaponCategory] == "Wand" && [Rarity] == "Rare" # [lightning_spell_skill_gem_level_+] >= "3" && [TotalLightningSpellDamage] >= "150" && [base_cast_speed_+%] >= "10" && [StashItem] == "true"
+[Category] == "Wand" && [Rarity] == "Rare" # [TotalLightningSpellDamage] == "25" && [base_cast_speed_+%] == "25" && [lightning_spell_skill_gem_level_+] == "4" && [base_maximum_mana] == "150" && [StashItem] == "true"
+[Category] == "Wand" && [Rarity] == "Rare" # [TotalLightningSpellDamage] == "25" && [base_cast_speed_+%] == "30" && [lightning_spell_skill_gem_level_+] == "4" && [base_maximum_mana] == "120" && [StashItem] == "true"
+[Category] == "Wand" && [Rarity] == "Rare" # [TotalLightningSpellDamage] == "50" && [base_cast_speed_+%] == "15" && [lightning_spell_skill_gem_level_+] == "4" && [base_maximum_mana] == "150" && [StashItem] == "true"
+[Category] == "Wand" && [Rarity] == "Rare" # [TotalLightningSpellDamage] == "50" && [base_cast_speed_+%] == "20" && [lightning_spell_skill_gem_level_+] == "4" && [base_maximum_mana] == "120" && [StashItem] == "true"
+[Category] == "Wand" && [Rarity] == "Rare" # [TotalLightningSpellDamage] == "50" && [base_cast_speed_+%] == "25" && [lightning_spell_skill_gem_level_+] == "4" && [base_maximum_mana] == "75" && [StashItem] == "true"
+[Category] == "Wand" && [Rarity] == "Rare" # [TotalLightningSpellDamage] == "50" && [base_cast_speed_+%] == "30" && [lightning_spell_skill_gem_level_+] == "4" && [base_maximum_mana] == "45" && [StashItem] == "true"
+[Category] == "Wand" && [Rarity] == "Rare" # [TotalLightningSpellDamage] == "75" && [base_cast_speed_+%] == "5" && [lightning_spell_skill_gem_level_+] == "4" && [base_maximum_mana] == "150" && [StashItem] == "true"
+[Category] == "Wand" && [Rarity] == "Rare" # [TotalLightningSpellDamage] == "75" && [base_cast_speed_+%] == "10" && [lightning_spell_skill_gem_level_+] == "4" && [base_maximum_mana] == "105" && [StashItem] == "true"
+[Category] == "Wand" && [Rarity] == "Rare" # [TotalLightningSpellDamage] == "75" && [base_cast_speed_+%] == "15" && [lightning_spell_skill_gem_level_+] == "4" && [base_maximum_mana] == "75" && [StashItem] == "true"
+[Category] == "Wand" && [Rarity] == "Rare" # [TotalLightningSpellDamage] == "75" && [base_cast_speed_+%] == "20" && [lightning_spell_skill_gem_level_+] == "4" && [base_maximum_mana] == "45" && [StashItem] == "true"
+[Category] == "Wand" && [Rarity] == "Rare" # [TotalLightningSpellDamage] == "75" && [base_cast_speed_+%] == "25" && [lightning_spell_skill_gem_level_+] == "3" && [base_maximum_mana] == "150" && [StashItem] == "true"
+[Category] == "Wand" && [Rarity] == "Rare" # [TotalLightningSpellDamage] == "75" && [base_cast_speed_+%] == "25" && [lightning_spell_skill_gem_level_+] == "4" && [base_maximum_mana] == "15" && [StashItem] == "true"
+[Category] == "Wand" && [Rarity] == "Rare" # [TotalLightningSpellDamage] == "75" && [base_cast_speed_+%] == "30" && [lightning_spell_skill_gem_level_+] == "3" && [base_maximum_mana] == "120" && [StashItem] == "true"
+[Category] == "Wand" && [Rarity] == "Rare" # [TotalLightningSpellDamage] == "100" && [base_cast_speed_+%] == "5" && [lightning_spell_skill_gem_level_+] == "4" && [base_maximum_mana] == "75" && [StashItem] == "true"
+[Category] == "Wand" && [Rarity] == "Rare" # [TotalLightningSpellDamage] == "100" && [base_cast_speed_+%] == "10" && [lightning_spell_skill_gem_level_+] == "4" && [base_maximum_mana] == "30" && [StashItem] == "true"
+[Category] == "Wand" && [Rarity] == "Rare" # [TotalLightningSpellDamage] == "100" && [base_cast_speed_+%] == "15" && [lightning_spell_skill_gem_level_+] == "3" && [base_maximum_mana] == "150" && [StashItem] == "true"
+[Category] == "Wand" && [Rarity] == "Rare" # [TotalLightningSpellDamage] == "100" && [base_cast_speed_+%] == "15" && [lightning_spell_skill_gem_level_+] == "4" && [base_maximum_mana] == "15" && [StashItem] == "true"
+[Category] == "Wand" && [Rarity] == "Rare" # [TotalLightningSpellDamage] == "100" && [base_cast_speed_+%] == "20" && [lightning_spell_skill_gem_level_+] == "3" && [base_maximum_mana] == "120" && [StashItem] == "true"
+[Category] == "Wand" && [Rarity] == "Rare" # [TotalLightningSpellDamage] == "100" && [base_cast_speed_+%] == "25" && [lightning_spell_skill_gem_level_+] == "3" && [base_maximum_mana] == "75" && [StashItem] == "true"
+[Category] == "Wand" && [Rarity] == "Rare" # [TotalLightningSpellDamage] == "100" && [base_cast_speed_+%] == "30" && [lightning_spell_skill_gem_level_+] == "3" && [base_maximum_mana] == "45" && [StashItem] == "true"
+[Category] == "Wand" && [Rarity] == "Rare" # [TotalLightningSpellDamage] == "125" && [base_cast_speed_+%] == "5" && [lightning_spell_skill_gem_level_+] == "3" && [base_maximum_mana] == "150" && [StashItem] == "true"
+[Category] == "Wand" && [Rarity] == "Rare" # [TotalLightningSpellDamage] == "125" && [base_cast_speed_+%] == "5" && [lightning_spell_skill_gem_level_+] == "4" && [base_maximum_mana] == "15" && [StashItem] == "true"
+[Category] == "Wand" && [Rarity] == "Rare" # [TotalLightningSpellDamage] == "125" && [base_cast_speed_+%] == "10" && [lightning_spell_skill_gem_level_+] == "3" && [base_maximum_mana] == "105" && [StashItem] == "true"
+[Category] == "Wand" && [Rarity] == "Rare" # [TotalLightningSpellDamage] == "125" && [base_cast_speed_+%] == "15" && [lightning_spell_skill_gem_level_+] == "3" && [base_maximum_mana] == "75" && [StashItem] == "true"
+[Category] == "Wand" && [Rarity] == "Rare" # [TotalLightningSpellDamage] == "125" && [base_cast_speed_+%] == "20" && [lightning_spell_skill_gem_level_+] == "3" && [base_maximum_mana] == "45" && [StashItem] == "true"
+[Category] == "Wand" && [Rarity] == "Rare" # [TotalLightningSpellDamage] == "125" && [base_cast_speed_+%] == "25" && [lightning_spell_skill_gem_level_+] == "2" && [base_maximum_mana] == "150" && [StashItem] == "true"
+[Category] == "Wand" && [Rarity] == "Rare" # [TotalLightningSpellDamage] == "125" && [base_cast_speed_+%] == "25" && [lightning_spell_skill_gem_level_+] == "3" && [base_maximum_mana] == "15" && [StashItem] == "true"
+[Category] == "Wand" && [Rarity] == "Rare" # [TotalLightningSpellDamage] == "125" && [base_cast_speed_+%] == "30" && [lightning_spell_skill_gem_level_+] == "2" && [base_maximum_mana] == "120" && [StashItem] == "true"
+[Category] == "Wand" && [Rarity] == "Rare" # [TotalLightningSpellDamage] == "150" && [base_cast_speed_+%] == "5" && [lightning_spell_skill_gem_level_+] == "3" && [base_maximum_mana] == "75" && [StashItem] == "true"
+[Category] == "Wand" && [Rarity] == "Rare" # [TotalLightningSpellDamage] == "150" && [base_cast_speed_+%] == "10" && [lightning_spell_skill_gem_level_+] == "3" && [base_maximum_mana] == "30" && [StashItem] == "true"
+[Category] == "Wand" && [Rarity] == "Rare" # [TotalLightningSpellDamage] == "150" && [base_cast_speed_+%] == "15" && [lightning_spell_skill_gem_level_+] == "2" && [base_maximum_mana] == "150" && [StashItem] == "true"
+[Category] == "Wand" && [Rarity] == "Rare" # [TotalLightningSpellDamage] == "150" && [base_cast_speed_+%] == "15" && [lightning_spell_skill_gem_level_+] == "3" && [base_maximum_mana] == "15" && [StashItem] == "true"
+[Category] == "Wand" && [Rarity] == "Rare" # [TotalLightningSpellDamage] == "150" && [base_cast_speed_+%] == "20" && [lightning_spell_skill_gem_level_+] == "2" && [base_maximum_mana] == "120" && [StashItem] == "true"
+[Category] == "Wand" && [Rarity] == "Rare" # [TotalLightningSpellDamage] == "150" && [base_cast_speed_+%] == "25" && [lightning_spell_skill_gem_level_+] == "2" && [base_maximum_mana] == "75" && [StashItem] == "true"
+[Category] == "Wand" && [Rarity] == "Rare" # [TotalLightningSpellDamage] == "150" && [base_cast_speed_+%] == "30" && [lightning_spell_skill_gem_level_+] == "2" && [base_maximum_mana] == "45" && [StashItem] == "true"
+[Category] == "Wand" && [Rarity] == "Rare" # [TotalLightningSpellDamage] == "175" && [base_cast_speed_+%] == "5" && [lightning_spell_skill_gem_level_+] == "2" && [base_maximum_mana] == "150" && [StashItem] == "true"
+[Category] == "Wand" && [Rarity] == "Rare" # [TotalLightningSpellDamage] == "175" && [base_cast_speed_+%] == "5" && [lightning_spell_skill_gem_level_+] == "3" && [base_maximum_mana] == "15" && [StashItem] == "true"
+[Category] == "Wand" && [Rarity] == "Rare" # [TotalLightningSpellDamage] == "175" && [base_cast_speed_+%] == "10" && [lightning_spell_skill_gem_level_+] == "2" && [base_maximum_mana] == "105" && [StashItem] == "true"
+[Category] == "Wand" && [Rarity] == "Rare" # [TotalLightningSpellDamage] == "175" && [base_cast_speed_+%] == "15" && [lightning_spell_skill_gem_level_+] == "2" && [base_maximum_mana] == "75" && [StashItem] == "true"
+[Category] == "Wand" && [Rarity] == "Rare" # [TotalLightningSpellDamage] == "175" && [base_cast_speed_+%] == "20" && [lightning_spell_skill_gem_level_+] == "2" && [base_maximum_mana] == "45" && [StashItem] == "true"
+[Category] == "Wand" && [Rarity] == "Rare" # [TotalLightningSpellDamage] == "175" && [base_cast_speed_+%] == "25" && [lightning_spell_skill_gem_level_+] == "1" && [base_maximum_mana] == "150" && [StashItem] == "true"
+[Category] == "Wand" && [Rarity] == "Rare" # [TotalLightningSpellDamage] == "175" && [base_cast_speed_+%] == "25" && [lightning_spell_skill_gem_level_+] == "2" && [base_maximum_mana] == "15" && [StashItem] == "true"
+[Category] == "Wand" && [Rarity] == "Rare" # [TotalLightningSpellDamage] == "175" && [base_cast_speed_+%] == "30" && [lightning_spell_skill_gem_level_+] == "1" && [base_maximum_mana] == "120" && [StashItem] == "true"
+[Category] == "Wand" && [Rarity] == "Rare" # [TotalLightningSpellDamage] == "200" && [base_cast_speed_+%] == "5" && [lightning_spell_skill_gem_level_+] == "2" && [base_maximum_mana] == "75" && [StashItem] == "true"
+[Category] == "Wand" && [Rarity] == "Rare" # [TotalLightningSpellDamage] == "200" && [base_cast_speed_+%] == "10" && [lightning_spell_skill_gem_level_+] == "2" && [base_maximum_mana] == "30" && [StashItem] == "true"
+[Category] == "Wand" && [Rarity] == "Rare" # [TotalLightningSpellDamage] == "200" && [base_cast_speed_+%] == "15" && [lightning_spell_skill_gem_level_+] == "1" && [base_maximum_mana] == "150" && [StashItem] == "true"
+[Category] == "Wand" && [Rarity] == "Rare" # [TotalLightningSpellDamage] == "200" && [base_cast_speed_+%] == "15" && [lightning_spell_skill_gem_level_+] == "2" && [base_maximum_mana] == "15" && [StashItem] == "true"
+[Category] == "Wand" && [Rarity] == "Rare" # [TotalLightningSpellDamage] == "200" && [base_cast_speed_+%] == "20" && [lightning_spell_skill_gem_level_+] == "1" && [base_maximum_mana] == "120" && [StashItem] == "true"
+[Category] == "Wand" && [Rarity] == "Rare" # [TotalLightningSpellDamage] == "200" && [base_cast_speed_+%] == "25" && [lightning_spell_skill_gem_level_+] == "1" && [base_maximum_mana] == "75" && [StashItem] == "true"
+[Category] == "Wand" && [Rarity] == "Rare" # [TotalLightningSpellDamage] == "200" && [base_cast_speed_+%] == "30" && [lightning_spell_skill_gem_level_+] == "1" && [base_maximum_mana] == "45" && [StashItem] == "true"
+[Category] == "Wand" && [Rarity] == "Rare" # [TotalLightningSpellDamage] == "225" && [base_cast_speed_+%] == "5" && [lightning_spell_skill_gem_level_+] == "1" && [base_maximum_mana] == "150" && [StashItem] == "true"
+[Category] == "Wand" && [Rarity] == "Rare" # [TotalLightningSpellDamage] == "225" && [base_cast_speed_+%] == "5" && [lightning_spell_skill_gem_level_+] == "2" && [base_maximum_mana] == "15" && [StashItem] == "true"
+[Category] == "Wand" && [Rarity] == "Rare" # [TotalLightningSpellDamage] == "225" && [base_cast_speed_+%] == "10" && [lightning_spell_skill_gem_level_+] == "1" && [base_maximum_mana] == "105" && [StashItem] == "true"
+[Category] == "Wand" && [Rarity] == "Rare" # [TotalLightningSpellDamage] == "225" && [base_cast_speed_+%] == "15" && [lightning_spell_skill_gem_level_+] == "1" && [base_maximum_mana] == "75" && [StashItem] == "true"
+[Category] == "Wand" && [Rarity] == "Rare" # [TotalLightningSpellDamage] == "225" && [base_cast_speed_+%] == "20" && [lightning_spell_skill_gem_level_+] == "1" && [base_maximum_mana] == "45" && [StashItem] == "true"
+[Category] == "Wand" && [Rarity] == "Rare" # [TotalLightningSpellDamage] == "225" && [base_cast_speed_+%] == "25" && [lightning_spell_skill_gem_level_+] == "1" && [base_maximum_mana] == "15" && [StashItem] == "true"
+[Category] == "Wand" && [Rarity] == "Rare" # [TotalLightningSpellDamage] == "250" && [base_cast_speed_+%] == "5" && [lightning_spell_skill_gem_level_+] == "1" && [base_maximum_mana] == "75" && [StashItem] == "true"
+[Category] == "Wand" && [Rarity] == "Rare" # [TotalLightningSpellDamage] == "250" && [base_cast_speed_+%] == "10" && [lightning_spell_skill_gem_level_+] == "1" && [base_maximum_mana] == "30" && [StashItem] == "true"
+[Category] == "Wand" && [Rarity] == "Rare" # [TotalLightningSpellDamage] == "250" && [base_cast_speed_+%] == "15" && [lightning_spell_skill_gem_level_+] == "1" && [base_maximum_mana] == "15" && [StashItem] == "true"
+[Category] == "Wand" && [Rarity] == "Rare" # [TotalLightningSpellDamage] == "275" && [base_cast_speed_+%] == "5" && [lightning_spell_skill_gem_level_+] == "1" && [base_maximum_mana] == "15" && [StashItem] == "true"
 
 [WeaponCategory] == "Wand" && [Rarity] == "Rare" # [lightning_spell_skill_gem_level_+] >= "5" && [StashItem] == "true"
+
+
+
 
 
 //[WeaponCategory] == "Wand" && [Rarity] == "Rare" #[fire_spell_skill_gem_level_+] >= "3" && [StashItem] == "true"
@@ -757,15 +815,6 @@
 
 [Type] == "Sapphire Ring" && [Rarity] == "Normal" && [StashItem] == "true"
 
-//[Category] == "Ring" && [Rarity] == "Rare" # [additional_strength] >= "25" && [StashItem] == "true"
-
-//[Category] == "Ring" && [Rarity] == "Rare" # [StashItem] == "true"
-
-//[Category] == "Ring" && [Rarity] == "Rare" # [base_item_found_rarity_+%] >= "25" && [StashItem] == "true"
-
-[Category] == "Ring" && [Rarity] == "Unique" # [StashItem] == "true"
-
-//[Category] == "Ring" && [ItemTier] >= "5" # [StashItemUid] == "true"
 
 /////////////////////////////////////////////////////////////////////////////////////
 //                                                                                 //
@@ -804,9 +853,6 @@
 //                                                                                 //
 /////////////////////////////////////////////////////////////////////////////////////
 
-
-/// COLD DMG ///
-
 [Category] == "Jewel" && [Rarity] == "Magic" && [cold_damage_+%] >= "13" && [spell_critical_strike_chance_+%] >= "13" && [StashItem] == "true"
 [Category] == "Jewel" && [Rarity] == "Magic" && [cold_damage_+%] >= "13" && [base_maximum_cold_damage_resistance_%] >= "2" && [StashItem] == "true"
 [Category] == "Jewel" && [Rarity] == "Magic" && [cold_damage_+%] >= "13" && [base_cast_speed_+%] >= "3" && [StashItem] == "true"
@@ -844,7 +890,7 @@
 [Category] == "Jewel" && [Rarity] == "Magic" && [critical_hit_damaging_ailment_effect_+%] >= "18" && [energy_generated_+%] >= "13" && [StashItem] == "true"
 [Category] == "Jewel" && [Rarity] == "Magic" && [critical_hit_damaging_ailment_effect_+%] >= "18" && [skill_effect_duration_+%] >= "13" && [StashItem] == "true"
 [Category] == "Jewel" && [Rarity] == "Magic" && [critical_hit_damaging_ailment_effect_+%] >= "18" && [recover_%_maximum_mana_on_kill] >= "2" && [StashItem] == "true"
-"
+
 
 
 //// HERALD DMG ////
@@ -1508,7 +1554,6 @@
 
 //[Category] == "Jewel" && [ItemTier] >= "5" # [StashItemUid] == "true"
 
-
 /////////////////////////////////////////////////////////////////////////////////////
 //                                                                                 //
 //                                    Waystone                                      //
@@ -1517,21 +1562,21 @@
 
 //[Type] == "Waystone (Tier 12)" && [Rarity] == "Normal" # [StashItem] == "true"
 //[Type] == "Waystone (Tier 12)" && [Rarity] == "Magic" # [StashItem] == "true"
-[Type] == "Waystone (Tier 12)" && [Rarity] == "Rare" # [StashItem] == "true"
+//[Type] == "Waystone (Tier 12)" && [Rarity] == "Rare" # [StashItem] == "true"
 //[Type] == "Waystone (Tier 12)" && [Rarity] == "Unique" # [StashItem] == "true"
 
 //[Type] == "Waystone (Tier 13)" && [Rarity] == "Normal" # [StashItem] == "true"
 //[Type] == "Waystone (Tier 13)" && [Rarity] == "Magic" # [StashItem] == "true"
-[Type] == "Waystone (Tier 13)" && [Rarity] == "Rare" # [StashItem] == "true"
+//[Type] == "Waystone (Tier 13)" && [Rarity] == "Rare" # [StashItem] == "true"
 //[Type] == "Waystone (Tier 13)" && [Rarity] == "Unique" # [StashItem] == "true"
 
-//[Type] == "Waystone (Tier 14)" && [Rarity] == "Normal" # [StashItem] == "true"
-//[Type] == "Waystone (Tier 14)" && [Rarity] == "Magic" # [StashItem] == "true"
+[Type] == "Waystone (Tier 14)" && [Rarity] == "Normal" # [StashItem] == "true"
+[Type] == "Waystone (Tier 14)" && [Rarity] == "Magic" # [StashItem] == "true"
 [Type] == "Waystone (Tier 14)" && [Rarity] == "Rare" # [StashItem] == "true"
 [Type] == "Waystone (Tier 14)" && [Rarity] == "Unique" # [StashItem] == "true"
 
-//[Type] == "Waystone (Tier 15)" && [Rarity] == "Normal" # [StashItem] == "true"
-//[Type] == "Waystone (Tier 15)" && [Rarity] == "Magic" # [StashItem] == "true"
+[Type] == "Waystone (Tier 15)" && [Rarity] == "Normal" # [StashItem] == "true"
+[Type] == "Waystone (Tier 15)" && [Rarity] == "Magic" # [StashItem] == "true"
 [Type] == "Waystone (Tier 15)" && [Rarity] == "Rare" # [StashItem] == "true"
 [Type] == "Waystone (Tier 15)" && [Rarity] == "Unique" # [StashItem] == "true"
 
@@ -1546,40 +1591,34 @@
 //                                                                                 //
 /////////////////////////////////////////////////////////////////////////////////////
 
-// perfected
-
-
-
-
+// ACCESSORY
 //perfected
 
 [Rarity] == "Unique" # [UniqueName] == "Andvarius" && [base_item_found_rarity_+%] >= "85" && [StashItem] == "true"
-[Rarity] == "Unique" # [UniqueName] == "Meginord's Girdle" && [flask_life_recovery_rate_+%] >= "30" && [additional_strength] >= "50" && [base_cold_damage_resistance_%] >= "15" && [StashItem] == "true"
+[Rarity] == "Unique" # [UniqueName] == "Meginord's Girdle" && [flask_life_to_recover_+%] >= "30" && [additional_strength] >= "50" && [base_cold_damage_resistance_%] >= "15" && [StashItem] == "true"
 [Rarity] == "Unique" # [UniqueName] == "Snakepit" && [base_cast_speed_+%] >= "25" && [spell_damage_+%] >= "30" && [StashItem] == "true"
 [Rarity] == "Unique" # [UniqueName] == "Seed Of Cataclysm" && [base_maximum_mana] >= "30" && [spell_critical_strike_chance_+%] >= "50" && [base_spell_critical_strike_multiplier_+] >= "50" && [base_chaos_damage_resistance_%] >= "17" && [StashItem] == "true"
-[Rarity] == "Unique" # [UniqueName] == "Serpent's Egg" && [base_item_found_rarity_+%] >= "20" && [TotalAttributes] >= "20" && [base_chaos_damage_resistance_%] >= "23" && [mana_regeneration_rate_+%] >= "30" && [StashItem] == "true"
-[Rarity] == "Unique" # [UniqueName] == "Surefooted Sigil" && [Additional_dexterity] >= "30" && [base_maximum_life] >= "60" && [StashItem] == "true"
+[Rarity] == "Unique" # [UniqueName] == "Serpent's Egg" && [TotalAttributes] >= "18" && [base_chaos_damage_resistance_%] >= "21" && [mana_regeneration_rate_+%] >= "27" && [StashItem] == "true"
+[Rarity] == "Unique" # [UniqueName] == "Surefooted Sigil" && [Additional_dexterity] >= "25" && [base_maximum_life] >= "60" && [StashItem] == "true"
 [Rarity] == "Unique" # [UniqueName] == "Levinstone" && [base_lightning_damage_resistance_%] >= "30" && [base_maximum_mana] >= "60" && [base_chance_to_shock_%] >= "20" && [StashItem] == "true"
 [Rarity] == "Unique" # [UniqueName] == "Birthright Buckle" && [flask_charges_gained_%] >= "30" && [physical_damage_reduction_rating_+%] >= "150" && [flask_charges_used_%] <= "-15" && [StashItem] == "true"
-[Rarity] == "Unique" # [UniqueName] == "Blackflame" && [base_chaos_damage_resistance_%] >= "13" && [mana_regeneration_rate_+%] >= "30" && [StashItem] == "true"
-[Rarity] == "Unique" # [UniqueName] == "Blistering Bond" && [base_fire_damage_resistance_%] >= "60" && [base_maximum_life] >= "60" && [base_cold_damage_resistance_%] <= "-10" && [StashItem] == "true"
+[Rarity] == "Unique" # [UniqueName] == "Blackflame" && [base_chaos_damage_resistance_%] >= "13" && [mana_regeneration_rate_per_minute_%] >= "30" && [StashItem] == "true"
 [Rarity] == "Unique" # [UniqueName] == "Brynabas" && [flask_charges_gained_%] >= "30" && [base_maximum_mana] >= "60" && [base_lightning_resistance_%] >= "40" && [life_regeneration_per_second] >= "12" && [StashItem] == "true"
 [Rarity] == "Unique" # [UniqueName] == "Call of the Brotherhood" && [base_lightning_resistance_%] >= "30" && [additional_intelligence] >= "20" && [mana_regeneration_rate_+%] >= "35" && [hit_damage_freeze_multiplier_+%] >= "30" && [StashItem] == "true"
 [Rarity] == "Unique" # [UniqueName] == "Coward's Legacy" && [flask_charges_used_%] <= "-15" && [additional_strength] <= "-10" && [additional_dexterity] >= "30" && [life_and_mana_recovery_from_flasks_+%] >= "40" && [StashItem] == "true"
 [Rarity] == "Unique" # [UniqueName] == "The Everlasting Gaze" && [mana_regeneration_rate_+%] >= "30" && [mana_%_to_gain_as_energy_shield] >= "30" && [StashItem] == "true"
 [Rarity] == "Unique" # [UniqueName] == "The Burrower" && [base_lightning_damage_resistance_%] >= "60" && [mana_regeneration_rate_+%] >= "50" && [StashItem] == "true"
-[Rarity] == "Unique" # [UniqueName] == "The Anvil" && [base_maximum_life] >= "40" && [physical_damage_reduction_rating_+%] >= "50" && [additional_maximum_block_%] >= "5" && [StashItem] == "true"
+[Rarity] == "Unique" # [UniqueName] == "The Anvil" && [physical_damage_reduction_rating_+%] >= "49" && [additional_maximum_block_%] >= "5" && [StashItem] == "true"
 [Rarity] == "Unique" # [UniqueName] == "Soul Tether" && [charm_duration_+%] >= "20" && [maximum_energy_shield] >= "60" && [additional_intelligence] >= "30" && [StashItem] == "true"
 [Rarity] == "Unique" # [UniqueName] == "Shavronne's Satchel" && [flask_life_recovery_rate_+%] <= "-20" && [additional_intelligence] >= "30" && [flask_charges_gained_+%] >= "30" && [StashItem] == "true"
 [Rarity] == "Unique" # [UniqueName] == "Revered Resin" && [additional_strength] >= "15" && [base_maximum_life] >= "60" && [flask_life_recovery_rate_+%] >= "30" && [generate_x_charges_for_life_flasks_per_minute] >= "0.25" && [StashItem] == "true"
 [Rarity] == "Unique" # [UniqueName] == "Beacon of Azis" && [base_spirit_from_equipment] >= "45" && [base_maximum_mana] >= "100" && [StashItem] == "true"
 [Rarity] == "Unique" # [UniqueName] == "Ungil's Harmony" && [mana_regeneration_rate_+%] >= "30" && [base_maximum_life] >= "50" && [base_maximum_mana] >= "50" && [critical_strike_chance_+%] >= "100" && [stun_threshold_+] >= "100" && [StashItem] == "true"
-[Rarity] == "Unique" # [UniqueName] == "Whisper of the Brotherhood" && [base_cold_damage_resistance_%] >= "30" && [skill_speed_+%] >= "10" && [additional_dexterity] >= "20" && [mana_regeneration_rate_+%] >= "35" && [StashItem] == "true"
+[Rarity] == "Unique" # [UniqueName] == "Whisper of the Brotherhood" && [cold_damage_resistance_%] >= "30" && [skill_speed_+%] >= "10" && [additional_dexterity] >= "20" && [mana_regeneration_rate_per_minute_%] >= "35" && [StashItem] == "true"
 [Rarity] == "Unique" # [UniqueName] == "Xoph's Blood" && [base_maximum_life_+%] >= "15" && [base_fire_damage_resistance_%] >= "30" && [StashItem] == "true"
-[Rarity] == "Unique" # [UniqueName] == "Infernoclasp" && [local_physical_damage_reduction_rating_+%] >= "140" && [additional_strength] >= "20" && [base_maximum_fire_damage_resistance_%] >= "5" && [base_fire_damage_resistance_%] >= "30" && [StashItem] == "true"
 [Rarity] == "Unique" # [UniqueName] == "Death Rush" && [accuracy_rating] >= "285" && [base_evasion_rating] >= "125" && [StashItem] == "true"
 [Rarity] == "Unique" # [UniqueName] == "Polcirkeln" && [base_cold_damage_resistance_%] >= "30" && [cold_damage_+%] >= "30" && [base_maximum_mana] >= "60" && [additional_strength] >= "15" && [StashItem] == "true"
-[Rarity] == "Unique" # [UniqueName] == "Fixation of Yix" && [TotalAttributes] >= "7" && [base_maximum_life] >= "100" && [allies_in_presence_critical_strike_chance_+%] >= "50" && [allies_in_presence_critical_strike_multiplier_+] >= "50" && [allies_in_presence_attack_speed_+%] >= "20" && [allies_in_presence_cast_speed_+%] >= "20" && [StashItem] == "true"
+[Rarity] == "Unique" # [UniqueName] == "Fixation of Yix" && [allies_in_presence_critical_strike_chance_+%] >= "46" && [allies_in_presence_critical_strike_multiplier_+] >= "46" && [allies_in_presence_attack_speed_+%] >= "17" && [allies_in_presence_cast_speed_+%] >= "17" && [StashItem] == "true"
 [Rarity] == "Unique" # [UniqueName] == "Glowswarm" && [base_maximum_mana] >= "60" && [flask_mana_recovery_rate_+%] >= "30" && [generate_x_charges_for_mana_flasks_per_minute] >= "0.25" && [StashItem] == "true"
 [Rarity] == "Unique" # [UniqueName] == "Heartbound Loop" && [base_cast_speed_+%] >= "10" && [minion_maximum_life_+%] >= "15" && [life_regeneration_per_second] >= "15" && [mana_regeneration_rate_+%] >= "40" && [StashItem] == "true"
 [Rarity] == "Unique" # [UniqueName] == "Igniferis" && [life_regeneration_per_second] >= "4" && [base_fire_damage_resistance_%] >= "20" && [mana_regeneration_rate_+%] >= "30" && [StashItem] == "true"
@@ -1587,8 +1626,36 @@
 [Rarity] == "Unique" # [UniqueName] == "Midnight Braid" && [life_recovery_from_flasks_+%] >= "30" && [base_maximum_mana] >= "50" && [TotalResistances] >= "30" && [StashItem] == "true"
 [Rarity] == "Unique" # [UniqueName] == "Perandus Seal" && [base_item_found_rarity_+%] >= "15" && [base_maximum_mana] >= "50" && [TotalAttributes] >= "10" && [gold_+%_from_enemies] >= "15" && [StashItem] == "true"
 [Rarity] == "Unique" # [UniqueName] == "Ming's Heart" && [base_chaos_damage_resistance_%] >= "13" && [maximum_life_+%] <= "-20" && [non_skill_base_all_damage_%_to_gain_as_chaos] >= "40" && [StashItem] == "true"
+[Rarity] == "Unique" # [UniqueName] == "Rondel Of Fragility" && [damage_+%] >= "47" && [skill_speed_+%] >= "28" && [critical_strike_chance_+%] >= "27" && [StashItem] == "true"
 
-// ACCESSORY
+
+// BELTS
+
+[Rarity] == "Unique" # [UniqueName] == "Ryslatha's Coil" && [unique_ryuslathas_clutches_maximum_physical_attack_damage_+%_final] >= "38" && [unique_ryuslathas_clutches_minimum_physical_attack_damage_+%_final] <= "33" && [StashItem] == "true"
+[Rarity] == "Unique" # [UniqueName] == "Infernoclasp" && [local_physical_damage_reduction_rating_+%] >= "240" && [additional_strength] >= "19" && [base_maximum_fire_damage_resistance_%] >= "5" && [base_fire_damage_resistance_%] >= "45" && [StashItem] == "true"
+
+//ARMORS
+[Rarity] == "Unique" # [UniqueName] == "Doryani's Prototype" && [local_armour_and_evasion_+%] >= "97" && [base_maximum_life] <= "78" && [StashItem] == "true"
+[Rarity] == "Unique" # [UniqueName] == "Enfolding Dawn" && [local_armour_and_energy_shield_+%] >= "99" && [TotalResistances] >= "45" && [StashItem] == "true"
+
+//BOOTS
+[Rarity] == "Unique" # [UniqueName] == "Beetlebite" && [local_energy_shield_+%] >= "58" && [base_movement_velocity_+%] >= "29" && [StashItem] == "true"
+[Rarity] == "Unique" # [UniqueName] == "Bones Of Ullr" && [local_evasion_and_energy_shield_+%] >= "118" && [base_maximum_life] <= "37" [base_maximum_life] <= "37" && [StashItem] == "true"
+
+//SHIELD
+
+[Rarity] == "Unique" # [UniqueName] == "Threaded Light" && [spell_damage_+%_per_10_spirit] >= "12" && [StashItem] == "true"
+
+
+
+
+
+
+
+// high value
+
+
+
 [Rarity] == "Unique" # [UniqueName] == "Kalandra's Touch" && [StashItem] == "true"
 [Rarity] == "Unique" # [UniqueName] == "Astramentis" && [StashItem] == "true" 
 [Rarity] == "Unique" # [UniqueName] == "Dream Fragments" && [StashItem] == "true"
@@ -1607,8 +1674,29 @@
 [Rarity] == "Unique" # [UniqueName] == "The Everlasting Gaze" && [StashItem] == "true" 
 [Rarity] == "Unique" # [UniqueName] == "Sekhema's Resolve" && [StashItem] == "true" 
 [Rarity] == "Unique" # [UniqueName] == "Ventor's Gamble" && [StashItem] == "true"
+[Rarity] == "Unique" # [UniqueName] == "Thief's Torment" && [StashItem] == "true"
 
 // ARMOUR
+
+
+//perfected
+[Rarity] == "Unique" # [UniqueName] == "Bushwhack" && [base_movement_velocity_+%] >= "25" && [evasion_rating_+%] >= "80" && [additional_dexterity] >= "20" && [StashItem] == "true"
+[Rarity] == "Unique" # [UniqueName] == "Briskwrap" && [evasion_rating_+%] >= "100" && [flask_life_recovery_rate_+%] >= "60" && [flask_mana_recovery_rate_+%] >= "60" && [additional_dexterity] >= "30" && [base_cold_damage_resistance_%] >= "30" && [StashItem] == "true"
+[Rarity] == "Unique" # [UniqueName] == "Briarpatch" && [base_movement_velocity_+%] >= "20" && [base_maximum_life] >= "60" && [base_stun_threshold_+] >= "80" && [StashItem] == "true"
+[Rarity] == "Unique" # [UniqueName] == "Bramblejack" && [base_maximum_life] >= "100" && [base_stun_threshold_+] >= "100" && [StashItem] == "true"
+[Rarity] == "Unique" # [UniqueName] == "Blueflame Bracers" && [additional_intelligence] >= "20" && [base_fire_damage_resistance_%] >= "15" && [base_cold_damage_resistance_%] >= "15" && [StashItem] == "true"
+[Rarity] == "Unique" # [UniqueName] == "Birth of Fury" && [base_movement_velocity_+%] >= "20" && [base_maximum_life] >= "60" && [base_fire_damage_resistance_%] >= "30" && [StashItem] == "true"
+[Rarity] == "Unique" # [UniqueName] == "Ashrend" && [base_maximum_life] >= "60" && [additional_strength] >= "20" && [base_fire_damage_resistance_%] >= "40" && [StashItem] == "true"
+[Rarity] == "Unique" # [UniqueName] == "Wondertrap" && [base_maximum_energy_shield] >= "50" && [additional_strength] >= "20" && [additional_dexterity] >= "20" && [additional_intelligence] >= "20" && [StashItem] == "true"
+[Rarity] == "Unique" # [UniqueName] == "Wings of Caelyn" && [base_item_found_rarity_+%] >= "15" && [additional_dexterity] >= "30" && [StashItem] == "true"
+[Rarity] == "Unique" # [UniqueName] == "Windscream" && [base_movement_velocity_+%] >= "20" && [additional_intelligence] >= "20" && [curse_cast_speed_+%] >= "20" && [StashItem] == "true"
+[Rarity] == "Unique" # [UniqueName] == "Bitterbloom" && [base_maximum_mana] >= "100" && [StashItem] == "true"
+[Rarity] == "Unique" # [UniqueName] == "Wulfsbane" && [base_maximum_life] >= "60" && [additional_strength] >= "15" && [base_stun_threshold_+] >= "80" && [StashItem] == "true"
+[Rarity] == "Unique" # [UniqueName] == "Icetomb" && [additional_intelligence] >= "30" && [additional_strength] >= "30" && [base_cold_damage_resistance_%] >= "40" && [StashItem] == "true"
+
+
+
+
 [Rarity] == "Unique" # [UniqueName] == "Temporalis" && [StashItem] == "true"
 [Rarity] == "Unique" # [UniqueName] == "Maligaro's Virtuosity" && [StashItem] == "true"
 [Rarity] == "Unique" # [UniqueName] == "Queen of the Forest" && [StashItem] == "true"
@@ -1717,3 +1805,26 @@
 [Type] == "Breach Ring" && [Rarity] == "Rare" # [StashItem] == "true"
 //END///////////////////////////////////////////////////////
                                                  
+                                            
+                                            
+
+
+                                            
+
+                                           
+
+
+
+                                       
+
+
+
+
+                                       
+
+
+
+
+
+
+
