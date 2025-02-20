@@ -1640,7 +1640,7 @@
 
 //BOOTS
 [Rarity] == "Unique" # [UniqueName] == "Beetlebite" && [local_energy_shield_+%] >= "58" && [base_movement_velocity_+%] >= "29" && [StashItem] == "true"
-[Rarity] == "Unique" # [UniqueName] == "Bones Of Ullr" && [local_evasion_and_energy_shield_+%] >= "118" && [base_maximum_life] <= "37" [base_maximum_life] <= "37" && [StashItem] == "true"
+[Rarity] == "Unique" # [UniqueName] == "Bones Of Ullr" && [local_evasion_and_energy_shield_+%] >= "118" && [base_maximum_life] <= "37" [base_maximum_mana] <= "37" && [StashItem] == "true"
 
 //SHIELD
 
